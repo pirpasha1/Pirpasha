@@ -1,0 +1,56 @@
+build:
+  gpu: true
+  cuda: "12.4"        # see §2 if you want fewer warnings
+  python_version: "3.10"
+
+  system_packages:
+    - ffmpeg
+    - libgl1-mesa-glx
+    - libglib2.0-0
+
+  python_packages:
+    # ─ base wheels ──────────────────────────────────────────
+    - packaging==25.0
+    - wheel
+    - huggingface-hub==0.29.1
+    - torch==2.6.0
+    - torchvision==0.21.0
+    - numpy==1.24.4
+    - opencv-python==4.11.0.86
+    - timm==0.9.12
+    - einops==0.8.1
+    - imageio==2.37.0
+    - imageio-ffmpeg==0.6.0
+    - tqdm==4.67.1
+    - easydict==1.13
+    - transformers==4.49.0
+    - accelerate==1.4.0
+    - tokenizers==0.21.0
+    - pycocotools==2.0.7
+    - scikit-image==0.22.0
+    - onnxruntime-gpu==1.22.0   # duplicate in run/6 is harmless
+    - decord==0.6.0
+    # keep layer < 3 GB
+
+  run:
+    # 1️⃣ flash-attn wheel (no source build)
+    - FLASH_ATTENTION_SKIP_CUDA_BUILD=TRUE pip install flash-attn==2.7.4.post1 --no-build-isolation
+
+    # 2️⃣ Wan helper lib
+    - PIP_NO_BUILD_ISOLATION=1 pip install git+https://github.com/Wan-Video/Wan2.1
+
+    # 3️⃣ clone VACE + install (annotator wheels too)
+    - git clone https://github.com/ali-vilab/VACE.git /src/VACE-code
+    - pip install --no-deps -e /src/VACE-code
+    - pip install -r /src/VACE-code/requirements/annotator.txt   # ← adds opencv-contrib, detectron2, etc.
+
+    # 4️⃣ download annotator model weights — **one single-line python -c**
+    - python -c "from huggingface_hub import snapshot_download, hf_hub_download; import os; dl='/src/VACE-code/models/VACE-Annotators'; os.makedirs(dl, exist_ok=True); snapshot_download('ali-vilab/VACE-Annotators', local_dir=dl, resume_download=True)"
+
+    # 5️⃣ tiny parallel downloader
+    - curl -L -o /usr/local/bin/pget https://github.com/replicate/pget/releases/download/v0.9.1/pget_linux_x86_64 && chmod +x /usr/local/bin/pget
+
+    # 6️⃣ explicit ORT wheel from MSFT’s CUDA-12 index (optional safety)
+    - pip install onnxruntime-gpu==1.22.0 --extra-index-url https://aiinfra.pkgs.visualstudio.com/PublicPackages/_packaging/onnxruntime-cuda-12/pypi/simple/
+
+predict: "predict.py:Predictor"
