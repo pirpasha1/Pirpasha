@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d0a08">
+  <title>Kitchen</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body class="kitchen">
+  <header class="k-header">
+    <h1><span class="conn" id="conn" title="Live connection"></span> Kitchen orders</h1>
+    <span class="muted" id="clock" style="font-variant-numeric:tabular-nums"></span>
+    <button class="btn btn-secondary btn-sm" type="button" id="soundBtn">🔔 Enable sound</button>
+    <button class="btn btn-secondary btn-sm" type="button" id="refreshBtn">↻ Refresh</button>
+    <a class="btn btn-secondary btn-sm" href="/admin" id="adminLink" hidden>Admin</a>
+    <button class="btn btn-secondary btn-sm" type="button" id="logoutBtn">Sign out</button>
+  </header>
+  <main class="board" id="board" aria-live="polite">
+    <section class="col-pending"><div class="col-head">🟡 New <span class="count" id="c-pending">0</span></div><div id="l-pending"></div></section>
+    <section class="col-preparing"><div class="col-head">🔵 Preparing <span class="count" id="c-preparing">0</span></div><div id="l-preparing"></div></section>
+    <section class="col-ready"><div class="col-head">🟢 Ready <span class="count" id="c-ready">0</span></div><div id="l-ready"></div></section>
+  </main>
+  <script src="/js/common.js"></script>
+  <script src="/js/kitchen.js"></script>
+</body>
+</html>

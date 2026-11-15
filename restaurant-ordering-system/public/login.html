@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#7c2d12">
+  <title>Staff sign in</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <main class="auth-page">
+    <form class="card auth-card" id="loginForm" novalidate>
+      <span class="brand-logo" aria-hidden="true">🍽</span>
+      <h1>Staff sign in</h1>
+      <p class="muted" style="margin:0 0 1.2rem">Admin and kitchen staff only.</p>
+      <div id="err" class="alert alert-error" role="alert" hidden></div>
+      <div class="field"><label for="username">Username</label><input id="username" name="username" type="text" autocomplete="username" required autocapitalize="none"></div>
+      <div class="field"><label for="password">Password</label><input id="password" name="password" type="password" autocomplete="current-password" required></div>
+      <button class="btn btn-block" type="submit" id="submitBtn">Sign in</button>
+      <p style="text-align:center;margin:1rem 0 0"><a href="/">← Back to menu</a></p>
+    </form>
+  </main>
+  <script src="/js/common.js"></script>
+  <script src="/js/login.js"></script>
+</body>
+</html>

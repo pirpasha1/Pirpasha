@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1f1a17">
+  <title>Admin</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <header class="app-header">
+    <div class="container bar">
+      <a class="brand" href="/admin"><span class="brand-logo" aria-hidden="true">🍽</span><span id="restName">Admin</span></a>
+      <span class="spacer"></span>
+      <span class="who hide-sm" id="who"></span>
+      <a class="btn btn-ghost btn-sm" href="/kitchen">Kitchen</a>
+      <a class="btn btn-ghost btn-sm hide-sm" href="/" target="_blank" rel="noopener">Menu ↗</a>
+      <button class="btn btn-ghost btn-sm" type="button" id="logoutBtn">Sign out</button>
+    </div>
+  </header>
+  <nav class="tabs" aria-label="Admin sections">
+    <div class="container" id="tabs" role="tablist">
+      <button class="tab" type="button" role="tab" data-tab="dashboard">Dashboard</button>
+      <button class="tab" type="button" role="tab" data-tab="orders">Orders</button>
+      <button class="tab" type="button" role="tab" data-tab="menu">Dishes</button>
+      <button class="tab" type="button" role="tab" data-tab="categories">Categories</button>
+      <button class="tab" type="button" role="tab" data-tab="tables">Tables &amp; QR</button>
+      <button class="tab" type="button" role="tab" data-tab="settings">Settings</button>
+      <button class="tab" type="button" role="tab" data-tab="staff">Staff</button>
+    </div>
+  </nav>
+  <main class="container panel" id="panel" aria-live="polite"></main>
+  <script src="/js/common.js"></script>
+  <script src="/js/admin.js"></script>
+</body>
+</html>

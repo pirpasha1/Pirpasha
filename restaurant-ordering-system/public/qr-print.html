@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Table QR codes</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <div class="container no-print" style="display:flex;gap:.6rem;align-items:center;flex-wrap:wrap;padding-top:1rem">
+    <h1 style="font-size:1.3rem;margin-right:auto">Table QR codes</h1>
+    <label class="checkbox" style="margin:0"><input type="checkbox" id="onlyActive" checked> Active tables only</label>
+    <button class="btn" type="button" id="printBtn">🖨 Print</button>
+    <a class="btn btn-secondary" href="/admin#tables">← Back</a>
+  </div>
+  <main class="qr-sheet" id="sheet"><div class="empty">Loading…</div></main>
+  <script src="/js/common.js"></script>
+  <script src="/js/qr-print.js"></script>
+</body>
+</html>

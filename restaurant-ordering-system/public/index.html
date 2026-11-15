@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#c2410c">
+  <title>Menu</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container bar">
+      <a class="brand" href="/" id="brandLink"><span class="brand-logo" aria-hidden="true">🍽</span><span id="restName">Menu</span></a>
+      <span class="spacer"></span>
+      <span class="table-pill" id="tablePill" hidden></span>
+      <a class="btn btn-ghost btn-sm" id="myOrdersLink" href="#" hidden>My orders</a>
+      <button class="icon-btn cart-btn" id="openCart" type="button" aria-label="Open cart">🛒<span class="cart-count" id="cartCount" hidden>0</span></button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1 id="heroTitle">Welcome!</h1>
+      <p id="heroSub">Browse our menu and order right from your phone.</p>
+    </div>
+  </section>
+
+  <div class="toolbar">
+    <div class="container">
+      <div class="tools-row">
+        <label class="sr-only" for="search">Search dishes</label>
+        <input type="search" id="search" placeholder="Search dishes…" autocomplete="off">
+        <label class="checkbox" style="margin:0;white-space:nowrap"><input type="checkbox" id="vegOnly"> <span class="veg-mark"></span> Veg</label>
+      </div>
+      <nav class="cat-tabs" id="catTabs" aria-label="Menu categories"></nav>
+    </div>
+  </div>
+
+  <main class="container" id="menu" aria-live="polite">
+    <div class="empty"><div class="big">⏳</div>Loading menu…</div>
+  </main>
+
+  <button class="cart-bar" id="cartBar" type="button" hidden>
+    <span><strong id="cartBarCount">0 items</strong><br><span id="cartBarTotal">₹0.00</span></span>
+    <span class="go">View cart →</span>
+  </button>
+
+  <script src="/js/common.js"></script>
+  <script src="/js/menu.js"></script>
+</body>
+</html>
