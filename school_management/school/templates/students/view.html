@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% from "_macros.html" import status_badge, empty with context %}
+{% block title %}{{ s.name }}{% endblock %}
+{% block content %}
+<div class="page-head">
+  <div><h1>{{ s.name }}</h1>
+    <p>Admission No. {{ s.admission_no }} &middot; Class {{ (s.grade ~ '-' ~ s.section) if s.grade else 'not assigned' }}
+       &middot; Roll {{ s.roll_no or '—' }} &middot; {{ status_badge(s.status) }}</p></div>
+  <div class="actions no-print">
+    <a class="btn" href="{{ url_for('students.edit_student', student_id=s.id) }}">✏️ Edit</a>
+    <a class="btn secondary" href="{{ url_for('exams.report_card', student_id=s.id) }}">🎓 Report Card</a>
+    <a class="btn pdf" href="{{ url_for('exams.report_card_pdf', student_id=s.id) }}">⬇ Report Card PDF</a>
+    <button class="btn secondary" onclick="window.print()">🖨 Print profile</button>
+  </div>
+</div>
+
+<div class="grid grid-2">
+  <div class="card">
+    <h2>Personal details</h2>
+    <dl class="kv">
+      <dt>Gender</dt><dd>{{ s.gender or '—' }}</dd>
+      <dt>Date of birth</dt><dd>{{ s.dob | dmy or '—' }}</dd>
+      <dt>Category</dt><dd>{{ s.category or '—' }}</dd>
+      <dt>Religion</dt><dd>{{ s.religion or '—' }}</dd>
+      <dt>Blood group</dt><dd>{{ s.blood_group or '—' }}</dd>
+      <dt>Mother tongue</dt><dd>{{ s.mother_tongue or '—' }}</dd>
+      <dt>APAAR ID</dt><dd>{{ s.apaar_id or '—' }}</dd>
+      <dt>Admission date</dt><dd>{{ s.admission_date | dmy or '—' }}</dd>
+      <dt>Previous school</dt><dd>{{ s.previous_school or '—' }}</dd>
+      {% if s.leaving_date %}<dt>Leaving date</dt><dd>{{ s.leaving_date | dmy }}</dd>{% endif %}
+    </dl>
+  </div>
+  <div class="card">
+    <h2>Parents / Guardian</h2>
+    <dl class="kv">
+      <dt>Father</dt><dd>{{ s.father_name or '—' }}</dd>
+      <dt>Mother</dt><dd>{{ s.mother_name or '—' }}</dd>
+      <dt>Mobile</dt><dd>{% if s.guardian_phone %}<a href="tel:{{ s.guardian_phone }}">{{ s.guardian_phone }}</a>{% else %}—{% endif %}</dd>
+      <dt>Email</dt><dd>{{ s.email or '—' }}</dd>
+      <dt>Address</dt><dd>{{ s.address or '—' }}</dd>
+      {% if s.remarks %}<dt>Remarks</dt><dd>{{ s.remarks }}</dd>{% endif %}
+    </dl>
+  </div>
+</div>
+
+{% if card %}
+<div class="stats">
+  <div class="stat orange"><div class="value">{{ (card.attendance.pct ~ '%') if card.attendance.pct is not none else '—' }}</div>
+    <div class="label">Attendance ({{ card.attendance.present }}/{{ card.attendance.total }} days)</div></div>
+  <div class="stat"><div class="value">{{ (card.pct ~ '%') if card.pct is not none else '—' }}</div>
+    <div class="label">Overall marks this year</div></div>
+  <div class="stat green"><div class="value">{{ card.grade or '—' }}</div><div class="label">Overall grade</div></div>
+  <div class="stat"><div class="value">{{ card.rank or '—' }}</div><div class="label">Rank in class (of {{ card.class_size }})</div></div>
+</div>
+
+<div class="card">
+  <h2>Marks - {{ card.year }}</h2>
+  {% if card.exams and card.rows %}
+  <div class="table-wrap"><table class="compact">
+    <thead><tr><th>Subject</th>{% for e in card.exams %}<th class="center">{{ e.name }}<br><small>/{{ e.max_marks | num }}</small></th>{% endfor %}
+      <th class="center">Total</th><th class="center">%</th><th class="center">Grade</th></tr></thead>
+    <tbody>{% for r in card.rows %}
+    <tr><td>{{ r.subject.name }}</td>{% for c in r.cells %}<td class="center">{{ c | num }}</td>{% endfor %}
+      <td class="center">{{ (r.total | num) ~ '/' ~ (r.max_total | num) if r.max_total else '' }}</td>
+      <td class="center">{{ r.pct | num }}</td><td class="center"><b>{{ r.grade }}</b></td></tr>{% endfor %}
+    </tbody></table></div>
+  {% else %}{{ empty('No exams or marks entered yet for this year.') }}{% endif %}
+</div>
+{% endif %}
+
+<div class="card">
+  <h2>Recent absences / leave</h2>
+  {% if absences %}
+  {% for a in absences %}<span class="badge {{ 'red' if a.status == 'A' else 'orange' }}">{{ a.date | dmy }} - {{ ATTENDANCE_STATUS[a.status] }}</span> {% endfor %}
+  {% else %}<p class="muted">No absences recorded. 👍</p>{% endif %}
+</div>
+{% endblock %}

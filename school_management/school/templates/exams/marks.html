@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% from "_macros.html" import csrf, class_select, help, empty with context %}
+{% block title %}Enter Marks{% endblock %}
+{% block content %}
+<div class="page-head"><div><h1>✏️ Enter Marks</h1>
+  <p>Choose exam → class → subject. Press <b>Enter</b> to move to the next student. Type <b>AB</b> or tick the box if absent.</p></div></div>
+
+<form class="card filters" method="get">
+  <div><label>1. Exam</label><select name="exam_id" class="auto-submit"><option value="">— Choose exam —</option>
+    {% for e in exams %}<option value="{{ e.id }}" {{ 'selected' if e.id == exam_id }}>{{ e.name }} (max {{ e.max_marks | num }})</option>{% endfor %}</select></div>
+  <div><label>2. Class</label>{{ class_select(classes, class_id) }}</div>
+  {% if class_id %}
+  <div><label>3. Subject</label><select name="subject_id" class="auto-submit"><option value="">— Choose subject —</option>
+    {% for s in subjects %}<option value="{{ s.id }}" {{ 'selected' if s.id == subject_id }}>{{ s.name }}</option>{% endfor %}</select></div>
+  {% endif %}
+</form>
+
+{% if not exams %}
+  {{ help('No exams exist for this academic year yet. Ask the administrator to create one under Exams.') }}
+{% elif exam and class_id and subject_id %}
+  {% if students %}
+  <form method="post" data-warn-unsaved>
+    {{ csrf() }}
+    <input type="hidden" name="exam_id" value="{{ exam_id }}"><input type="hidden" name="class_id" value="{{ class_id }}">
+    <input type="hidden" name="subject_id" value="{{ subject_id }}">
+    <p><b>{{ exam.name }}</b> &middot; Maximum marks: <b>{{ exam.max_marks | num }}</b>
+       &middot; {% for s in subjects if s.id == subject_id %}{{ s.name }}{% endfor %}</p>
+    <div class="table-wrap"><table class="grid-input">
+      <thead><tr><th>Roll</th><th>Name</th><th style="width:140px">Marks (out of {{ exam.max_marks | num }})</th><th class="center">Absent</th></tr></thead>
+      <tbody>{% for s in students %}
+      {% set m = existing.get(s.id) %}
+      <tr><td>{{ s.roll_no or '' }}</td><td>{{ s.name }}</td>
+        <td><input type="text" inputmode="decimal" class="mark-input" name="m_{{ s.id }}" data-max="{{ exam.max_marks }}"
+                   value="{{ (m.marks | num) if m and not m.absent and m.marks is not none else '' }}" autocomplete="off"></td>
+        <td class="center"><input type="checkbox" name="ab_{{ s.id }}" value="1" {{ 'checked' if m and m.absent }} aria-label="Absent"></td></tr>
+      {% endfor %}</tbody>
+    </table></div>
+    <div class="sticky-save">
+      <button class="btn big">💾 Save marks</button>
+      {% if next_subject %}<button class="btn big success" name="next_subject" value="{{ next_subject.id }}">💾 Save &amp; next subject ({{ next_subject.name }}) →</button>{% endif %}
+      <a class="btn secondary" href="{{ url_for('exams.marksheet', exam_id=exam_id, class_id=class_id) }}">📊 View mark sheet</a>
+      <span class="muted">Leave a box empty if marks are not available yet.</span>
+    </div>
+  </form>
+  {% else %}<div class="card">{{ empty('This class has no active students.') }}</div>{% endif %}
+{% else %}
+  {{ help('Make all three choices above to open the marks entry sheet.') }}
+{% endif %}
+{% endblock %}

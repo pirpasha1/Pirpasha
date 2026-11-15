@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% from "_macros.html" import csrf, empty, downloads with context %}
+{% block title %}Classes{% endblock %}
+{% block content %}
+<div class="page-head">
+  <div><h1>🏫 Classes &amp; Sections</h1><p>Click a class to set its class teacher, subjects and subject teachers.</p></div>
+  {{ downloads('reports.classes') }}
+</div>
+
+{% if is_admin %}
+<form class="card" method="post">
+  {{ csrf() }}
+  <h2>Create a class</h2>
+  <div class="filters">
+    <div><label>Class <span class="req">*</span></label><input type="text" name="grade" placeholder="e.g. 6 or LKG" required></div>
+    <div><label>Section(s) <span class="req">*</span></label><input type="text" name="section" value="A" required>
+      <div class="field-help">Several at once: A, B, C</div></div>
+    <div><label>Class teacher</label><select name="class_teacher_id"><option value="">— later —</option>
+      {% for t in teachers %}<option value="{{ t.id }}">{{ t.name }}</option>{% endfor %}</select></div>
+    <div><label>Room</label><input type="text" name="room"></div>
+    <div><label class="checkbox"><input type="checkbox" name="all_subjects" value="1" checked> Add all subjects</label></div>
+    <div><button class="btn">➕ Create</button></div>
+  </div>
+</form>
+{% endif %}
+
+{% if classes %}
+<div class="table-wrap"><table>
+  <thead><tr><th>Class</th><th>Class Teacher</th><th>Room</th><th class="num">Students</th><th class="no-print"></th></tr></thead>
+  <tbody>{% for c in classes %}
+  <tr><td><a href="{{ url_for('academics.class_detail', class_id=c.id) }}"><b>Class {{ c.grade }}-{{ c.section }}</b></a></td>
+    <td>{{ c.class_teacher or '—' }}</td><td>{{ c.room or '' }}</td><td class="num">{{ c.strength }}</td>
+    <td class="actions no-print">
+      <a class="btn small secondary" href="{{ url_for('academics.class_detail', class_id=c.id) }}">Open</a>
+      <a class="btn small secondary" href="{{ url_for('attendance.mark', class_id=c.id) }}">Attendance</a>
+      <a class="btn small secondary" href="{{ url_for('students.list_students', class_id=c.id) }}">Students</a>
+    </td></tr>
+  {% endfor %}</tbody>
+</table></div>
+{% else %}<div class="card">{{ empty('No classes yet. Create your first class above.') }}</div>{% endif %}
+{% endblock %}

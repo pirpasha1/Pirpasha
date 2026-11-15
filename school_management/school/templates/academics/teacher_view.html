@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% from "_macros.html" import status_badge, empty with context %}
+{% block title %}{{ t.name }}{% endblock %}
+{% block content %}
+<div class="page-head">
+  <div><h1>{{ t.name }}</h1><p>{{ t.designation or 'Teacher' }} &middot; {{ status_badge(t.status) }}</p></div>
+  <div class="actions no-print">
+    {% if is_admin %}<a class="btn" href="{{ url_for('academics.edit_teacher', teacher_id=t.id) }}">✏️ Edit</a>{% endif %}
+    <button class="btn secondary" onclick="window.print()">🖨 Print</button>
+  </div>
+</div>
+<div class="grid grid-2">
+  <div class="card"><h2>Details</h2>
+    <dl class="kv">
+      <dt>Employee code</dt><dd>{{ t.emp_code or '—' }}</dd>
+      <dt>Gender</dt><dd>{{ t.gender or '—' }}</dd>
+      <dt>Date of birth</dt><dd>{{ t.dob | dmy or '—' }}</dd>
+      <dt>Qualification</dt><dd>{{ t.qualification or '—' }}</dd>
+      <dt>Joining date</dt><dd>{{ t.joining_date | dmy or '—' }}</dd>
+      <dt>Mobile</dt><dd>{{ t.phone or '—' }}</dd>
+      <dt>Email</dt><dd>{{ t.email or '—' }}</dd>
+      <dt>Address</dt><dd>{{ t.address or '—' }}</dd>
+      <dt>System login</dt><dd>{{ login.username if login else 'none' }}</dd>
+    </dl>
+  </div>
+  <div class="card"><h2>Teaching assignments</h2>
+    {% if class_teacher_of %}<p>Class teacher of:
+      {% for c in class_teacher_of %}<a class="badge blue" href="{{ url_for('academics.class_detail', class_id=c.id) }}">{{ c.grade }}-{{ c.section }}</a> {% endfor %}</p>{% endif %}
+    {% if classes_taught %}
+    <table class="compact"><thead><tr><th>Class</th><th>Subject</th></tr></thead>
+      <tbody>{% for c in classes_taught %}<tr><td><a href="{{ url_for('academics.class_detail', class_id=c.class_id) }}">{{ c.grade }}-{{ c.section }}</a></td><td>{{ c.subject }}</td></tr>{% endfor %}</tbody></table>
+    {% else %}{{ empty('No subjects assigned. Assign from a class page.') }}{% endif %}
+  </div>
+</div>
+{% endblock %}

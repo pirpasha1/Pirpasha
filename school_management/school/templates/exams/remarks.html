@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% from "_macros.html" import csrf, class_select, term_select, help, empty with context %}
+{% block title %}Teacher Remarks{% endblock %}
+{% block content %}
+<div class="page-head"><div><h1>💬 Class Teacher's Remarks</h1>
+  <p>These remarks are printed on the report card. Type your own or pick a ready-made remark.</p></div></div>
+<form class="card filters" method="get">
+  <div><label>Class</label>{{ class_select(classes, class_id) }}</div>
+  <div><label>Term</label>{{ term_select(term) }}</div>
+</form>
+{% if class_id %}
+  {% if students %}
+  <form method="post" data-warn-unsaved>
+    {{ csrf() }}<input type="hidden" name="class_id" value="{{ class_id }}"><input type="hidden" name="term" value="{{ term }}">
+    <div class="table-wrap"><table>
+      <thead><tr><th>Roll</th><th>Name</th><th>Remarks ({{ term }})</th></tr></thead>
+      <tbody>{% for s in students %}
+      <tr><td>{{ s.roll_no or '' }}</td><td>{{ s.name }}</td>
+        <td><textarea id="r{{ s.id }}" name="r_{{ s.id }}" rows="2" style="min-height:auto">{{ existing.get(s.id) or '' }}</textarea>
+          <select data-remark-target="r{{ s.id }}" class="no-print" style="margin-top:.2rem" aria-label="Suggestions">
+            <option value="">+ insert a suggested remark…</option>
+            {% for sug in suggestions %}<option>{{ sug }}</option>{% endfor %}</select></td></tr>
+      {% endfor %}</tbody>
+    </table></div>
+    <div class="sticky-save"><button class="btn big">💾 Save remarks</button></div>
+  </form>
+  {% else %}<div class="card">{{ empty('No students in this class.') }}</div>{% endif %}
+{% else %}{{ help('Choose a class.') }}{% endif %}
+{% endblock %}

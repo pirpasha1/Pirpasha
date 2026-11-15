@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% from "_macros.html" import csrf, empty, help with context %}
+{% block title %}Class {{ klass.grade }}-{{ klass.section }}{% endblock %}
+{% block content %}
+<div class="page-head">
+  <div><h1>Class {{ klass.grade }}-{{ klass.section }}</h1>
+    <p>Class teacher: <b>{{ klass.class_teacher or 'not assigned' }}</b> &middot; {{ students|length }} students
+      ({{ boys }} boys, {{ girls }} girls)</p></div>
+  <div class="actions no-print">
+    <a class="btn" href="{{ url_for('attendance.mark', class_id=klass.id) }}">✅ Attendance</a>
+    <a class="btn secondary" href="{{ url_for('exams.marksheet', class_id=klass.id) }}">📊 Mark Sheet</a>
+    <a class="btn secondary" href="{{ url_for('exams.report_cards', class_id=klass.id) }}">🎓 Report Cards</a>
+    <a class="btn secondary" href="{{ url_for('curriculum.chapter_progress', class_id=klass.id) }}">📌 Chapters</a>
+  </div>
+</div>
+
+<div class="grid grid-2">
+  {% if is_admin %}
+  <form class="card" method="post">
+    {{ csrf() }}<input type="hidden" name="action" value="update">
+    <h2>Class details</h2>
+    <div class="form-grid">
+      <div><label>Class</label><input type="text" name="grade" value="{{ klass.grade }}"></div>
+      <div><label>Section</label><input type="text" name="section" value="{{ klass.section }}"></div>
+      <div><label>Class teacher</label><select name="class_teacher_id"><option value="">— none —</option>
+        {% for t in teachers %}<option value="{{ t.id }}" {{ 'selected' if t.id == klass.class_teacher_id }}>{{ t.name }}</option>{% endfor %}</select></div>
+      <div><label>Room</label><input type="text" name="room" value="{{ klass.room or '' }}"></div>
+    </div>
+    <p><button class="btn">💾 Save</button></p>
+  </form>
+  {% endif %}
+
+  <div class="card">
+    <h2>Subjects &amp; subject teachers</h2>
+    {% if mapped %}
+    <form method="post">
+      {{ csrf() }}<input type="hidden" name="action" value="update_subjects">
+      <table class="compact">
+        <thead><tr><th>Subject</th><th>Teacher</th>{% if is_admin %}<th></th>{% endif %}</tr></thead>
+        <tbody>{% for m in mapped %}
+        <tr><td>{{ m.name }}</td>
+          <td>{% if is_admin %}<select name="teacher_{{ m.cs_id }}"><option value="">— none —</option>
+            {% for t in teachers %}<option value="{{ t.id }}" {{ 'selected' if t.id == m.teacher_id }}>{{ t.name }}</option>{% endfor %}</select>
+            {% else %}{% for t in teachers if t.id == m.teacher_id %}{{ t.name }}{% endfor %}{% endif %}</td>
+          {% if is_admin %}<td><button class="btn small danger" form="rm{{ m.cs_id }}">Remove</button></td>{% endif %}</tr>
+        {% endfor %}</tbody>
+      </table>
+      {% if is_admin %}<p><button class="btn">💾 Save teachers</button></p>{% endif %}
+    </form>
+    {% for m in mapped %}
+    <form id="rm{{ m.cs_id }}" method="post" data-confirm="Remove {{ m.name }} from this class?">{{ csrf() }}
+      <input type="hidden" name="action" value="remove_subject"><input type="hidden" name="cs_id" value="{{ m.cs_id }}"></form>
+    {% endfor %}
+    {% else %}
+    {{ help('No subjects assigned yet - all school subjects will be used for marks. Add the subjects this class studies below.') }}
+    {% endif %}
+    {% if is_admin %}
+    <form method="post" class="filters" style="margin-top:.8rem">
+      {{ csrf() }}<input type="hidden" name="action" value="add_subject">
+      <div><label>Add subject</label><select name="subject_id" required><option value="">— choose —</option>
+        {% for s in subjects if s.id not in mapped|map(attribute='id')|list %}<option value="{{ s.id }}">{{ s.name }}</option>{% endfor %}</select></div>
+      <div><label>Teacher</label><select name="teacher_id"><option value="">— none —</option>
+        {% for t in teachers %}<option value="{{ t.id }}">{{ t.name }}</option>{% endfor %}</select></div>
+      <div><button class="btn secondary">➕ Add</button></div>
+    </form>
+    {% endif %}
+  </div>
+</div>
+
+<div class="card">
+  <div class="page-head" style="margin:0">
+    <h2 style="margin:0">Students</h2>
+    <div class="actions no-print">
+      <a class="btn small" href="{{ url_for('students.edit_student', class_id=klass.id) }}">➕ Admit student to this class</a>
+      <a class="btn small pdf" href="{{ url_for('reports.students', fmt='pdf', class_id=klass.id) }}">⬇ PDF</a>
+      <a class="btn small xlsx" href="{{ url_for('reports.students', fmt='xlsx', class_id=klass.id) }}">⬇ Excel</a>
+      {% if is_admin %}
+      <form method="post" class="inline" data-confirm="Re-number roll numbers alphabetically (1, 2, 3 …)?">{{ csrf() }}
+        <input type="hidden" name="action" value="renumber"><button class="btn small secondary">🔢 Re-number rolls A-Z</button></form>
+      {% endif %}
+    </div>
+  </div>
+  {% if students %}
+  <table class="compact" style="margin-top:.6rem">
+    <thead><tr><th>Roll</th><th>Adm No</th><th>Name</th><th>Gender</th><th>Father's Name</th><th>Phone</th></tr></thead>
+    <tbody>{% for s in students %}
+    <tr><td>{{ s.roll_no or '' }}</td><td>{{ s.admission_no }}</td>
+      <td><a href="{{ url_for('students.view_student', student_id=s.id) }}">{{ s.name }}</a></td>
+      <td>{{ s.gender or '' }}</td><td>{{ s.father_name or '' }}</td><td>{{ s.guardian_phone or '' }}</td></tr>{% endfor %}
+    </tbody></table>
+  {% else %}{{ empty('No students in this class yet.') }}{% endif %}
+</div>
+
+{% if is_admin %}
+<form method="post" class="card" data-confirm="Delete Class {{ klass.grade }}-{{ klass.section }}?">
+  {{ csrf() }}<input type="hidden" name="action" value="delete">
+  <h3>Delete class</h3><p class="muted">Only possible when the class has no students.</p>
+  <button class="btn danger">🗑 Delete class</button>
+</form>
+{% endif %}
+{% endblock %}

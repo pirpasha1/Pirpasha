@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% from "_macros.html" import csrf, help with context %}
+{% block title %}School Settings{% endblock %}
+{% block content %}
+<div class="page-head"><div><h1>⚙️ School Settings</h1>
+  <p>These details appear on every report card and printed report.</p></div></div>
+
+<form class="card" method="post" data-warn-unsaved>
+  {{ csrf() }}
+  <div class="form-grid">
+    {% for key, label, type in fields %}
+    <div class="{{ 'wide' if key in ('school_name', 'school_address') }}">
+      <label for="{{ key }}">{{ label }}</label>
+      <input type="{{ type }}" id="{{ key }}" name="{{ key }}" value="{{ values.get(key, '') }}"
+             {% if type == 'number' %}min="0" max="100" step="0.1"{% endif %}>
+      {% if key == 'academic_year' %}<div class="field-help">Exams, attendance and assessments are kept separately for each academic year.</div>{% endif %}
+      {% if key == 'pass_percentage' %}<div class="field-help">Students below this percentage in a subject are shown as "Needs Improvement".</div>{% endif %}
+    </div>
+    {% endfor %}
+  </div>
+  <div class="sticky-save"><button class="btn big">💾 Save Settings</button></div>
+</form>
+
+<div class="grid grid-2">
+  <div class="card">
+    <h2>💾 Backup</h2>
+    <p>Download a copy of <b>all</b> school data in one file. Do this at least once a week and keep it on a pen drive or email it to yourself.</p>
+    <a class="btn success" href="{{ url_for('main.backup') }}">⬇ Download Backup</a>
+  </div>
+  <div class="card">
+    <h2>♻️ Restore</h2>
+    <p>Replace all current data with a backup file you downloaded earlier. <b>Current data will be replaced.</b></p>
+    <form method="post" action="{{ url_for('main.restore') }}" enctype="multipart/form-data"
+          data-confirm="This will REPLACE all current data with the backup. Continue?">
+      {{ csrf() }}
+      <input type="file" name="backup" accept=".db" required>
+      <p><button class="btn danger">Restore from Backup</button></p>
+    </form>
+  </div>
+</div>
+
+{% if not has_students %}
+<div class="card">
+  <h2>Sample data</h2>
+  {{ help('The system is empty. You can load sample classes, students, teachers, attendance, marks and NCERT chapters to explore. To start fresh afterwards, delete the file instance/school.db and restart.') }}
+  <form method="post" action="{{ url_for('main.demo_data') }}" data-confirm="Load sample data?">
+    {{ csrf() }}<button class="btn secondary">Load sample data</button>
+  </form>
+</div>
+{% endif %}
+{% endblock %}

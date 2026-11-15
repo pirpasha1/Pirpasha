@@ -1,0 +1,41 @@
+{% macro csrf() -%}
+<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+{%- endmacro %}
+
+{% macro class_select(classes, selected, name='class_id', auto=True, blank='— Choose class —', required=False) -%}
+<select name="{{ name }}" class="{{ 'auto-submit' if auto }}" {{ 'required' if required }}>
+  <option value="">{{ blank }}</option>
+  {% for c in classes %}
+  <option value="{{ c.id }}" {{ 'selected' if selected == c.id }}>Class {{ c.grade }}-{{ c.section }}{% if c.strength is defined %} ({{ c.strength }} students){% endif %}</option>
+  {% endfor %}
+</select>
+{%- endmacro %}
+
+{% macro term_select(term, auto=True) -%}
+<select name="term" class="{{ 'auto-submit' if auto }}">
+  {% for t in TERMS %}<option {{ 'selected' if t == term }}>{{ t }}</option>{% endfor %}
+</select>
+{%- endmacro %}
+
+{% macro downloads(endpoint) -%}
+<span class="actions no-print">
+  <a class="btn pdf" href="{{ url_for(endpoint, fmt='pdf', **kwargs) }}">⬇ PDF</a>
+  <a class="btn xlsx" href="{{ url_for(endpoint, fmt='xlsx', **kwargs) }}">⬇ Excel</a>
+  <button type="button" class="btn secondary" onclick="window.print()">🖨 Print</button>
+</span>
+{%- endmacro %}
+
+{% macro help(text) -%}
+<div class="help no-print">💡 {{ text }}</div>
+{%- endmacro %}
+
+{% macro empty(text, icon='📭') -%}
+<div class="empty"><span class="ico">{{ icon }}</span>{{ text }}</div>
+{%- endmacro %}
+
+{% macro status_badge(status) -%}
+{% if status == 'Completed' or status == 'Active' or status == 'Pass' or status == 'PASS' %}<span class="badge green">{{ status }}</span>
+{% elif status == 'In Progress' %}<span class="badge orange">{{ status }}</span>
+{% elif status in ('Left', 'Needs Improvement', 'NEEDS IMPROVEMENT', 'Inactive') %}<span class="badge red">{{ status }}</span>
+{% else %}<span class="badge">{{ status or 'Not Started' }}</span>{% endif %}
+{%- endmacro %}

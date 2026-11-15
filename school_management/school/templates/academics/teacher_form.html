@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% from "_macros.html" import csrf with context %}
+{% block title %}{{ 'Edit Teacher' if teacher_id else 'Add Teacher' }}{% endblock %}
+{% macro text(name, label, type='text', required=False) -%}
+<div><label for="{{ name }}">{{ label }}{% if required %} <span class="req">*</span>{% endif %}</label>
+  <input type="{{ type }}" id="{{ name }}" name="{{ name }}" value="{{ teacher[name] if teacher[name] is defined and teacher[name] is not none else '' }}" {{ 'required' if required }}></div>
+{%- endmacro %}
+{% block content %}
+<div class="page-head"><div><h1>{{ '✏️ Edit Teacher' if teacher_id else '➕ Add Teacher' }}</h1></div></div>
+<form method="post" class="card" data-warn-unsaved>
+  {{ csrf() }}
+  <div class="form-grid">
+    {{ text('name', 'Full name', required=True) }}
+    {{ text('emp_code', 'Employee code') }}
+    <div><label for="gender">Gender</label><select id="gender" name="gender"><option value="">— select —</option>
+      {% for g in GENDERS %}<option {{ 'selected' if teacher['gender'] == g }}>{{ g }}</option>{% endfor %}</select></div>
+    {{ text('dob', 'Date of birth', 'date') }}
+    {{ text('phone', 'Mobile number', 'tel') }}
+    {{ text('email', 'Email', 'email') }}
+    {{ text('qualification', 'Qualification (e.g. M.Sc., B.Ed.)') }}
+    {{ text('designation', 'Designation (e.g. TGT Maths)') }}
+    {{ text('joining_date', 'Date of joining', 'date') }}
+    <div><label for="status">Status</label><select id="status" name="status">
+      {% for s in ['Active', 'Inactive'] %}<option {{ 'selected' if teacher['status'] == s }}>{{ s }}</option>{% endfor %}</select></div>
+    <div class="wide"><label for="address">Address</label><textarea id="address" name="address">{{ teacher['address'] or '' if teacher['address'] is defined else '' }}</textarea></div>
+  </div>
+  <div class="sticky-save"><button class="btn big">💾 Save</button>
+    <a class="btn secondary" href="{{ url_for('academics.teachers') }}">Cancel</a></div>
+</form>
+{% if teacher_id %}
+<form method="post" action="{{ url_for('academics.delete_teacher', teacher_id=teacher_id) }}" class="card"
+      data-confirm="Delete this teacher? (Tip: set Status to Inactive to keep records.)">
+  {{ csrf() }}<h3>Delete teacher</h3><p class="muted">Setting status to <b>Inactive</b> is usually better.</p>
+  <button class="btn danger">🗑 Delete</button>
+</form>
+{% endif %}
+{% endblock %}

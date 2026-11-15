@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% from "_macros.html" import csrf, help with context %}
+{% block title %}Import Students{% endblock %}
+{% block content %}
+<div class="page-head"><div><h1>📥 Import Students from Excel</h1>
+  <p>Admit a whole class at once by filling a simple Excel sheet.</p></div></div>
+
+<div class="grid grid-2">
+  <div class="card">
+    <h2>Step 1 - Download the template</h2>
+    <p>Open it in Excel (or LibreOffice / Google Sheets). Fill one student per row.
+       <b>Red columns</b> are compulsory. Class and Section must already exist under <a href="{{ url_for('academics.classes') }}">Classes</a>.</p>
+    <a class="btn xlsx" href="{{ url_for('students.import_template') }}">⬇ Download Excel template</a>
+  </div>
+  <form class="card" method="post" enctype="multipart/form-data">
+    {{ csrf() }}
+    <h2>Step 2 - Upload the filled file</h2>
+    <p><input type="file" name="file" accept=".xlsx" required></p>
+    <p><label class="checkbox"><input type="checkbox" name="update" value="1">
+       If an admission number already exists, update that student's details</label></p>
+    <button class="btn big">📤 Upload &amp; Import</button>
+  </form>
+</div>
+
+{% if report %}
+<div class="card">
+  <h2>Import result</h2>
+  <p><span class="badge green">{{ report.added }} added</span> <span class="badge blue">{{ report.updated }} updated</span>
+     {% if report.errors %}<span class="badge red">{{ report.errors|length }} problem(s)</span>{% endif %}</p>
+  {% if report.errors %}
+  <p>These rows were <b>not</b> imported. Correct them in Excel and upload again:</p>
+  <ul>{% for e in report.errors %}<li>{{ e }}</li>{% endfor %}</ul>
+  {% endif %}
+  <a class="btn" href="{{ url_for('students.list_students') }}">View students</a>
+</div>
+{% endif %}
+
+<div class="card">
+  <h3>Columns in the template</h3>
+  <p>{% for title, field, req in columns %}<span class="badge {{ 'red' if req else '' }}">{{ title }}</span> {% endfor %}</p>
+</div>
+{% endblock %}

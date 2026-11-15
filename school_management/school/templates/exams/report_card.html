@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% block title %}Report Card - {{ card.student.name }}{% endblock %}
+{% block content %}
+{% set s = card.student %}{% set k = card.klass %}
+<div class="page-head no-print">
+  <div><h1>Report Card</h1><p>{{ s.name }}</p></div>
+  <div class="actions">
+    <button class="btn" onclick="window.print()">🖨 Print</button>
+    <a class="btn pdf" href="{{ url_for('exams.report_card_pdf', student_id=s.id) }}">⬇ PDF</a>
+    {% if k %}<a class="btn secondary" href="{{ url_for('exams.report_cards', class_id=k.id) }}">← Back to class</a>{% endif %}
+  </div>
+</div>
+
+<div class="report-card">
+  <div class="rc-head">
+    <h1>{{ settings.school_name }}</h1>
+    <div class="muted">{{ settings.school_address }}{% if settings.school_phone %} | {{ settings.school_phone }}{% endif %}</div>
+    {% if settings.affiliation_no or settings.udise_code %}<div class="muted">
+      {% if settings.affiliation_no %}Affiliation No: {{ settings.affiliation_no }}{% endif %}
+      {% if settings.udise_code %} | UDISE: {{ settings.udise_code }}{% endif %}</div>{% endif %}
+    <div class="title">PROGRESS REPORT &middot; ACADEMIC YEAR {{ card.year }}</div>
+  </div>
+
+  <table>
+    <tr><th>Student Name</th><td>{{ s.name }}</td><th>Admission No</th><td>{{ s.admission_no }}</td></tr>
+    <tr><th>Class / Section</th><td>{{ (k.grade ~ ' - ' ~ k.section) if k else '—' }}</td><th>Roll No</th><td>{{ s.roll_no or '' }}</td></tr>
+    <tr><th>Father's Name</th><td>{{ s.father_name or '' }}</td><th>Mother's Name</th><td>{{ s.mother_name or '' }}</td></tr>
+    <tr><th>Date of Birth</th><td>{{ s.dob | dmy }}</td><th>APAAR ID</th><td>{{ s.apaar_id or '' }}</td></tr>
+  </table>
+
+  <h2>Part A: Scholastic Areas</h2>
+  {% if card.exams %}
+  <table>
+    <thead><tr><th>Subject</th>{% for e in card.exams %}<th class="center">{{ e.name }}<br><small>({{ e.max_marks | num }})</small></th>{% endfor %}
+      <th class="center">Total</th><th class="center">%</th><th class="center">Grade</th></tr></thead>
+    <tbody>{% for r in card.rows %}
+      <tr><td><b>{{ r.subject.name }}</b></td>{% for c in r.cells %}<td class="center">{{ c | num }}</td>{% endfor %}
+        <td class="center">{{ (r.total | num) ~ '/' ~ (r.max_total | num) if r.max_total else '' }}</td>
+        <td class="center">{{ r.pct | num }}</td><td class="center"><b>{{ r.grade }}</b></td></tr>{% endfor %}
+      <tr><th>Overall</th>{% for e in card.exams %}<td></td>{% endfor %}
+        <th class="center">{{ (card.total | num) ~ '/' ~ (card.max_total | num) if card.max_total else '' }}</th>
+        <th class="center">{{ card.pct | num }}</th><th class="center">{{ card.grade }}</th></tr>
+    </tbody>
+  </table>
+  {% else %}<p class="muted">No exams created for this academic year.</p>{% endif %}
+
+  <table style="margin-top:.6rem">
+    <tr><th>Result</th><td><b>{{ card.result or '—' }}</b>{% if card.failed %} <small>({{ card.failed|join(', ') }})</small>{% endif %}</td>
+      <th>Rank in class</th><td>{{ (card.rank ~ ' of ' ~ card.class_size) if card.rank else '—' }}</td></tr>
+    <tr><th>Attendance</th><td>{% if card.attendance.total %}{{ card.attendance.present }} / {{ card.attendance.total }} days ({{ card.attendance.pct }}%){% else %}—{% endif %}</td>
+      <th>Overall grade</th><td><b>{{ card.grade or '—' }}</b></td></tr>
+  </table>
+
+  <h2>Part B: Co-Scholastic Areas &amp; Life Skills</h2>
+  <table>
+    <thead><tr><th>Indicator</th><th>Area</th>{% for t in TERMS %}<th class="center">{{ t }}</th>{% endfor %}</tr></thead>
+    <tbody>{% for i in card.indicators %}
+      <tr><td>{{ i.indicator.name }}</td><td><small>{{ i.indicator.area }}</small></td>{% for g in i.grades %}<td class="center"><b>{{ g }}</b></td>{% endfor %}</tr>{% endfor %}
+    </tbody>
+  </table>
+  <small class="muted">A = Outstanding, B = Very Good, C = Good, D = Needs Improvement</small>
+
+  {% if card.competencies %}
+  <h2>Part C: Learning Outcomes / Competencies</h2>
+  <table>
+    <thead><tr><th>Subject</th><th>Code</th><th>Learning outcome</th>{% for t in TERMS %}<th class="center">{{ t }}</th>{% endfor %}</tr></thead>
+    <tbody>{% for c in card.competencies %}
+      <tr><td>{{ c.subject }}</td><td>{{ c.code or '' }}</td><td>{{ c.description }}</td>
+        {% for lv in c.levels %}<td class="center">{{ card.level_names[lv] if lv else '' }}</td>{% endfor %}</tr>{% endfor %}
+    </tbody>
+  </table>
+  {% endif %}
+
+  <h2>Class Teacher's Remarks</h2>
+  <table>{% for t in TERMS %}<tr><th style="width:110px">{{ t }}</th><td>{{ card.remarks[loop.index0] }}</td></tr>{% endfor %}</table>
+
+  <p style="font-size:.78rem" class="muted">Grading scale (marks %):
+    {% for rng, g in scale %}<b>{{ g }}</b> {{ rng }}{{ ' | ' if not loop.last }}{% endfor %}</p>
+
+  <div class="signatures"><div>Class Teacher</div><div>Principal{% if settings.principal_name %}<br><small>{{ settings.principal_name }}</small>{% endif %}</div><div>Parent / Guardian</div></div>
+</div>
+{% endblock %}

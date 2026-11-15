@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% from "_macros.html" import csrf, class_select, help, empty, downloads with context %}
+{% block title %}Chapter Progress{% endblock %}
+{% block content %}
+<div class="page-head">
+  <div><h1>📌 NCERT Chapter Progress</h1><p>Record which chapters have been taught in each class this year.</p></div>
+  {% if data %}{{ downloads('reports.chapters', class_id=class_id, subject_id=subject_id or '') }}{% endif %}
+</div>
+<form class="card filters no-print" method="get">
+  <div><label>Class</label>{{ class_select(classes, class_id) }}</div>
+  {% if class_id %}<div><label>Subject</label><select name="subject_id" class="auto-submit"><option value="">All subjects</option>
+    {% for s in subjects %}<option value="{{ s.id }}" {{ 'selected' if s.id == subject_id }}>{{ s.name }}</option>{% endfor %}</select></div>{% endif %}
+</form>
+
+{% if data %}
+  {% if data.summary %}
+  <div class="stats">
+    {% for subj, v in data.summary.items() %}
+    <div class="stat green"><div class="value">{{ v.pct }}%</div>
+      <div class="label"><b>{{ subj }}</b>: {{ v.Completed }}/{{ v.total }} completed, {{ v['In Progress'] }} in progress</div>
+      <div class="progress"><span style="width:{{ v.pct }}%"></span></div></div>
+    {% endfor %}
+  </div>
+  {% endif %}
+  {% if data.rows %}
+  <form method="post" data-warn-unsaved>
+    {{ csrf() }}<input type="hidden" name="class_id" value="{{ class_id }}"><input type="hidden" name="subject_id" value="{{ subject_id or '' }}">
+    <div class="table-wrap"><table class="grid-input">
+      <thead><tr><th>Subject</th><th>Ch.</th><th>Chapter</th><th>Status</th><th>Started on</th><th>Completed on</th>
+        <th>Periods<br><small>taken / planned</small></th><th>Teacher</th><th>Remarks</th></tr></thead>
+      <tbody>{% for r in data.rows %}
+      <tr><td>{{ r.subject }}</td><td>{{ r.chapter_no }}</td><td><b>{{ r.title }}</b></td>
+        <td><select name="status_{{ r.id }}" style="min-width:120px">{% for st in CHAPTER_STATUS %}
+          <option {{ 'selected' if (r.status or 'Not Started') == st }}>{{ st }}</option>{% endfor %}</select></td>
+        <td><input type="date" name="start_{{ r.id }}" value="{{ r.start_date or '' }}"></td>
+        <td><input type="date" name="end_{{ r.id }}" value="{{ r.end_date or '' }}"></td>
+        <td><input type="number" name="periods_{{ r.id }}" value="{{ r.periods_taken or '' }}" min="0" style="width:70px"> / {{ r.planned_periods or '-' }}</td>
+        <td><select name="teacher_{{ r.id }}"><option value="">—</option>{% for t in teachers %}
+          <option value="{{ t.id }}" {{ 'selected' if t.id == r.teacher_id }}>{{ t.name }}</option>{% endfor %}</select></td>
+        <td><input type="text" name="remarks_{{ r.id }}" value="{{ r.remarks or '' }}"></td></tr>
+      {% endfor %}</tbody>
+    </table></div>
+    <div class="sticky-save"><button class="btn big">💾 Save progress</button></div>
+  </form>
+  {% else %}<div class="card">{{ empty('No NCERT chapters are recorded for Class ' ~ data.klass.grade ~ ' yet. Add them under NCERT Chapters.') }}
+    <p style="text-align:center"><a class="btn" href="{{ url_for('curriculum.chapters', grade=data.klass.grade) }}">Add chapters</a></p></div>{% endif %}
+{% else %}{{ help('Choose a class to see its chapters.') }}{% endif %}
+{% endblock %}

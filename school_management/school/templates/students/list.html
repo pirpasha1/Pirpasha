@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% from "_macros.html" import class_select, empty, status_badge with context %}
+{% block title %}Students{% endblock %}
+{% block content %}
+<div class="page-head">
+  <div><h1>👨‍🎓 Students</h1><p>{{ students|length }} student(s) shown</p></div>
+  <div class="actions no-print">
+    <a class="btn" href="{{ url_for('students.edit_student', class_id=class_id or '') }}">➕ New Admission</a>
+    <a class="btn pdf" href="{{ url_for('reports.students', fmt='pdf', class_id=class_id or '', status=status) }}">⬇ PDF</a>
+    <a class="btn xlsx" href="{{ url_for('reports.students', fmt='xlsx', class_id=class_id or '', status=status) }}">⬇ Excel</a>
+    <button class="btn secondary" onclick="window.print()">🖨 Print</button>
+  </div>
+</div>
+
+<form class="card filters no-print" method="get">
+  <div><label>Class</label>{{ class_select(classes, class_id, blank='All classes') }}</div>
+  <div><label>Status</label>
+    <select name="status" class="auto-submit">
+      {% for s in ['Active', 'Left', 'Passed Out', ''] %}<option value="{{ s }}" {{ 'selected' if s == status }}>{{ s or 'All' }}</option>{% endfor %}
+    </select></div>
+  <div><label>Gender</label>
+    <select name="gender" class="auto-submit"><option value="">All</option>
+      {% for g in GENDERS %}<option {{ 'selected' if g == gender }}>{{ g }}</option>{% endfor %}</select></div>
+  <div class="grow"><label>Name / Adm. No / Father / Phone</label><input type="search" name="q" value="{{ q }}"></div>
+  <div><button class="btn">Filter</button> <a class="btn secondary" href="{{ url_for('students.list_students') }}">Clear</a></div>
+</form>
+
+{% if students %}
+<div class="table-wrap"><table>
+  <thead><tr><th>#</th><th>Adm No</th><th>Name</th><th>Class</th><th>Roll</th><th>Gender</th><th>Date of Birth</th>
+    <th>Father's Name</th><th>Phone</th><th>Status</th><th class="no-print"></th></tr></thead>
+  <tbody>
+  {% for s in students %}
+  <tr>
+    <td>{{ loop.index }}</td><td>{{ s.admission_no }}</td>
+    <td><a href="{{ url_for('students.view_student', student_id=s.id) }}"><b>{{ s.name }}</b></a></td>
+    <td>{{ (s.grade ~ '-' ~ s.section) if s.grade else '—' }}</td><td>{{ s.roll_no or '' }}</td>
+    <td>{{ s.gender or '' }}</td><td>{{ s.dob | dmy }}</td><td>{{ s.father_name or '' }}</td>
+    <td>{{ s.guardian_phone or '' }}</td><td>{{ status_badge(s.status) }}</td>
+    <td class="no-print actions">
+      <a class="btn small secondary" href="{{ url_for('students.edit_student', student_id=s.id) }}">Edit</a>
+      <a class="btn small secondary" href="{{ url_for('exams.report_card', student_id=s.id) }}">Report</a>
+    </td>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table></div>
+{% else %}
+<div class="card">{{ empty('No students match. Change the filters or admit a new student.') }}</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% from "_macros.html" import empty, status_badge with context %}
+{% block title %}Teachers{% endblock %}
+{% block content %}
+<div class="page-head">
+  <div><h1>👩‍🏫 Teachers</h1><p>{{ teachers|length }} teacher(s) shown</p></div>
+  <div class="actions no-print">
+    {% if is_admin %}<a class="btn" href="{{ url_for('academics.edit_teacher') }}">➕ Add Teacher</a>{% endif %}
+    <a class="btn pdf" href="{{ url_for('reports.teachers', fmt='pdf') }}">⬇ PDF</a>
+    <a class="btn xlsx" href="{{ url_for('reports.teachers', fmt='xlsx') }}">⬇ Excel</a>
+    <button class="btn secondary" onclick="window.print()">🖨 Print</button>
+  </div>
+</div>
+<form class="card filters no-print" method="get">
+  <div><label>Status</label><select name="status" class="auto-submit">
+    {% for s in ['Active', 'Inactive', ''] %}<option value="{{ s }}" {{ 'selected' if s == status }}>{{ s or 'All' }}</option>{% endfor %}</select></div>
+  <div class="grow"><label>Name / code / phone / qualification</label><input type="search" name="q" value="{{ q }}"></div>
+  <div><button class="btn">Filter</button></div>
+</form>
+{% if teachers %}
+<div class="table-wrap"><table>
+  <thead><tr><th>Code</th><th>Name</th><th>Designation</th><th>Qualification</th><th>Phone</th><th>Teaching</th><th>Status</th></tr></thead>
+  <tbody>{% for t in teachers %}
+  <tr><td>{{ t.emp_code or '' }}</td><td><a href="{{ url_for('academics.view_teacher', teacher_id=t.id) }}"><b>{{ t.name }}</b></a></td>
+    <td>{{ t.designation or '' }}</td><td>{{ t.qualification or '' }}</td><td>{{ t.phone or '' }}</td>
+    <td><small>{{ loads[t.id].detail if t.id in loads else '—' }}</small></td><td>{{ status_badge(t.status) }}</td></tr>
+  {% endfor %}</tbody>
+</table></div>
+{% else %}<div class="card">{{ empty('No teachers found.') }}</div>{% endif %}
+{% endblock %}

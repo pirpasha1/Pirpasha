@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% from "_macros.html" import class_select, help, empty, downloads, status_badge with context %}
+{% block title %}Mark Sheet{% endblock %}
+{% block content %}
+<div class="page-head">
+  <div><h1>📊 Mark Sheet</h1>
+    <p>{% if data %}{{ data.exam.name }} &middot; Class {{ klass.grade }}-{{ klass.section }} &middot; Max marks per subject {{ data.exam.max_marks | num }}{% else %}Class-wise and subject-wise marks with total, percentage, grade and rank.{% endif %}</p></div>
+  {% if data %}{{ downloads('reports.marks', exam_id=exam_id, class_id=class_id) }}{% endif %}
+</div>
+<form class="card filters no-print" method="get">
+  <div><label>Exam</label><select name="exam_id" class="auto-submit"><option value="">— Choose exam —</option>
+    {% for e in exams %}<option value="{{ e.id }}" {{ 'selected' if e.id == exam_id }}>{{ e.name }}</option>{% endfor %}</select></div>
+  <div><label>Class</label>{{ class_select(classes, class_id) }}</div>
+</form>
+
+{% if data %}
+  {% if data.rows %}
+  <div class="table-wrap"><table class="compact" id="ms">
+    <thead><tr><th>Roll</th><th>Name</th>{% for s in data.subjects %}<th class="center">{{ s.name }}</th>{% endfor %}
+      <th class="center">Total</th><th class="center">%</th><th class="center">Grade</th><th class="center">Rank</th><th>Result</th></tr></thead>
+    <tbody>{% for r in data.rows %}
+    <tr><td>{{ r.student.roll_no or '' }}</td>
+      <td><a href="{{ url_for('exams.report_card', student_id=r.student.id) }}">{{ r.student.name }}</a></td>
+      {% for c in r.cells %}
+      {% set low = c is not none and c != 'AB' and (100 * c / data.exam.max_marks) < (settings.pass_percentage | float) %}
+      <td class="center {{ 'st-A' if low or c == 'AB' }}">{{ c | num if c is not none else '—' }}</td>{% endfor %}
+      <td class="center">{{ (r.total | num) ~ '/' ~ (r.max_total | num) if r.max_total else '' }}</td>
+      <td class="center"><b>{{ r.pct | num }}</b></td><td class="center"><b>{{ r.grade }}</b></td>
+      <td class="center">{{ r.rank or '' }}</td>
+      <td>{% if r.result %}{{ status_badge(r.result) }}{% endif %}{% if r.failed %}<br><small>{{ r.failed|join(', ') }}</small>{% endif %}</td></tr>
+    {% endfor %}</tbody>
+    <tfoot>
+      <tr><th colspan="2">Class average</th>{% for st in data.subject_stats %}<th class="center">{{ st.avg | num if st.avg is not none else '' }}</th>{% endfor %}<th colspan="5"></th></tr>
+      <tr><th colspan="2">Highest</th>{% for st in data.subject_stats %}<th class="center">{{ st.high | num if st.high is not none else '' }}</th>{% endfor %}<th colspan="5"></th></tr>
+      <tr><th colspan="2">Passed / appeared</th>{% for st in data.subject_stats %}<th class="center">{{ st.passed }}/{{ st.appeared }}</th>{% endfor %}<th colspan="5"></th></tr>
+    </tfoot>
+  </table></div>
+  <p class="muted">— = marks not entered, AB = absent. Red cells are below the pass mark.</p>
+  {% else %}<div class="card">{{ empty('No students in this class.') }}</div>{% endif %}
+{% else %}{{ help('Choose an exam and a class.') }}{% endif %}
+{% endblock %}

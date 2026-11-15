@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Problem{% endblock %}
+{% block content %}
+<div class="card" style="max-width:640px">
+  <h1>{% if error.code == 404 %}Page not found{% elif error.code == 403 %}Not allowed{% else %}Something went wrong{% endif %}</h1>
+  <p>{{ error.description }}</p>
+  <p><a class="btn" href="{{ url_for('main.dashboard') }}">Go to Dashboard</a>
+     <button class="btn secondary" onclick="history.back()">Go back</button></p>
+</div>
+{% endblock %}

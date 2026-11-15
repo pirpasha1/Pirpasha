@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% from "_macros.html" import csrf, empty, help with context %}
+{% block title %}Assessment Indicators{% endblock %}
+{% block content %}
+<div class="page-head"><div><h1>🏅 Assessment Indicators</h1>
+  <p>Co-scholastic areas and holistic (life-skill) indicators that are graded A / B / C / D on the report card.</p></div>
+  <div class="actions"><a class="btn" href="{{ url_for('curriculum.assess_indicators') }}">⭐ Grade students</a></div></div>
+
+{% if is_admin %}
+<form class="card filters" method="post">
+  {{ csrf() }}
+  <div class="grow"><label>Indicator name <span class="req">*</span></label><input type="text" name="name" required placeholder="e.g. Yoga, Music, Leadership"></div>
+  <div><label>Area</label><input type="text" name="area" list="areas" value="Co-Scholastic">
+    <datalist id="areas">{% for a in areas %}<option>{{ a }}</option>{% endfor %}</datalist></div>
+  <div class="grow"><label>Description</label><input type="text" name="description"></div>
+  <div><label>Order</label><input type="number" name="display_order" value="{{ rows|length }}" style="width:80px"></div>
+  <div><button class="btn">➕ Add</button></div>
+</form>
+{% endif %}
+
+{% if rows %}
+<div class="table-wrap"><table>
+  <thead><tr><th>Order</th><th>Indicator</th><th>Area</th><th>Description</th>{% if is_admin %}<th></th>{% endif %}</tr></thead>
+  <tbody>{% for r in rows %}
+  {% if is_admin %}
+  <tr><td colspan="4"><form method="post" class="actions" id="ind{{ r.id }}">{{ csrf() }}<input type="hidden" name="indicator_id" value="{{ r.id }}">
+      <input type="number" name="display_order" value="{{ r.display_order }}" style="width:70px" aria-label="Order">
+      <input type="text" name="name" value="{{ r.name }}" style="max-width:220px" aria-label="Name">
+      <input type="text" name="area" value="{{ r.area }}" list="areas" style="max-width:160px" aria-label="Area">
+      <input type="text" name="description" value="{{ r.description or '' }}" style="max-width:340px" aria-label="Description">
+      <button class="btn small secondary" name="action" value="update">Save</button></form></td>
+    <td><form method="post" data-confirm="Delete '{{ r.name }}' and all its grades?">{{ csrf() }}<input type="hidden" name="indicator_id" value="{{ r.id }}">
+      <button class="btn small danger" name="action" value="delete">Delete</button></form></td></tr>
+  {% else %}
+  <tr><td>{{ r.display_order }}</td><td><b>{{ r.name }}</b></td><td>{{ r.area }}</td><td>{{ r.description or '' }}</td></tr>
+  {% endif %}
+  {% endfor %}</tbody>
+</table></div>
+{% else %}<div class="card">{{ empty('No indicators yet.') }}</div>{% endif %}
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% from "_macros.html" import csrf, class_select, help, empty with context %}
+{% block title %}Mark Attendance{% endblock %}
+{% block content %}
+<div class="page-head"><div><h1>✅ Mark Attendance</h1>
+  <p>Choose the class and date. Everyone starts as Present - just click <b>A</b> (Absent) or <b>L</b> (Leave) where needed.</p></div></div>
+
+<form class="card filters" method="get">
+  <div><label>Class</label>{{ class_select(classes, class_id) }}</div>
+  <div><label>Date</label><input type="date" name="date" value="{{ day }}" max="{{ today }}" class="auto-submit"></div>
+  <noscript><div><button class="btn">Show</button></div></noscript>
+</form>
+
+{% if class_id %}
+  {% if students %}
+  {% if already %}<div class="flash info">ℹ️ Attendance for this date was already saved. You can correct it and save again.</div>{% endif %}
+  <form method="post" data-warn-unsaved id="att-form">
+    {{ csrf() }}
+    <input type="hidden" name="class_id" value="{{ class_id }}"><input type="hidden" name="date" value="{{ day }}">
+    <div class="actions" style="margin-bottom:.6rem">
+      <button type="button" class="btn small success" data-set-all="P" data-scope="#att-form">All Present</button>
+      <button type="button" class="btn small danger" data-set-all="A" data-scope="#att-form">All Absent</button>
+      <span class="badge blue" id="att-counts"></span>
+      <span class="muted">{{ day_obj.strftime('%A, %d %B %Y') }}</span>
+    </div>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Roll</th><th>Name</th><th>Attendance</th></tr></thead>
+      <tbody>{% for s in students %}
+      {% set cur = existing.get(s.id, 'P') %}
+      <tr><td>{{ s.roll_no or '' }}</td><td><b>{{ s.name }}</b></td>
+        <td><span class="pills">
+          {% for code, label in ATTENDANCE_STATUS.items() %}
+          <label title="{{ label }}"><input type="radio" class="att" name="s_{{ s.id }}" value="{{ code }}" {{ 'checked' if cur == code }}><span>{{ code }}</span></label>
+          {% endfor %}
+        </span></td></tr>
+      {% endfor %}</tbody>
+    </table></div>
+    <div class="sticky-save"><button class="btn big success">💾 Save Attendance</button>
+      <a class="btn secondary" href="{{ url_for('attendance.register', class_id=class_id, month=day[:7]) }}">🗓️ View monthly register</a></div>
+  </form>
+  {% else %}<div class="card">{{ empty('This class has no active students yet.') }}</div>{% endif %}
+{% else %}
+  {{ help('Pick a class above to start.') }}
+{% endif %}
+{% endblock %}

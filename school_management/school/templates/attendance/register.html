@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% from "_macros.html" import class_select, help, empty, downloads with context %}
+{% block title %}Attendance Register{% endblock %}
+{% block content %}
+<div class="page-head">
+  <div><h1>🗓️ Monthly Attendance Register</h1>
+    <p>{% if data %}Class {{ klass.grade }}-{{ klass.section }} &middot; {{ data.month_name }} &middot; Working days: {{ data.working_days }}{% else %}Choose a class and month.{% endif %}</p></div>
+  {% if data %}{{ downloads('reports.attendance', class_id=class_id, month=month) }}{% endif %}
+</div>
+<form class="card filters no-print" method="get">
+  <div><label>Class</label>{{ class_select(classes, class_id) }}</div>
+  <div><label>Month</label><input type="month" name="month" value="{{ month }}" class="auto-submit"></div>
+</form>
+
+{% if data %}
+  {% if data.rows %}
+  <div class="table-wrap"><table class="reg">
+    <thead><tr><th>Roll</th><th>Name</th>
+      {% for d in data.dates %}<th class="{{ 'sunday' if d.weekday() == 6 }}">{{ d.day }}<br><small>{{ d.strftime('%a')[0] }}</small></th>{% endfor %}
+      <th>P</th><th>A</th><th>L</th><th>%</th></tr></thead>
+    <tbody>{% for r in data.rows %}
+    <tr><td>{{ r.student.roll_no or '' }}</td><td class="name">{{ r.student.name }}</td>
+      {% for c in r.cells %}<td class="st-{{ c }} {{ 'sunday' if data.dates[loop.index0].weekday() == 6 and not c }}">{{ c }}</td>{% endfor %}
+      <td><b>{{ r.P }}</b></td><td>{{ r.A }}</td><td>{{ r.L }}</td>
+      <td><span class="{{ 'st-A' if r.pct is not none and r.pct < 75 }}">{{ r.pct | num if r.pct is not none else '—' }}</span></td></tr>
+    {% endfor %}</tbody>
+  </table></div>
+  <p class="muted">P = Present, A = Absent, L = Leave. Grey columns are Sundays. Attendance below 75% is highlighted.</p>
+  {% else %}<div class="card">{{ empty('No students in this class.') }}</div>{% endif %}
+{% else %}{{ help('Choose a class and month to see the register.') }}{% endif %}
+{% endblock %}

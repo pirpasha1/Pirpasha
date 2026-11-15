@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Log in - {{ settings.school_name }}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="login-wrap">
+  <form class="login-box" method="post">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    <h1>🏫 {{ settings.school_name }}</h1>
+    <p class="sub">School Management System</p>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% for cat, msg in messages %}<div class="flash {{ cat }}">{{ msg }}</div>{% endfor %}
+    {% endwith %}
+    <div class="field">
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" autofocus required autocomplete="username">
+    </div>
+    <div class="field">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" required autocomplete="current-password">
+    </div>
+    <button class="btn big">Log in</button>
+    <p class="muted" style="font-size:.85rem;margin-top:1rem;text-align:center">
+      First time? Use username <b>admin</b> and password <b>admin123</b>, then change the password.
+    </p>
+  </form>
+</div>
+</body>
+</html>

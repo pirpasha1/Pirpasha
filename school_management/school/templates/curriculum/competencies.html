@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% from "_macros.html" import csrf, empty, help with context %}
+{% block title %}Learning Outcomes{% endblock %}
+{% block content %}
+<div class="page-head"><div><h1>🎯 Learning Outcomes &amp; Competencies</h1>
+  <p>List the competencies you want to track for each class and subject. Link them to NCERT chapters where possible.</p></div></div>
+
+<form class="card filters" method="get">
+  <div><label>Class</label><select name="grade" class="auto-submit"><option value="">All classes</option>
+    {% for g in grades %}<option {{ 'selected' if g == grade }}>{{ g }}</option>{% endfor %}</select></div>
+  <div><label>Subject</label><select name="subject_id" class="auto-submit"><option value="">All subjects</option>
+    {% for s in subjects %}<option value="{{ s.id }}" {{ 'selected' if s.id == subject_id }}>{{ s.name }}</option>{% endfor %}</select></div>
+</form>
+
+{% set e = edit %}
+<form class="card" method="post" id="lo-form">
+  {{ csrf() }}
+  <h2>{{ 'Edit learning outcome' if e else 'Add a learning outcome' }}</h2>
+  {% if e %}<input type="hidden" name="competency_id" value="{{ e.id }}">{% endif %}
+  {% if not e and not (grade and subject_id) %}{{ help('Tip: choose a class and subject above first - then you can link the outcome to a chapter.') }}{% endif %}
+  <div class="form-grid">
+    <div><label>Class <span class="req">*</span></label><input type="text" name="grade" list="grades" required value="{{ e.grade if e else grade }}">
+      <datalist id="grades">{% for g in grades %}<option>{{ g }}</option>{% endfor %}</datalist></div>
+    <div><label>Subject <span class="req">*</span></label><select name="subject_id" required><option value="">— choose —</option>
+      {% for s in subjects %}<option value="{{ s.id }}" {{ 'selected' if s.id == (e.subject_id if e else subject_id) }}>{{ s.name }}</option>{% endfor %}</select></div>
+    <div><label>Code</label><input type="text" name="code" value="{{ e.code or '' if e else '' }}" placeholder="e.g. M6.01"></div>
+    <div><label>Linked NCERT chapter</label><select name="chapter_id"><option value="">— none —</option>
+      {% for c in chapters %}<option value="{{ c.id }}" {{ 'selected' if e and e.chapter_id == c.id }}>Ch {{ c.chapter_no }}: {{ c.title }}</option>{% endfor %}</select></div>
+    <div><label>Domain / area</label><input type="text" name="domain" list="domains" value="{{ e.domain or '' if e else '' }}">
+      <datalist id="domains"><option>Conceptual Understanding</option><option>Application</option><option>Reasoning</option>
+        <option>Communication</option><option>Inquiry &amp; Experimentation</option><option>Reading</option><option>Writing</option></datalist></div>
+    <div class="wide"><label>Learning outcome / competency <span class="req">*</span></label>
+      <textarea name="description" required placeholder="The learner …">{{ e.description if e else '' }}</textarea></div>
+  </div>
+  <p><button class="btn" name="action" value="{{ 'update' if e else 'add' }}">💾 {{ 'Save changes' if e else 'Add learning outcome' }}</button>
+    {% if e %}<a class="btn secondary" href="{{ url_for('curriculum.competencies', grade=grade, subject_id=subject_id or '') }}">Cancel</a>{% endif %}</p>
+</form>
+
+{% if rows %}
+<div class="table-wrap"><table>
+  <thead><tr><th>Class</th><th>Subject</th><th>Code</th><th>Learning outcome</th><th>Chapter</th><th>Domain</th><th></th></tr></thead>
+  <tbody>{% for c in rows %}
+  <tr><td>{{ c.grade }}</td><td>{{ c.subject }}</td><td>{{ c.code or '' }}</td><td>{{ c.description }}</td>
+    <td>{% if c.chapter %}<small>Ch {{ c.chapter_no }}: {{ c.chapter }}</small>{% endif %}</td><td><small>{{ c.domain or '' }}</small></td>
+    <td class="actions"><a class="btn small secondary" href="{{ url_for('curriculum.competencies', grade=grade, subject_id=subject_id or '', edit=c.id) }}#lo-form">Edit</a>
+      {% if is_admin %}<form method="post" class="inline" data-confirm="Delete this learning outcome and its assessments?">{{ csrf() }}
+        <input type="hidden" name="competency_id" value="{{ c.id }}"><input type="hidden" name="grade" value="{{ grade }}">
+        <input type="hidden" name="subject_id" value="{{ subject_id or '' }}"><button class="btn small danger" name="action" value="delete">Delete</button></form>{% endif %}</td></tr>
+  {% endfor %}</tbody>
+</table></div>
+{% else %}<div class="card">{{ empty('No learning outcomes recorded for this selection.') }}</div>{% endif %}
+{% endblock %}

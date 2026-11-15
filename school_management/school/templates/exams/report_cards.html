@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% from "_macros.html" import class_select, help, empty with context %}
+{% block title %}Report Cards{% endblock %}
+{% block content %}
+<div class="page-head">
+  <div><h1>🎓 Report Cards</h1><p>Each report card combines marks of all exams this year, co-scholastic grades,
+    learning outcomes, attendance and teacher remarks.</p></div>
+  {% if class_id and students %}
+  <div class="actions"><a class="btn pdf big" href="{{ url_for('exams.class_report_cards_pdf', class_id=class_id) }}">⬇ Download ALL report cards (one PDF)</a></div>
+  {% endif %}
+</div>
+<form class="card filters" method="get"><div><label>Class</label>{{ class_select(classes, class_id) }}</div></form>
+
+{% if class_id %}
+  {{ help('Before printing, make sure marks are entered for every exam, indicators are graded and remarks are written. Exams included: ' ~ (exams|map(attribute='name')|join(', ') or 'none yet') ~ '.') }}
+  {% if students %}
+  <div class="table-wrap"><table>
+    <thead><tr><th>Roll</th><th>Adm No</th><th>Name</th><th></th></tr></thead>
+    <tbody>{% for s in students %}
+    <tr><td>{{ s.roll_no or '' }}</td><td>{{ s.admission_no }}</td><td>{{ s.name }}</td>
+      <td class="actions"><a class="btn small" href="{{ url_for('exams.report_card', student_id=s.id) }}">👁 View / Print</a>
+        <a class="btn small pdf" href="{{ url_for('exams.report_card_pdf', student_id=s.id) }}">⬇ PDF</a></td></tr>
+    {% endfor %}</tbody>
+  </table></div>
+  {% else %}<div class="card">{{ empty('No students in this class.') }}</div>{% endif %}
+{% else %}{{ help('Choose a class.') }}{% endif %}
+{% endblock %}

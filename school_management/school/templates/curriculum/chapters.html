@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% from "_macros.html" import csrf, empty, help with context %}
+{% block title %}NCERT Chapters{% endblock %}
+{% block content %}
+<div class="page-head">
+  <div><h1>📖 NCERT Chapter Records</h1><p>Chapters of each textbook, class-wise and subject-wise, with their learning outcomes.</p></div>
+  <div class="actions no-print">
+    <a class="btn pdf" href="{{ url_for('reports.chapter_list', fmt='pdf', grade=grade) }}">⬇ PDF</a>
+    <a class="btn xlsx" href="{{ url_for('reports.chapter_list', fmt='xlsx', grade=grade) }}">⬇ Excel</a>
+    <a class="btn secondary" href="{{ url_for('curriculum.chapter_progress') }}">📌 Chapter progress</a>
+  </div>
+</div>
+
+<form class="card filters no-print" method="get">
+  <div><label>Class</label><select name="grade" class="auto-submit"><option value="">All classes</option>
+    {% for g in grades %}<option {{ 'selected' if g == grade }}>{{ g }}</option>{% endfor %}</select></div>
+  <div><label>Subject</label><select name="subject_id" class="auto-submit"><option value="">All subjects</option>
+    {% for s in subjects %}<option value="{{ s.id }}" {{ 'selected' if s.id == subject_id }}>{{ s.name }}</option>{% endfor %}</select></div>
+</form>
+
+<div class="grid grid-2 no-print">
+  <form class="card" method="post" id="chapter-form">
+    {{ csrf() }}
+    {% set e = edit %}
+    <h2>{{ 'Edit chapter' if e else 'Add a chapter' }}</h2>
+    {% if e %}<input type="hidden" name="chapter_id" value="{{ e.id }}">{% endif %}
+    <div class="form-grid">
+      <div><label>Class <span class="req">*</span></label><input type="text" name="grade" list="grades" required value="{{ e.grade if e else grade }}">
+        <datalist id="grades">{% for g in grades %}<option>{{ g }}</option>{% endfor %}</datalist></div>
+      <div><label>Subject <span class="req">*</span></label><select name="subject_id" required><option value="">— choose —</option>
+        {% for s in subjects %}<option value="{{ s.id }}" {{ 'selected' if s.id == (e.subject_id if e else subject_id) }}>{{ s.name }}</option>{% endfor %}</select></div>
+      <div><label>Chapter No. <span class="req">*</span></label><input type="number" name="chapter_no" min="1" required value="{{ e.chapter_no if e else next_no }}"></div>
+      <div><label>Planned periods</label><input type="number" name="planned_periods" min="0" value="{{ e.planned_periods if e and e.planned_periods else '' }}"></div>
+      <div class="wide"><label>Chapter title <span class="req">*</span></label><input type="text" name="title" required value="{{ e.title if e else '' }}"></div>
+      <div class="wide"><label>Textbook name</label><input type="text" name="book" value="{{ e.book or '' if e else '' }}" placeholder="e.g. Ganita Prakash"></div>
+      <div class="wide"><label>Learning outcomes for this chapter</label>
+        <textarea name="learning_outcomes" placeholder="One outcome per line">{{ e.learning_outcomes or '' if e else '' }}</textarea></div>
+    </div>
+    <p><button class="btn" name="action" value="{{ 'update' if e else 'add' }}">💾 {{ 'Save changes' if e else 'Add chapter' }}</button>
+      {% if e %}<a class="btn secondary" href="{{ url_for('curriculum.chapters', grade=grade, subject_id=subject_id or '') }}">Cancel</a>{% endif %}</p>
+  </form>
+  {% if is_admin %}
+  <div class="card">
+    <h2>Import chapters from Excel</h2>
+    <p>Add a whole textbook at once. Download the template, fill one chapter per row, upload it.
+       Existing chapters with the same class, subject and number are updated.</p>
+    <p><a class="btn xlsx" href="{{ url_for('curriculum.chapters_template') }}">⬇ Download template</a></p>
+    <form method="post" action="{{ url_for('curriculum.chapters_import') }}" enctype="multipart/form-data">
+      {{ csrf() }}<input type="file" name="file" accept=".xlsx" required>
+      <p><button class="btn">📤 Upload &amp; import</button></p>
+    </form>
+  </div>
+  {% endif %}
+</div>
+
+{% if chapters %}
+<div class="table-wrap"><table>
+  <thead><tr><th>Class</th><th>Subject</th><th>Ch.</th><th>Title</th><th>Book</th><th>Learning outcomes</th><th class="num">Periods</th><th class="no-print"></th></tr></thead>
+  <tbody>{% for c in chapters %}
+  <tr><td>{{ c.grade }}</td><td>{{ c.subject }}</td><td>{{ c.chapter_no }}</td><td><b>{{ c.title }}</b></td><td>{{ c.book or '' }}</td>
+    <td><small>{{ (c.learning_outcomes or '') | replace('\n', '; ') }}</small>
+      {% if c.comp_count %}<br><span class="badge blue">{{ c.comp_count }} tracked outcome(s)</span>{% endif %}</td>
+    <td class="num">{{ c.planned_periods or '' }}</td>
+    <td class="actions no-print">
+      <a class="btn small secondary" href="{{ url_for('curriculum.chapters', grade=grade, subject_id=subject_id or '', edit=c.id) }}#chapter-form">Edit</a>
+      <a class="btn small secondary" href="{{ url_for('curriculum.competencies', grade=c.grade, subject_id=c.subject_id) }}">Outcomes</a>
+      {% if is_admin %}<form method="post" class="inline" data-confirm="Delete chapter {{ c.chapter_no }}: {{ c.title }}?">{{ csrf() }}
+        <input type="hidden" name="chapter_id" value="{{ c.id }}"><input type="hidden" name="grade" value="{{ grade }}">
+        <input type="hidden" name="subject_id" value="{{ subject_id or '' }}">
+        <button class="btn small danger" name="action" value="delete">Delete</button></form>{% endif %}
+    </td></tr>
+  {% endfor %}</tbody>
+</table></div>
+{% else %}<div class="card">{{ empty('No chapters recorded yet. Add them above or import from Excel.') }}</div>{% endif %}
+{% endblock %}

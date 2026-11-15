@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% from "_macros.html" import csrf, class_select, term_select, help, empty, downloads with context %}
+{% block title %}Grade Indicators{% endblock %}
+{% block content %}
+<div class="page-head">
+  <div><h1>⭐ Grade Assessment Indicators</h1><p>Give each student a grade for every co-scholastic area and life skill.</p></div>
+  {% if data and data.students %}{{ downloads('reports.indicators', class_id=class_id, term=term) }}{% endif %}
+</div>
+<div class="help no-print">Grades: {% for k, v in INDICATOR_GRADES.items() %}<b>{{ k }}</b> = {{ v }}{{ ', ' if not loop.last }}{% endfor %}.</div>
+<form class="card filters no-print" method="get">
+  <div><label>Class</label>{{ class_select(classes, class_id) }}</div>
+  <div><label>Term</label>{{ term_select(term) }}</div>
+</form>
+{% if data %}
+  {% if data.students and data.indicators %}
+  <form method="post" data-warn-unsaved id="ind-form">
+    {{ csrf() }}<input type="hidden" name="class_id" value="{{ class_id }}"><input type="hidden" name="term" value="{{ term }}">
+    <div class="actions no-print" style="margin-bottom:.5rem"><span class="muted">Fill every box with:</span>
+      {% for k in INDICATOR_GRADES %}<button type="button" class="btn small secondary" data-set-all="{{ k }}" data-scope="#ind-form">{{ k }}</button>{% endfor %}</div>
+    <div class="table-wrap"><table class="compact grid-input">
+      <thead><tr><th>Roll</th><th>Name</th>{% for i in data.indicators %}<th class="center" title="{{ i.description or '' }}">{{ i.name }}<br><small>{{ i.area }}</small></th>{% endfor %}</tr></thead>
+      <tbody>{% for s in data.students %}
+      <tr><td>{{ s.roll_no or '' }}</td><td style="white-space:nowrap">{{ s.name }}</td>
+        {% for i in data.indicators %}{% set cur = data.grades.get((s.id, i.id)) %}
+        <td class="center"><select name="g_{{ s.id }}_{{ i.id }}" data-fill style="width:auto" aria-label="{{ s.name }} {{ i.name }}">
+          <option value=""></option>{% for k in INDICATOR_GRADES %}<option {{ 'selected' if cur == k }}>{{ k }}</option>{% endfor %}</select></td>{% endfor %}</tr>
+      {% endfor %}</tbody>
+    </table></div>
+    <div class="sticky-save"><button class="btn big">💾 Save grades</button></div>
+  </form>
+  {% else %}<div class="card">{{ empty('No students or no indicators defined.') }}</div>{% endif %}
+{% else %}{{ help('Choose a class.') }}{% endif %}
+{% endblock %}

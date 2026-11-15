@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% from "_macros.html" import csrf, class_select, term_select, help, empty with context %}
+{% block title %}Assess Competencies{% endblock %}
+{% block content %}
+<div class="page-head"><div><h1>🧩 Assess Competencies</h1>
+  <p>For each student choose the level reached in each learning outcome.</p></div></div>
+
+<div class="help">Levels:
+  {% for k, v in COMPETENCY_LEVELS.items() %}<b>{{ k }}</b> = {{ v }}{{ ', ' if not loop.last }}{% endfor %}.
+  Leave blank if not yet assessed. Hover over a column heading to read the full outcome.</div>
+
+<form class="card filters" method="get">
+  <div><label>Class</label>{{ class_select(classes, class_id) }}</div>
+  {% if class_id %}<div><label>Subject</label><select name="subject_id" class="auto-submit"><option value="">— Choose subject —</option>
+    {% for s in subjects %}<option value="{{ s.id }}" {{ 'selected' if s.id == subject_id }}>{{ s.name }}</option>{% endfor %}</select></div>{% endif %}
+  <div><label>Term</label>{{ term_select(term) }}</div>
+</form>
+
+{% if data %}
+  {% if data.competencies and data.students %}
+  <form method="post" data-warn-unsaved id="comp-form">
+    {{ csrf() }}<input type="hidden" name="class_id" value="{{ class_id }}"><input type="hidden" name="subject_id" value="{{ subject_id }}">
+    <input type="hidden" name="term" value="{{ term }}">
+    <div class="actions" style="margin-bottom:.5rem"><span class="muted">Fill every box with:</span>
+      {% for k, v in COMPETENCY_LEVELS.items() %}<button type="button" class="btn small secondary" data-set-all="{{ k }}" data-scope="#comp-form">{{ k }} - {{ v }}</button>{% endfor %}
+      <button type="button" class="btn small secondary" data-set-all="" data-scope="#comp-form">Clear all</button></div>
+    <div class="table-wrap"><table class="compact grid-input">
+      <thead><tr><th>Roll</th><th>Name</th>{% for c in data.competencies %}
+        <th class="center" title="{{ c.description }}">{{ c.code or ('LO' ~ loop.index) }}{% if c.chapter_no %}<br><small>Ch {{ c.chapter_no }}</small>{% endif %}</th>{% endfor %}</tr></thead>
+      <tbody>{% for s in data.students %}
+      <tr><td>{{ s.roll_no or '' }}</td><td style="white-space:nowrap">{{ s.name }}</td>
+        {% for c in data.competencies %}{% set cur = data.levels.get((s.id, c.id)) %}
+        <td class="center"><select name="l_{{ s.id }}_{{ c.id }}" data-fill style="width:auto" aria-label="{{ s.name }} {{ c.code }}">
+          <option value=""></option>{% for k, v in COMPETENCY_LEVELS.items() %}<option value="{{ k }}" {{ 'selected' if cur == k }}>{{ k }}</option>{% endfor %}</select></td>{% endfor %}</tr>
+      {% endfor %}</tbody>
+    </table></div>
+    <div class="sticky-save"><button class="btn big">💾 Save levels</button>
+      <a class="btn secondary" href="{{ url_for('curriculum.competency_report', class_id=class_id, subject_id=subject_id, term=term) }}">📋 View report</a></div>
+  </form>
+  <div class="card" style="margin-top:1rem"><h3>Learning outcomes in this table</h3>
+    <table class="compact">{% for c in data.competencies %}<tr><td><b>{{ c.code or ('LO' ~ loop.index) }}</b></td><td>{{ c.description }}</td>
+      <td><small>{{ ('Ch ' ~ c.chapter_no ~ ': ' ~ c.chapter) if c.chapter else '' }}</small></td></tr>{% endfor %}</table></div>
+  {% elif not data.competencies %}
+  <div class="card">{{ empty('No learning outcomes are recorded for Class ' ~ klass.grade ~ ' in this subject.') }}
+    <p style="text-align:center"><a class="btn" href="{{ url_for('curriculum.competencies', grade=klass.grade, subject_id=subject_id) }}">Add learning outcomes</a></p></div>
+  {% else %}<div class="card">{{ empty('No students in this class.') }}</div>{% endif %}
+{% else %}{{ help('Choose a class and subject.') }}{% endif %}
+{% endblock %}

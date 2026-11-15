@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% block title %}Help{% endblock %}
+{% block content %}
+<div class="page-head"><div><h1>❓ How to use this system</h1>
+  <p>Simple step-by-step guide for school staff. No technical knowledge needed.</p></div></div>
+
+<div class="grid grid-2">
+<div class="card">
+  <h2>1. First-time setup (Administrator)</h2>
+  <ol>
+    <li>Open <b>School Settings</b> → type the school name, address, academic year, session dates → <b>Save</b>.</li>
+    <li>Open <b>Subjects</b> and check the list. Add or rename subjects if needed.</li>
+    <li>Open <b>Teachers</b> → <b>Add Teacher</b> for every staff member.</li>
+    <li>Open <b>Classes</b> → type the class (e.g. <i>6</i>) and sections (e.g. <i>A, B</i>) → <b>Create</b>.
+        Then click a class to choose its class teacher and subject teachers.</li>
+    <li>Open <b>User Logins</b> to give each teacher their own username and password.</li>
+  </ol>
+</div>
+<div class="card">
+  <h2>2. Admitting students</h2>
+  <ul>
+    <li><b>One student:</b> New Admission → fill the form → Save. The admission number is filled in automatically.</li>
+    <li><b>Many students:</b> Import from Excel → download the template → fill it in Excel → upload it.</li>
+    <li>To correct details, open the student and click <b>Edit</b>.</li>
+    <li>At the end of the year use <b>Promote / Transfer</b> to move a whole class up, or mark students as Left / TC issued.</li>
+  </ul>
+</div>
+<div class="card">
+  <h2>3. Daily attendance</h2>
+  <ol>
+    <li>Click <b>Mark Attendance</b> and choose the class.</li>
+    <li>Everyone is <b>Present (P)</b> by default. Click <b>A</b> for absent or <b>L</b> for leave.</li>
+    <li>Click <b>Save Attendance</b>. You can open the same date again to correct mistakes.</li>
+    <li>See the full month in <b>Monthly Register</b> and download it as PDF or Excel.</li>
+  </ol>
+</div>
+<div class="card">
+  <h2>4. Exams, marks and report cards</h2>
+  <ol>
+    <li><b>Exams</b>: create each exam once (e.g. Periodic Test 1, max marks 40).</li>
+    <li><b>Enter Marks</b>: choose exam → class → subject. Type the marks; press <b>Enter</b> to jump to the next student.
+        Type <b>AB</b> for absent. Click <b>Save &amp; next subject</b>.</li>
+    <li><b>Mark Sheet</b> shows totals, percentage, grade and rank for the whole class.</li>
+    <li><b>Teacher Remarks</b>: write a remark for each student (or pick a ready-made one).</li>
+    <li><b>Report Cards</b>: choose the class → print one report card or download all as a single PDF.</li>
+  </ol>
+</div>
+<div class="card">
+  <h2>5. NCERT chapters &amp; learning outcomes</h2>
+  <ol>
+    <li><b>NCERT Chapters</b>: add the chapters of each textbook (or import them from Excel), with the learning outcomes.</li>
+    <li><b>Chapter Progress</b>: for each class, mark chapters as <i>In Progress</i> or <i>Completed</i> with dates.</li>
+    <li><b>Learning Outcomes</b>: list the competencies to track for each class and subject, linked to chapters.</li>
+    <li><b>Assess Competencies</b>: for each student choose a level: 1 Beginning, 2 Developing, 3 Proficient, 4 Advanced.</li>
+    <li><b>Grade Indicators</b>: give A / B / C / D grades for Work Education, Art, Health &amp; PE, Discipline and life skills.</li>
+  </ol>
+</div>
+<div class="card">
+  <h2>6. Printing &amp; downloads</h2>
+  <ul>
+    <li>Every list has <b>⬇ PDF</b>, <b>⬇ Excel</b> and <b>🖨 Print</b> buttons.</li>
+    <li><b>Reports &amp; Downloads</b> collects all reports in one place.</li>
+    <li>PDF files open in any browser or PDF reader and print neatly on A4 paper.</li>
+    <li>Excel files can be opened in Microsoft Excel, LibreOffice or Google Sheets.</li>
+  </ul>
+</div>
+<div class="card">
+  <h2>7. Keeping data safe</h2>
+  <ul>
+    <li>Administrator: go to <b>School Settings</b> → <b>Download Backup</b> at least once a week and keep the file on a pen drive.</li>
+    <li>If the computer fails, install the system again and use <b>Restore Backup</b>.</li>
+    <li>Never share the admin password. Give each teacher their own login.</li>
+  </ul>
+</div>
+<div class="card">
+  <h2>Grading scale used</h2>
+  <table class="compact">
+    <thead><tr><th>Marks %</th><th>Grade</th></tr></thead>
+    <tbody>
+      <tr><td>91 - 100</td><td>A1</td></tr><tr><td>81 - 90</td><td>A2</td></tr><tr><td>71 - 80</td><td>B1</td></tr>
+      <tr><td>61 - 70</td><td>B2</td></tr><tr><td>51 - 60</td><td>C1</td></tr><tr><td>41 - 50</td><td>C2</td></tr>
+      <tr><td>33 - 40</td><td>D</td></tr><tr><td>Below 33</td><td>E (needs improvement)</td></tr>
+    </tbody>
+  </table>
+</div>
+</div>
+{% endblock %}

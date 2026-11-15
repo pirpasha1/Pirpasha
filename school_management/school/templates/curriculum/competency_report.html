@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% from "_macros.html" import class_select, term_select, help, empty, downloads with context %}
+{% block title %}Competency Report{% endblock %}
+{% block content %}
+<div class="page-head">
+  <div><h1>📋 Learning Outcome / Competency Report</h1><p>How many students reached each level, for every learning outcome.</p></div>
+  {% if data and data.competencies %}{{ downloads('reports.competencies', class_id=class_id, subject_id=subject_id, term=term) }}{% endif %}
+</div>
+<form class="card filters no-print" method="get">
+  <div><label>Class</label>{{ class_select(classes, class_id) }}</div>
+  {% if class_id %}<div><label>Subject</label><select name="subject_id" class="auto-submit"><option value="">— Choose subject —</option>
+    {% for s in subjects %}<option value="{{ s.id }}" {{ 'selected' if s.id == subject_id }}>{{ s.name }}</option>{% endfor %}</select></div>{% endif %}
+  <div><label>Term</label>{{ term_select(term) }}</div>
+</form>
+{% if data %}
+  {% if data.summary %}
+  <h2>Summary by learning outcome</h2>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Code</th><th>Learning outcome</th>{% for k, v in COMPETENCY_LEVELS.items() %}<th class="center">{{ v }}</th>{% endfor %}
+      <th class="center">Assessed</th><th>Proficient or above</th></tr></thead>
+    <tbody>{% for x in data.summary %}
+    <tr><td><b>{{ x.competency.code or ('LO' ~ loop.index) }}</b></td><td>{{ x.competency.description }}</td>
+      {% for k in COMPETENCY_LEVELS %}<td class="center">{{ x.counts[k] }}</td>{% endfor %}<td class="center">{{ x.assessed }}</td>
+      <td>{% if x.achieved_pct is not none %}<div class="progress"><span style="width:{{ x.achieved_pct }}%"></span></div><small>{{ x.achieved_pct }}%</small>{% else %}—{% endif %}</td></tr>
+    {% endfor %}</tbody>
+  </table></div>
+
+  <h2>Student-wise levels</h2>
+  <div class="table-wrap"><table class="compact">
+    <thead><tr><th>Roll</th><th>Name</th>{% for c in data.competencies %}<th class="center" title="{{ c.description }}">{{ c.code or ('LO' ~ loop.index) }}</th>{% endfor %}</tr></thead>
+    <tbody>{% for s in data.students %}
+    <tr><td>{{ s.roll_no or '' }}</td><td>{{ s.name }}</td>{% for c in data.competencies %}{% set lv = data.levels.get((s.id, c.id)) %}
+      <td class="center {{ 'st-A' if lv == 1 else ('st-L' if lv == 2 else ('st-P' if lv else '')) }}">{{ COMPETENCY_LEVELS[lv][0] if lv else '' }}</td>{% endfor %}</tr>
+    {% endfor %}</tbody>
+  </table></div>
+  <p class="muted">B = Beginning, D = Developing, P = Proficient, A = Advanced</p>
+  {% else %}<div class="card">{{ empty('No learning outcomes recorded for this class and subject.') }}</div>{% endif %}
+{% else %}{{ help('Choose a class and subject.') }}{% endif %}
+{% endblock %}

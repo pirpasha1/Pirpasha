@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+{% from "_macros.html" import csrf, empty with context %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+<div class="page-head">
+  <div>
+    <h1>Welcome, {{ current_user.full_name or current_user.username }}</h1>
+    <p>{{ today | dmy }} &middot; Academic Year {{ settings.academic_year }}</p>
+  </div>
+</div>
+
+{% if default_pw %}
+<div class="warn">⚠️ The administrator is still using the default password <b>admin123</b>.
+  <a href="{{ url_for('main.change_password') }}">Change it now</a> to keep student data safe.</div>
+{% endif %}
+
+{% if counts.students == 0 and is_admin %}
+<div class="card">
+  <h2>👋 Getting started</h2>
+  <ol>
+    <li>Enter your school's name and academic year in <a href="{{ url_for('main.settings_page') }}">School Settings</a>.</li>
+    <li>Create your <a href="{{ url_for('academics.classes') }}">Classes</a> (e.g. Class 6, Sections A, B).</li>
+    <li>Add <a href="{{ url_for('academics.teachers') }}">Teachers</a> and assign subjects to each class.</li>
+    <li>Admit students one by one with <a href="{{ url_for('students.edit_student') }}">New Admission</a>, or
+        <a href="{{ url_for('students.import_students') }}">import them from Excel</a>.</li>
+  </ol>
+  <form method="post" action="{{ url_for('main.demo_data') }}"
+        data-confirm="Load sample students, teachers, marks and attendance so you can try the system?">
+    {{ csrf() }}
+    <p class="muted">Just want to look around first? Load sample data (only possible while the system is empty).</p>
+    <button class="btn secondary">Load sample data</button>
+  </form>
+</div>
+{% endif %}
+
+<div class="stats">
+  <a class="stat" href="{{ url_for('students.list_students') }}"><div class="value">{{ counts.students }}</div>
+    <div class="label">Students ({{ counts.boys }} boys, {{ counts.girls }} girls)</div></a>
+  <a class="stat green" href="{{ url_for('academics.teachers') }}"><div class="value">{{ counts.teachers }}</div>
+    <div class="label">Teachers</div></a>
+  <a class="stat" href="{{ url_for('academics.classes') }}"><div class="value">{{ counts.classes }}</div>
+    <div class="label">Classes / Sections</div></a>
+  <a class="stat orange" href="{{ url_for('attendance.mark') }}">
+    <div class="value">{{ today_stats.pct ~ '%' if today_stats.pct is not none else '—' }}</div>
+    <div class="label">Attendance today ({{ today_stats.present }}/{{ today_stats.total }})</div></a>
+  <a class="stat green" href="{{ url_for('curriculum.chapter_progress') }}">
+    <div class="value">{{ syllabus.pct ~ '%' if syllabus.pct is not none else '—' }}</div>
+    <div class="label">NCERT syllabus completed</div></a>
+  <a class="stat" href="{{ url_for('curriculum.competencies') }}"><div class="value">{{ counts.competencies }}</div>
+    <div class="label">Learning outcomes tracked</div></a>
+</div>
+
+<div class="card">
+  <h2>Quick actions</h2>
+  <div class="quick">
+    <a href="{{ url_for('attendance.mark') }}"><span class="ico">✅</span> Mark today's attendance</a>
+    <a href="{{ url_for('students.edit_student') }}"><span class="ico">➕</span> New admission</a>
+    <a href="{{ url_for('exams.enter_marks') }}"><span class="ico">✏️</span> Enter exam marks</a>
+    <a href="{{ url_for('exams.report_cards') }}"><span class="ico">🎓</span> Print report cards</a>
+    <a href="{{ url_for('curriculum.chapter_progress') }}"><span class="ico">📌</span> Update chapter progress</a>
+    <a href="{{ url_for('curriculum.assess_competencies') }}"><span class="ico">🧩</span> Assess competencies</a>
+    <a href="{{ url_for('reports.index') }}"><span class="ico">🖨️</span> Reports (PDF / Excel)</a>
+    <a href="{{ url_for('main.search') }}"><span class="ico">🔍</span> Find a student</a>
+  </div>
+</div>
+
+<div class="grid grid-2">
+  <div class="card">
+    <h2>Attendance - last 7 days</h2>
+    <div class="bars">
+      {% for d in week %}
+      <div class="bar">
+        <div class="pct">{{ (d.stats.pct | round | int) ~ '%' if d.stats.pct is not none else '-' }}</div>
+        <div class="fill {{ 'none' if d.stats.pct is none }}" style="height: {{ (d.stats.pct or 0) * 1.1 }}px"></div>
+        <div>{{ d.date.strftime('%a') }}<br>{{ d.date.strftime('%d') }}</div>
+      </div>
+      {% endfor %}
+    </div>
+    {% if not_marked %}
+    <p class="warn" style="margin-top:1rem">Attendance not yet marked today for:
+      {% for c in not_marked %}<a href="{{ url_for('attendance.mark', class_id=c.id) }}">{{ c.grade }}-{{ c.section }}</a>{{ ', ' if not loop.last }}{% endfor %}
+    </p>
+    {% endif %}
+  </div>
+
+  <div class="card">
+    <h2>Class-wise strength</h2>
+    {% for c in classes %}
+    <div class="hbar">
+      <span class="name"><a href="{{ url_for('academics.class_detail', class_id=c.id) }}">{{ c.grade }}-{{ c.section }}</a></span>
+      <span class="track"><span style="width: {{ 100 * c.strength / max_strength }}%"></span></span>
+      <span>{{ c.strength }}</span>
+      {% set t = todays_by_class.get(c.id) %}
+      <span class="badge {{ 'green' if t else '' }}" title="Today's attendance">{{ (t.p ~ '/' ~ t.total) if t else 'not marked' }}</span>
+    </div>
+    {% else %}{{ empty('No classes yet. Create classes first.') }}{% endfor %}
+  </div>
+</div>
+
+<div class="grid grid-2">
+  <div class="card">
+    <h2>Recent admissions</h2>
+    {% if recent %}
+    <table class="compact">
+      <thead><tr><th>Adm No</th><th>Name</th><th>Class</th></tr></thead>
+      <tbody>{% for s in recent %}
+        <tr><td>{{ s.admission_no }}</td><td><a href="{{ url_for('students.view_student', student_id=s.id) }}">{{ s.name }}</a></td>
+          <td>{{ (s.grade ~ '-' ~ s.section) if s.grade else '—' }}</td></tr>{% endfor %}
+      </tbody>
+    </table>
+    {% else %}{{ empty('No students admitted yet.') }}{% endif %}
+  </div>
+  <div class="card">
+    <h2>Exams this year</h2>
+    {% if exams %}
+    <table class="compact">
+      <thead><tr><th>Exam</th><th>Term</th><th class="num">Max marks</th><th></th></tr></thead>
+      <tbody>{% for e in exams %}
+        <tr><td>{{ e.name }}</td><td>{{ e.term or '' }}</td><td class="num">{{ e.max_marks | num }}</td>
+          <td><a href="{{ url_for('exams.result_analysis', exam_id=e.id) }}">Results</a></td></tr>{% endfor %}
+      </tbody>
+    </table>
+    {% else %}{{ empty('No exams created yet.') }}{% endif %}
+  </div>
+</div>
+{% endblock %}

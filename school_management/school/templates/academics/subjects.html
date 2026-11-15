@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% from "_macros.html" import csrf, empty with context %}
+{% block title %}Subjects{% endblock %}
+{% block content %}
+<div class="page-head"><div><h1>📚 Subjects</h1>
+  <p>All subjects taught in the school. Assign them to classes from each class's page.</p></div></div>
+
+{% if is_admin %}
+<form class="card filters" method="post">
+  {{ csrf() }}
+  <div class="grow"><label>New subject name <span class="req">*</span></label><input type="text" name="name" required></div>
+  <div><label>Short code</label><input type="text" name="code" placeholder="e.g. MAT"></div>
+  <div><button class="btn">➕ Add subject</button></div>
+</form>
+{% endif %}
+
+{% if subjects %}
+<div class="table-wrap"><table>
+  <thead><tr><th>Subject</th><th>Code</th><th class="num">Classes</th><th class="num">NCERT chapters</th>
+    <th class="num">Learning outcomes</th>{% if is_admin %}<th>Rename / delete</th>{% endif %}</tr></thead>
+  <tbody>{% for s in subjects %}
+  <tr><td><b>{{ s.name }}</b></td><td>{{ s.code or '' }}</td><td class="num">{{ s.classes }}</td>
+    <td class="num"><a href="{{ url_for('curriculum.chapters', subject_id=s.id) }}">{{ s.chapters }}</a></td>
+    <td class="num"><a href="{{ url_for('curriculum.competencies', subject_id=s.id) }}">{{ s.competencies }}</a></td>
+    {% if is_admin %}
+    <td><form method="post" class="actions">
+      {{ csrf() }}<input type="hidden" name="subject_id" value="{{ s.id }}">
+      <input type="text" name="name" value="{{ s.name }}" style="max-width:180px" aria-label="Name">
+      <input type="text" name="code" value="{{ s.code or '' }}" style="max-width:80px" aria-label="Code">
+      <button class="btn small secondary" name="action" value="update">Save</button>
+      <button class="btn small danger" name="action" value="delete"
+              onclick="return confirm('Delete {{ s.name }}? All its marks, chapters and learning outcomes will also be deleted.')">Delete</button>
+    </form></td>
+    {% endif %}
+  </tr>{% endfor %}</tbody>
+</table></div>
+{% else %}<div class="card">{{ empty('No subjects yet.') }}</div>{% endif %}
+{% endblock %}

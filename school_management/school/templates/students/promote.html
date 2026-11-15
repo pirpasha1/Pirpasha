@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% from "_macros.html" import csrf, class_select, help, empty with context %}
+{% block title %}Promote / Transfer{% endblock %}
+{% block content %}
+<div class="page-head"><div><h1>⬆️ Promote / Transfer Students</h1>
+  <p>Move students to the next class at the end of the year, or mark them as Left / Passed Out.</p></div></div>
+
+{{ help('Tip: Promote the highest class first (e.g. move Class 8 to Passed Out, then 7 → 8, then 6 → 7) so classes do not get mixed up. Remember to change the academic year in School Settings.') }}
+
+<form class="card filters" method="get">
+  <div><label>Students currently in</label>{{ class_select(classes, from_id, name='from_class') }}</div>
+</form>
+
+{% if from_id %}
+<form method="post">
+  {{ csrf() }}
+  <input type="hidden" name="from_class" value="{{ from_id }}">
+  {% if students %}
+  <div class="table-wrap"><table>
+    <thead><tr><th><input type="checkbox" data-check-all=".pick" checked aria-label="Select all"></th><th>Roll</th><th>Adm No</th><th>Name</th></tr></thead>
+    <tbody>{% for s in students %}
+      <tr><td><input type="checkbox" class="pick" name="student_ids" value="{{ s.id }}" checked></td>
+        <td>{{ s.roll_no or '' }}</td><td>{{ s.admission_no }}</td><td>{{ s.name }}</td></tr>{% endfor %}
+    </tbody></table></div>
+  <div class="card filters" style="margin-top:1rem">
+    <div><label>Move ticked students to</label>{{ class_select(classes, None, name='to_class', auto=False) }}</div>
+    <div><button class="btn" name="action" value="promote">⬆️ Move</button></div>
+    <div><button class="btn secondary" name="action" value="passed_out">🎓 Mark Passed Out</button></div>
+    <div><button class="btn danger" name="action" value="left">Mark Left / TC issued</button></div>
+  </div>
+  {% else %}<div class="card">{{ empty('No active students in this class.') }}</div>{% endif %}
+</form>
+{% endif %}
+{% endblock %}

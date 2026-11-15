@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% from "_macros.html" import help with context %}
+{% block title %}Reports & Downloads{% endblock %}
+{% macro classes_select(required=True, blank='— Choose class —') -%}
+<select name="class_id" {{ 'required' if required }}><option value="">{{ blank }}</option>
+  {% for c in classes %}<option value="{{ c.id }}">Class {{ c.grade }}-{{ c.section }}</option>{% endfor %}</select>
+{%- endmacro %}
+{% macro exam_select() -%}
+<select name="exam_id" required><option value="">— Choose exam —</option>
+  {% for e in exams %}<option value="{{ e.id }}">{{ e.name }}</option>{% endfor %}</select>
+{%- endmacro %}
+{% macro buttons() -%}
+<div class="actions"><button class="btn pdf" name="fmt" value="pdf">⬇ PDF</button><button class="btn xlsx" name="fmt" value="xlsx">⬇ Excel</button></div>
+{%- endmacro %}
+{% block content %}
+<div class="page-head"><div><h1>🖨️ Reports &amp; Downloads</h1>
+  <p>Every report can be downloaded as a printable <b>PDF</b> or as an <b>Excel</b> sheet you can edit.</p></div></div>
+{{ help('Choose the options for a report and click PDF or Excel. The file will download to your computer (usually the Downloads folder).') }}
+
+<h2>👨‍🎓 Students &amp; staff</h2>
+<div class="grid grid-3">
+  <form class="card" action="{{ url_for('reports.students') }}">
+    <h3>Student list / admission register</h3>
+    <p><label>Class</label>{{ classes_select(False, 'All classes') }}</p>
+    <p><label>Status</label><select name="status"><option>Active</option><option>Left</option><option>Passed Out</option><option value="">All</option></select></p>
+    <p class="field-help">Excel contains every admission detail.</p>{{ buttons() }}
+  </form>
+  <form class="card" action="{{ url_for('reports.teachers') }}">
+    <h3>Teacher list</h3><p class="muted">All teaching staff with qualification and contact details.</p>{{ buttons() }}
+  </form>
+  <form class="card" action="{{ url_for('reports.classes') }}">
+    <h3>Class-wise strength &amp; subjects</h3><p class="muted">Boys, girls, total, class teacher and subject teachers for every class.</p>{{ buttons() }}
+  </form>
+</div>
+
+<h2>✅ Attendance</h2>
+<div class="grid grid-3">
+  <form class="card" action="{{ url_for('reports.attendance') }}">
+    <h3>Monthly attendance register</h3>
+    <p><label>Class</label>{{ classes_select() }}</p>
+    <p><label>Month</label><input type="month" name="month" value="{{ month }}" required></p>{{ buttons() }}
+  </form>
+  <form class="card" action="{{ url_for('reports.attendance_summary') }}">
+    <h3>Attendance percentage (whole session)</h3>
+    <p><label>Class</label>{{ classes_select(False, 'All classes') }}</p>
+    <p><label>Only students below (%)</label><input type="number" name="below" min="0" max="100" placeholder="e.g. 75 - leave empty for all"></p>{{ buttons() }}
+  </form>
+</div>
+
+<h2>📝 Examinations</h2>
+<div class="grid grid-3">
+  <form class="card" action="{{ url_for('reports.marks') }}">
+    <h3>Mark sheet (class-wise, subject-wise)</h3>
+    <p><label>Exam</label>{{ exam_select() }}</p><p><label>Class</label>{{ classes_select() }}</p>{{ buttons() }}
+  </form>
+  <form class="card" action="{{ url_for('reports.result_analysis') }}">
+    <h3>Result analysis (all classes)</h3>
+    <p><label>Exam</label>{{ exam_select() }}</p>
+    <p class="muted">Pass %, averages, toppers and grade distribution.</p>{{ buttons() }}
+  </form>
+  <div class="card">
+    <h3>Report cards</h3>
+    <p class="muted">Print one student's report card or download a whole class as one PDF.</p>
+    <a class="btn" href="{{ url_for('exams.report_cards') }}">🎓 Go to Report Cards</a>
+  </div>
+</div>
+
+<h2>📖 Curriculum, learning outcomes &amp; indicators</h2>
+<div class="grid grid-3">
+  <form class="card" action="{{ url_for('reports.chapters') }}">
+    <h3>NCERT chapter progress</h3><p><label>Class</label>{{ classes_select() }}</p>{{ buttons() }}
+  </form>
+  <form class="card" action="{{ url_for('reports.chapter_list') }}">
+    <h3>NCERT chapter list with learning outcomes</h3>
+    <p><label>Class</label><input type="text" name="grade" placeholder="e.g. 6 (empty = all)"></p>{{ buttons() }}
+  </form>
+  <form class="card" action="{{ url_for('reports.competencies') }}">
+    <h3>Competency / learning outcome report</h3>
+    <p><label>Class</label>{{ classes_select() }}</p>
+    <p><label>Subject</label><select name="subject_id" required><option value="">— Choose subject —</option>
+      {% for s in subjects %}<option value="{{ s.id }}">{{ s.name }}</option>{% endfor %}</select></p>
+    <p><label>Term</label><select name="term">{% for t in TERMS %}<option>{{ t }}</option>{% endfor %}</select></p>{{ buttons() }}
+  </form>
+  <form class="card" action="{{ url_for('reports.indicators') }}">
+    <h3>Assessment indicators (co-scholastic)</h3>
+    <p><label>Class</label>{{ classes_select() }}</p>
+    <p><label>Term</label><select name="term">{% for t in TERMS %}<option>{{ t }}</option>{% endfor %}</select></p>{{ buttons() }}
+  </form>
+</div>
+{% endblock %}

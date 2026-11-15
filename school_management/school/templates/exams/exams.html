@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% from "_macros.html" import csrf, empty, help with context %}
+{% block title %}Exams{% endblock %}
+{% block content %}
+<div class="page-head"><div><h1>📝 Exams</h1>
+  <p>Create each exam once for the whole school. Marks are then entered class by class and subject by subject.</p></div></div>
+
+{% if is_admin %}
+<form class="card" method="post">
+  {{ csrf() }}
+  <h2>Create an exam</h2>
+  <div class="filters">
+    <div class="grow"><label>Exam name <span class="req">*</span></label><input type="text" name="name" placeholder="e.g. Periodic Test 1" required></div>
+    <div><label>Term</label><select name="term">{% for t in TERMS %}<option>{{ t }}</option>{% endfor %}</select></div>
+    <div><label>Maximum marks (per subject)</label><input type="number" name="max_marks" value="100" min="1" step="0.5" required></div>
+    <div><label>Exam date</label><input type="date" name="exam_date"></div>
+    <div><label>Order on report card</label><input type="number" name="display_order" value="{{ exams|length + 1 }}" min="0"></div>
+    <input type="hidden" name="academic_year" value="{{ settings.academic_year }}">
+    <div><button class="btn">➕ Create exam</button></div>
+  </div>
+</form>
+{% endif %}
+
+{% if exams %}
+<div class="table-wrap"><table>
+  <thead><tr><th>Exam</th><th>Term</th><th>Year</th><th class="num">Max marks</th><th>Date</th><th class="num">Marks entered</th><th></th></tr></thead>
+  <tbody>{% for e in exams %}
+  <tr>
+    {% if is_admin %}
+    <td colspan="5"><form method="post" class="actions" id="ex{{ e.id }}">
+      {{ csrf() }}<input type="hidden" name="exam_id" value="{{ e.id }}">
+      <input type="text" name="name" value="{{ e.name }}" style="max-width:200px" aria-label="Name">
+      <select name="term" style="max-width:110px" aria-label="Term">{% for t in TERMS %}<option {{ 'selected' if t == e.term }}>{{ t }}</option>{% endfor %}</select>
+      <input type="text" name="academic_year" value="{{ e.academic_year }}" style="max-width:90px" aria-label="Year">
+      <input type="number" name="max_marks" value="{{ e.max_marks | num }}" style="max-width:80px" min="1" step="0.5" aria-label="Max marks">
+      <input type="date" name="exam_date" value="{{ e.exam_date or '' }}" style="max-width:160px" aria-label="Date">
+      <input type="hidden" name="display_order" value="{{ e.display_order }}">
+      <button class="btn small secondary" name="action" value="update">Save</button>
+    </form></td>
+    {% else %}
+    <td><b>{{ e.name }}</b></td><td>{{ e.term or '' }}</td><td>{{ e.academic_year }}</td><td class="num">{{ e.max_marks | num }}</td><td>{{ e.exam_date | dmy }}</td>
+    {% endif %}
+    <td class="num">{{ e.entries }}</td>
+    <td class="actions">
+      <a class="btn small" href="{{ url_for('exams.enter_marks', exam_id=e.id) }}">✏️ Enter marks</a>
+      <a class="btn small secondary" href="{{ url_for('exams.result_analysis', exam_id=e.id) }}">📈 Results</a>
+      {% if is_admin %}
+      <form method="post" class="inline" data-confirm="Delete '{{ e.name }}' and ALL marks entered for it?">{{ csrf() }}
+        <input type="hidden" name="exam_id" value="{{ e.id }}"><button class="btn small danger" name="action" value="delete">Delete</button></form>
+      {% endif %}
+    </td>
+  </tr>{% endfor %}</tbody>
+</table></div>
+{% else %}<div class="card">{{ empty('No exams yet. Create one above, e.g. "Periodic Test 1" with maximum marks 40.') }}</div>{% endif %}
+{% endblock %}

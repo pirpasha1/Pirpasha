@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% from "_macros.html" import csrf with context %}
+{% block title %}{{ 'Edit Student' if student_id else 'New Admission' }}{% endblock %}
+{% macro text(name, label, type='text', required=False, help='') -%}
+<div>
+  <label for="{{ name }}">{{ label }}{% if required %} <span class="req">*</span>{% endif %}</label>
+  <input type="{{ type }}" id="{{ name }}" name="{{ name }}" value="{{ student.get(name) if student.get(name) is not none else '' }}" {{ 'required' if required }}>
+  {% if help %}<div class="field-help">{{ help }}</div>{% endif %}
+</div>
+{%- endmacro %}
+{% macro choice(name, label, options) -%}
+<div>
+  <label for="{{ name }}">{{ label }}</label>
+  <select id="{{ name }}" name="{{ name }}"><option value="">— select —</option>
+    {% for o in options %}<option {{ 'selected' if student.get(name) == o }}>{{ o }}</option>{% endfor %}
+  </select>
+</div>
+{%- endmacro %}
+{% block content %}
+<div class="page-head"><div>
+  <h1>{{ '✏️ Edit Student' if student_id else '➕ New Admission' }}</h1>
+  <p>Fields marked <span class="req">*</span> are compulsory. Everything else can be filled in later.</p>
+</div></div>
+
+<form method="post" data-warn-unsaved>
+  {{ csrf() }}
+  <fieldset class="card"><legend>Admission</legend>
+    <div class="form-grid">
+      {{ text('admission_no', 'Admission No.', required=True, help='Filled automatically - change if needed.') }}
+      {{ text('admission_date', 'Admission Date', 'date') }}
+      <div><label for="class_id">Class</label>
+        <select id="class_id" name="class_id"><option value="">— select class —</option>
+          {% for c in classes %}<option value="{{ c.id }}" {{ 'selected' if student.get('class_id') == c.id }}>Class {{ c.grade }}-{{ c.section }}</option>{% endfor %}
+        </select></div>
+      {{ text('roll_no', 'Roll No.', 'number') }}
+      {{ choice('status', 'Status', ['Active', 'Left', 'Passed Out']) }}
+      {{ text('leaving_date', 'Leaving / TC Date', 'date') }}
+    </div>
+  </fieldset>
+
+  <fieldset class="card"><legend>Student details</legend>
+    <div class="form-grid">
+      {{ text('name', "Student's full name", required=True) }}
+      {{ choice('gender', 'Gender', GENDERS) }}
+      {{ text('dob', 'Date of Birth', 'date') }}
+      {{ choice('category', 'Category', CATEGORIES) }}
+      {{ text('religion', 'Religion') }}
+      {{ choice('blood_group', 'Blood Group', BLOOD_GROUPS) }}
+      {{ text('mother_tongue', 'Mother Tongue') }}
+      {{ text('apaar_id', 'APAAR ID / PEN', help='Optional national student ID.') }}
+      {{ text('previous_school', 'Previous School') }}
+    </div>
+  </fieldset>
+
+  <fieldset class="card"><legend>Parents / Guardian</legend>
+    <div class="form-grid">
+      {{ text('father_name', "Father's Name") }}
+      {{ text('mother_name', "Mother's Name") }}
+      {{ text('guardian_phone', 'Mobile Number', 'tel') }}
+      {{ text('email', 'Email', 'email') }}
+      <div class="wide"><label for="address">Address</label>
+        <textarea id="address" name="address">{{ student.get('address') or '' }}</textarea></div>
+      <div class="wide"><label for="remarks">Remarks</label>
+        <textarea id="remarks" name="remarks">{{ student.get('remarks') or '' }}</textarea></div>
+    </div>
+  </fieldset>
+
+  <div class="sticky-save">
+    <button class="btn big">💾 Save</button>
+    {% if not student_id %}<button class="btn big secondary" name="add_another" value="1">💾 Save &amp; admit another</button>{% endif %}
+    <a class="btn secondary" href="{{ url_for('students.view_student', student_id=student_id) if student_id else url_for('students.list_students') }}">Cancel</a>
+  </div>
+</form>
+
+{% if student_id and is_admin %}
+<form method="post" action="{{ url_for('students.delete_student', student_id=student_id) }}" class="card" style="margin-top:2rem"
+      data-confirm="Permanently delete this student and ALL their attendance, marks and assessments? This cannot be undone. (Tip: set Status to 'Left' instead to keep records.)">
+  {{ csrf() }}
+  <h3>Delete student</h3>
+  <p class="muted">To keep history, it is better to set <b>Status = Left</b> instead of deleting.</p>
+  <button class="btn danger">🗑 Delete permanently</button>
+</form>
+{% endif %}
+{% endblock %}
