@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block title %}Compare {{ props|length }} properties — Property Compare{% endblock %}
+{% block content %}
+<div class="detail-head">
+  <div>
+    <h1>Comparing {{ props|length }} properties</h1>
+    <div class="muted">Green marks the best value in each row: lowest price, price per sq ft and distances; largest area; ready to move.</div>
+  </div>
+  <div class="detail-actions">
+    <a class="btn btn-primary" href="{{ url_for('main.report_pdf', ids=ids) }}">Download PDF</a>
+    <a class="btn btn-primary" href="{{ url_for('main.report_excel', ids=ids) }}">Download Excel</a>
+  </div>
+</div>
+
+{% if summary|length > 1 %}
+<section class="summary">
+  {% for s in summary %}
+  <div class="stat card">
+    <div class="stat-title">{{ s.type }}s <span class="muted">({{ s.count }})</span></div>
+    <div class="stat-row"><span>Avg price</span><strong>{{ s.avg_price|inr_short }}</strong></div>
+    <div class="stat-row"><span>Avg area</span><strong>{{ s.avg_area|sqft }}</strong></div>
+    <div class="stat-row"><span>Avg price / sq ft</span><strong>{{ s.avg_ppsf|inr }}</strong></div>
+  </div>
+  {% endfor %}
+</section>
+{% endif %}
+
+<div class="table-scroll card">
+  <table class="compare">
+    <thead>
+      <tr>
+        <th class="attr">Attribute</th>
+        {% for p in props %}
+        <th>
+          <a href="{{ url_for('main.detail', pid=p.id) }}">{{ p.title }}</a>
+        </th>
+        {% endfor %}
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th class="attr">Photo</th>
+        {% for p in props %}
+        <td class="photo-cell">
+          {% if p.photos %}<img src="{{ url_for('main.uploaded_file', filename=p.photos[0].filename) }}" alt="{{ p.title }}">
+          {% else %}<span class="muted">No photo</span>{% endif %}
+        </td>
+        {% endfor %}
+      </tr>
+      {% for r in rows %}
+      <tr>
+        <th class="attr">{{ r.label }}</th>
+        {% for v in r['values'] %}
+        <td class="{{ 'best' if loop.index0 in r.best }}">{{ format_value(r.kind, v) }}</td>
+        {% endfor %}
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+<p><a href="{{ url_for('main.index') }}">← Back to listings</a></p>
+{% endblock %}
