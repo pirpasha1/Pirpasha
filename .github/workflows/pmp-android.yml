@@ -7,9 +7,14 @@ on:
     paths: ["pmp_prep_app/**", ".github/workflows/pmp-android.yml"]
   workflow_dispatch:
 
+permissions:
+  contents: write   # needed only by the release step below
+
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      HAS_SIGNING: ${{ secrets.UPLOAD_KEYSTORE_BASE64 != '' }}
     defaults:
       run:
         working-directory: pmp_prep_app/android
@@ -31,6 +36,50 @@ jobs:
         run: ./gradlew :app:testDebugUnitTest
       - name: Build APKs
         run: ./gradlew :app:assembleDebug :app:assembleRelease
+      # Store-ready App Bundle for Google Play / other stores. Runs only after you add the 4 signing
+      # secrets (see pmp_prep_app/docs/PUBLISHING_GUIDE.md). The key never appears in the repository.
+      - name: Build signed release bundle (.aab) and APK
+        if: env.HAS_SIGNING == 'true'
+        env:
+          UPLOAD_KEYSTORE_BASE64: ${{ secrets.UPLOAD_KEYSTORE_BASE64 }}
+          UPLOAD_STORE_PASSWORD: ${{ secrets.UPLOAD_STORE_PASSWORD }}
+          UPLOAD_KEY_ALIAS: ${{ secrets.UPLOAD_KEY_ALIAS }}
+          UPLOAD_KEY_PASSWORD: ${{ secrets.UPLOAD_KEY_PASSWORD }}
+        run: |
+          echo "$UPLOAD_KEYSTORE_BASE64" | base64 -d > "$RUNNER_TEMP/upload.jks"
+          printf 'storeFile=%s\nstorePassword=%s\nkeyAlias=%s\nkeyPassword=%s\n' \
+            "$RUNNER_TEMP/upload.jks" "$UPLOAD_STORE_PASSWORD" "$UPLOAD_KEY_ALIAS" "$UPLOAD_KEY_PASSWORD" > keystore.properties
+          ./gradlew :app:bundleRelease :app:assembleRelease
+          rm keystore.properties "$RUNNER_TEMP/upload.jks"
+      - uses: actions/upload-artifact@v4
+        if: env.HAS_SIGNING == 'true'
+        with:
+          name: openpm-prep-store-release
+          path: |
+            pmp_prep_app/android/app/build/outputs/bundle/release/*.aab
+            pmp_prep_app/android/app/build/outputs/apk/release/*.apk
+      - name: Read app version
+        id: ver
+        run: echo "name=$(grep -oP 'versionName = "\K[^"]+' app/build.gradle.kts)" >> "$GITHUB_OUTPUT"
+      - name: Prepare release file
+        run: cp app/build/outputs/apk/debug/app-debug.apk "OpenPMPrep-${{ steps.ver.outputs.name }}-test.apk"
+      # Publishes a downloadable pre-release only when the commit message contains [release]
+      # and every test above has passed.
+      - name: Publish test release (GitHub Release)
+        if: github.event_name == 'push' && contains(github.event.head_commit.message, '[release]')
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: pmp-v${{ steps.ver.outputs.name }}
+          target_commitish: ${{ github.sha }}
+          name: OpenPM Prep ${{ steps.ver.outputs.name }} (test build)
+          prerelease: true
+          files: pmp_prep_app/android/OpenPMPrep-${{ steps.ver.outputs.name }}-test.apk
+          body: |
+            **Test build for sideloading. Not the Play Store release.**
+            - Signed with a debug key. It installs on Android 8.0+ when "Install unknown apps" is allowed.
+            - Content is original and labelled "Demo" until reviewed by a PMP-certified expert.
+            - OpenPM Prep is an independent, free study app. It is not affiliated with, endorsed by or sponsored by Project Management Institute (PMI).
+            - All tests passed in this workflow run before publishing.
       - uses: actions/upload-artifact@v4
         with:
           name: openpm-prep-apks

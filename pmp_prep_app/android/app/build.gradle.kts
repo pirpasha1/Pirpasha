@@ -11,14 +11,14 @@ plugins {
 
 android {
     namespace = "org.openpm.prep"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "org.openpm.prep"
         minSdk = 26
-        targetSdk = 35
-        versionCode = 2
-        versionName = "0.1.1-mvp"
+        targetSdk = 36
+        versionCode = 3
+        versionName = "0.1.2-mvp"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         // Backend is optional; empty values keep the app fully offline (guest mode).
         buildConfigField("String", "SUPABASE_URL", "\"${project.findProperty("SUPABASE_URL") ?: ""}\"")
@@ -81,9 +81,11 @@ kotlin { compilerOptions { jvmTarget.set(JvmTarget.JVM_17) } }
 
 ksp { arg("room.schemaLocation", "$projectDir/schemas") }
 
-val robolectricRuntime by configurations.creating
+// One configuration per SDK: in a single configuration Gradle would keep only the newest version.
+val robolectricSdk34 by configurations.creating
+val robolectricSdk35 by configurations.creating
 tasks.register<Copy>("copyRobolectricJars") {
-    from(robolectricRuntime)
+    from(robolectricSdk34, robolectricSdk35)
     into(layout.buildDirectory.dir("robolectric-jars"))
 }
 
@@ -111,8 +113,8 @@ dependencies {
 
     testImplementation("junit:junit:4.13.2")
     testImplementation("org.robolectric:robolectric:4.14.1")
-    robolectricRuntime("org.robolectric:android-all-instrumented:14-robolectric-10818077-i7") { isTransitive = false }
-    robolectricRuntime("org.robolectric:android-all-instrumented:15-robolectric-12650502-i7") { isTransitive = false }
+    robolectricSdk34("org.robolectric:android-all-instrumented:14-robolectric-10818077-i7") { isTransitive = false }
+    robolectricSdk35("org.robolectric:android-all-instrumented:15-robolectric-12650502-i7") { isTransitive = false }
     testImplementation("androidx.test:core:1.6.1")
     testImplementation(composeBom)
     testImplementation("androidx.compose.ui:ui-test-junit4")

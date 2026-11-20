@@ -165,17 +165,17 @@ Resource links point to their owners' websites and show the date each link was v
 """.trim()
 
 private val PRIVACY = """
-What we collect in guest mode: nothing leaves your device. Your study progress, results, settings, enquiries and feedback are stored locally on your phone or tablet.
+This version of the app collects no data. It has no accounts, no advertising, no analytics and no crash reporting, and it does not request internet access, so nothing can be sent off your device.
 
-If you create an account (when cloud sync is available): your email address, display name, optional exam date and your learning progress, used only to sync your data and show your results. We do not sell personal data and show no advertising.
+Your progress, results, settings, enquiries and feedback are stored only on this device, in the app's private storage. Android's own device backup may include them if you have enabled backup.
 
-Analytics and crash reports: off by default; only enabled if you opt in.
+Links in Resources open third-party websites in your browser; their own privacy policies apply.
 
-Your rights: you can delete all local data at any time from Profile → Delete all my data. Account holders will be able to export and delete their account from within the app.
+You can delete everything at any time from Profile → Delete all my data, or by uninstalling the app.
 
-Children: the app is intended for adults preparing for a professional certification.
+The app is intended for adults preparing for a professional certification.
 
-Contact: the project's support address will be published in the store listing.
+If a future version adds optional accounts, cloud sync or an AI assistant, this policy will be updated first and those features will be optional.
 """.trim()
 
 private val TERMS = """
