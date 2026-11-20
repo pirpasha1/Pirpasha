@@ -1465,55 +1465,60 @@
   {
    "id": "Q02",
    "question": "Which exam version does this app follow?",
-   "answer": "The PMP exam launched in July 2026 (ECO-2026-07): People 33%, Process 41%, Business Environment 26%; 180 questions (170 scored) in 240 minutes with two 10-minute breaks. Every lesson and question shows its ECO tag."
+   "answer": "The PMP exam launched in July 2026 (ECO-2026-07): People 33%, Process 41%, Business Environment 26%; 180 questions (170 scored, 10 unscored pretest) in 240 minutes, with two 10-minute breaks (after the case-study section and about halfway through the independent questions). Every lesson and question shows its ECO tag."
   },
   {
    "id": "Q03",
+   "question": "How many times can I take the exam?",
+   "answer": "According to the PMI Certification Handbook, you can take the exam up to three times within your one-year eligibility period. After three attempts you must wait one year from the last attempt before reapplying."
+  },
+  {
+   "id": "Q04",
    "question": "Is everything really free?",
    "answer": "Yes. Registration, study material, practice tests, mock exams, results and basic assistance are free. There are no subscriptions, premium locks or paid exam packages."
   },
   {
-   "id": "Q04",
+   "id": "Q05",
    "question": "What does the 'Demo content' label mean?",
    "answer": "Demo items were written for this app and have not yet been reviewed by a PMP-certified subject-matter expert. Reviewed items show 'Reviewed'. Both are original, but use demo items with that in mind."
   },
   {
-   "id": "Q05",
+   "id": "Q06",
    "question": "Are these real exam questions?",
    "answer": "No. All questions are original practice items written against the public Exam Content Outline. Real PMP questions are confidential, and sharing them breaks PMI's rules."
   },
   {
-   "id": "Q06",
+   "id": "Q07",
    "question": "How is the readiness score calculated?",
    "answer": "Readiness = 25% lesson coverage + 15% flashcard retention + 25% recent practice accuracy + 35% average of your last two full mocks. It is a study guide, not a pass prediction."
   },
   {
-   "id": "Q07",
+   "id": "Q08",
    "question": "How are results banded?",
-   "answer": "The app uses PMI-style bands (Above Target, Target, Below Target, Needs Improvement) with thresholds of 80/65/50%. PMI does not publish its passing score, so treat bands as estimates."
+   "answer": "PMI score reports give a pass/fail result plus performance by domain. PMI sets its passing standard through psychometric analysis and does not publish a fixed passing percentage. This app's bands (Above Target, Target, Below Target, Needs Improvement at 80/65/50%) are its own estimate, not PMI's scoring."
   },
   {
-   "id": "Q08",
+   "id": "Q09",
    "question": "Can I use the app offline?",
    "answer": "Yes. All lessons, flashcards and questions are on your device. Guest progress is stored on the device only."
   },
   {
-   "id": "Q09",
+   "id": "Q10",
    "question": "How do breaks work in the full mock?",
    "answer": "Like the real exam: after the case-study section and about halfway through the independent questions you may take a 10-minute break. Once you start a break, you cannot go back to the previous section. The exam clock pauses during breaks."
   },
   {
-   "id": "Q10",
+   "id": "Q11",
    "question": "How are multiple-response and drag-and-drop items scored?",
    "answer": "All-or-nothing, as on the real exam. The review screen shows which parts you got right so you can learn."
   },
   {
-   "id": "Q11",
-   "question": "Do I still need 35 contact hours of training?",
-   "answer": "Yes. PMI requires 35 hours of project management education to apply. PMI is changing which live training counts from 1 December 2026; check PMI's official pages. This app is a study aid and does not issue contact hours."
+   "id": "Q12",
+   "question": "Do I still need 35 hours of training?",
+   "answer": "Yes. You need at least 35 hours of project management training aligned with the Exam Content Outline. From 1 December 2026, live (instructor-led) hours count only if a PMI Authorized Training Partner, a China Registered Education Provider or an eligible accredited academic program delivers them. Self-paced courses with an end-of-course assessment can come from any provider. PMI states that books and practice exams alone are not accepted, so this app does not provide training hours."
   },
   {
-   "id": "Q12",
+   "id": "Q13",
    "question": "Can institutions partner with the app?",
    "answer": "Yes. Use the partnership enquiry form in the Institutions section. Directory entries are 'Listed' public information only. A 'Verified partner' badge appears only after written authorization."
   }
@@ -5238,6 +5243,496 @@
     "I4",
     "I5"
    ]
+  },
+  {
+   "id": "G001",
+   "domain": "PEOPLE",
+   "taskId": "PEOPLE-T5",
+   "approach": "AGILE",
+   "stem": "At release planning, the product owner and the head of sales disagree on what 'done' means for a reporting feature. What should the project manager do FIRST?",
+   "explanation": "Explicit, agreed acceptance criteria align expectations before work starts and prevent rework at the review.",
+   "tags": [
+    "scenario"
+   ],
+   "difficulty": 2,
+   "concept": "Acceptance criteria",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "Use the product owner's definition because they own the backlog"
+    },
+    {
+     "key": "B",
+     "text": "Facilitate a session to agree explicit acceptance criteria for the feature with both parties"
+    },
+    {
+     "key": "C",
+     "text": "Ask the team to build both versions"
+    },
+    {
+     "key": "D",
+     "text": "Escalate to the sponsor for a ruling"
+    }
+   ],
+   "correct": [
+    "B"
+   ],
+   "rationales": {
+    "A": "Ownership of priority does not remove the need to align acceptance criteria with key stakeholders.",
+    "C": "Building both wastes capacity.",
+    "D": "Escalation is premature before facilitation."
+   }
+  },
+  {
+   "id": "G002",
+   "domain": "PEOPLE",
+   "taskId": "PEOPLE-T6",
+   "approach": "HYBRID",
+   "stem": "A steering committee member keeps asking for detailed weekly reports, while the agile team already publishes a live dashboard. The member says the dashboard 'is hard to read'. What is the BEST response?",
+   "explanation": "Managing expectations starts with understanding the stakeholder's real information needs, then tailoring the format without adding waste.",
+   "tags": [
+    "scenario"
+   ],
+   "difficulty": 2,
+   "concept": "Tailored communication",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "Produce the detailed weekly report as requested"
+    },
+    {
+     "key": "B",
+     "text": "Meet the member to understand what decisions they need to make and adapt the dashboard or provide a short tailored summary"
+    },
+    {
+     "key": "C",
+     "text": "Tell the member the dashboard is the agile standard"
+    },
+    {
+     "key": "D",
+     "text": "Remove the member from the distribution list"
+    }
+   ],
+   "correct": [
+    "B"
+   ],
+   "rationales": {
+    "A": "This may add effort without meeting the underlying need.",
+    "C": "Dismissing the concern damages engagement.",
+    "D": "Excluding a governance stakeholder is inappropriate."
+   }
+  },
+  {
+   "id": "G003",
+   "domain": "PEOPLE",
+   "taskId": "PEOPLE-T7",
+   "approach": "AGILE",
+   "stem": "Only one developer understands the payment module, and the team's velocity drops whenever she is away. Which action BEST addresses this?",
+   "explanation": "Pairing and story rotation spread tacit knowledge and remove a single point of failure. This is collective code ownership.",
+   "tags": [
+    "scenario"
+   ],
+   "difficulty": 2,
+   "concept": "Knowledge sharing",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "Ask her to document the module fully"
+    },
+    {
+     "key": "B",
+     "text": "Introduce pairing and rotate payment stories across team members"
+    },
+    {
+     "key": "C",
+     "text": "Hire a contractor specialist as a backup"
+    },
+    {
+     "key": "D",
+     "text": "Add the risk to the register and accept it"
+    }
+   ],
+   "correct": [
+    "B"
+   ],
+   "rationales": {
+    "A": "Documentation helps but rarely transfers tacit knowledge.",
+    "C": "A contractor creates another silo.",
+    "D": "Acceptance ignores an easy, effective response."
+   }
+  },
+  {
+   "id": "G004",
+   "domain": "PROCESS",
+   "taskId": "PROCESS-T9",
+   "approach": "AGILE",
+   "stem": "A release burnup chart shows the completed-work line rising steadily, but the total-scope line is rising just as fast. What does this indicate?",
+   "explanation": "A burnup chart shows scope separately. If scope grows as fast as completion, the lines never meet; the product owner must re-plan or reprioritize.",
+   "tags": [
+    "scenario"
+   ],
+   "difficulty": 2,
+   "concept": "Burnup chart",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "The team's velocity is too low"
+    },
+    {
+     "key": "B",
+     "text": "Scope is growing at about the same rate as work is completed, so the release date is at risk"
+    },
+    {
+     "key": "C",
+     "text": "The project is on track"
+    },
+    {
+     "key": "D",
+     "text": "The chart is incorrectly configured"
+    }
+   ],
+   "correct": [
+    "B"
+   ],
+   "rationales": {
+    "A": "Velocity looks steady; scope growth is the problem.",
+    "C": "Parallel lines mean no convergence.",
+    "D": "This is a normal and useful burnup pattern."
+   }
+  },
+  {
+   "id": "G005",
+   "domain": "BUSINESS_ENV",
+   "taskId": "BUSINESS_ENV-T6",
+   "approach": "HYBRID",
+   "stem": "Retrospective actions are agreed each sprint but rarely implemented. What should the project manager do?",
+   "explanation": "Continuous improvement needs few, visible, owned actions that are checked (PDCA). Putting them in the backlog makes them real work.",
+   "tags": [
+    "scenario"
+   ],
+   "difficulty": 2,
+   "concept": "Retrospective actions",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "Stop holding retrospectives"
+    },
+    {
+     "key": "B",
+     "text": "Limit improvements to one or two actions, add them to the backlog with owners and review them at the next retrospective"
+    },
+    {
+     "key": "C",
+     "text": "Assign all improvement actions to the scrum master"
+    },
+    {
+     "key": "D",
+     "text": "Report the team to management"
+    }
+   ],
+   "correct": [
+    "B"
+   ],
+   "rationales": {
+    "A": "Removing retrospectives removes learning.",
+    "C": "Improvement is a whole-team responsibility.",
+    "D": "Punitive action discourages honesty."
+   }
+  },
+  {
+   "id": "G006",
+   "domain": "BUSINESS_ENV",
+   "taskId": "BUSINESS_ENV-T8",
+   "approach": "HYBRID",
+   "stem": "Midway through a hybrid project, a new trade tariff raises the cost of imported hardware by 20%. What should the project manager do FIRST?",
+   "explanation": "External changes are analyzed for impact on the business case before decisions. The sponsor or governance body decides on options.",
+   "tags": [
+    "scenario"
+   ],
+   "difficulty": 2,
+   "concept": "PESTLE / external change",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "Absorb the cost using management reserve"
+    },
+    {
+     "key": "B",
+     "text": "Assess the impact on budget, schedule and business case and inform the sponsor with options"
+    },
+    {
+     "key": "C",
+     "text": "Switch suppliers immediately"
+    },
+    {
+     "key": "D",
+     "text": "Ask the team to reduce scope to compensate"
+    }
+   ],
+   "correct": [
+    "B"
+   ],
+   "rationales": {
+    "A": "Using reserve needs approval and analysis first.",
+    "C": "Switching without analysis may add risk.",
+    "D": "Scope changes need stakeholder decisions."
+   }
+  },
+  {
+   "id": "G007",
+   "domain": "BUSINESS_ENV",
+   "taskId": "BUSINESS_ENV-T8",
+   "approach": "AGILE",
+   "stem": "A new AI service appears that could automate a large part of the product the team is building. What is the MOST appropriate action?",
+   "explanation": "Technology shifts are external environment changes. A time-boxed spike gives evidence for the product owner and sponsor to decide.",
+   "tags": [
+    "scenario",
+    "ai"
+   ],
+   "difficulty": 3,
+   "concept": "Spikes, external environment",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "Ignore it until the project ends"
+    },
+    {
+     "key": "B",
+     "text": "Facilitate a quick spike to assess the service, and review the backlog and business case with the product owner"
+    },
+    {
+     "key": "C",
+     "text": "Cancel the project"
+    },
+    {
+     "key": "D",
+     "text": "Integrate the service immediately"
+    }
+   ],
+   "correct": [
+    "B"
+   ],
+   "rationales": {
+    "A": "Ignoring the change risks building obsolete features.",
+    "C": "Cancelling is not the PM's unilateral decision.",
+    "D": "Integrating without assessment adds risk (security, cost, compliance)."
+   }
+  },
+  {
+   "id": "G008",
+   "domain": "PROCESS",
+   "taskId": "PROCESS-T1",
+   "approach": "HYBRID",
+   "stem": "Your organization requires all new projects to report expected carbon emissions at the business-case gate. Where should this be addressed FIRST?",
+   "explanation": "Sustainability requirements shape the plan from the start: objectives, metrics, procurement choices and reporting. The July 2026 outline adds sustainability to project scenarios.",
+   "tags": [
+    "scenario",
+    "sustainability"
+   ],
+   "difficulty": 2,
+   "concept": "Sustainability in planning",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "In the closure report"
+    },
+    {
+     "key": "B",
+     "text": "In planning: add sustainability objectives and metrics to the project management plan and business case"
+    },
+    {
+     "key": "C",
+     "text": "Only if the sponsor asks"
+    },
+    {
+     "key": "D",
+     "text": "In the lessons-learned register"
+    }
+   ],
+   "correct": [
+    "B"
+   ],
+   "rationales": {
+    "A": "Too late to influence decisions.",
+    "C": "It is an organizational requirement.",
+    "D": "Lessons learned don't meet the requirement."
+   }
+  },
+  {
+   "id": "G009",
+   "domain": "BUSINESS_ENV",
+   "taskId": "BUSINESS_ENV-T2",
+   "approach": "HYBRID",
+   "stem": "A team wants to use a generative-AI tool to summarize customer interviews. Which TWO actions should come FIRST?",
+   "explanation": "Using AI on personal data is a compliance question first: follow policy and protect personal data (consent, anonymization) before any processing.",
+   "tags": [
+    "ai"
+   ],
+   "difficulty": 3,
+   "concept": "Responsible AI and compliance",
+   "type": "MCQ_MULTI",
+   "options": [
+    {
+     "key": "A",
+     "text": "Check the organization's AI and data-protection policies"
+    },
+    {
+     "key": "B",
+     "text": "Upload the interviews to test the tool's quality"
+    },
+    {
+     "key": "C",
+     "text": "Confirm customer consent or anonymize data as required"
+    },
+    {
+     "key": "D",
+     "text": "Let each team member choose their own tool"
+    },
+    {
+     "key": "E",
+     "text": "Skip review because the summaries are internal"
+    }
+   ],
+   "correct": [
+    "A",
+    "C"
+   ],
+   "selectCount": 2
+  },
+  {
+   "id": "G010",
+   "domain": "PEOPLE",
+   "taskId": "PEOPLE-T3",
+   "approach": "AGILE",
+   "stem": "A team member uses an AI coding assistant and submits code that contains a security flaw. How should the team prevent this in future?",
+   "explanation": "Humans remain accountable for AI-assisted output. Building checks into the definition of done applies the control consistently to everyone.",
+   "tags": [
+    "situational",
+    "ai"
+   ],
+   "difficulty": 2,
+   "concept": "Responsible AI, definition of done",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "Ban AI tools"
+    },
+    {
+     "key": "B",
+     "text": "Add security review and automated scanning of all code, including AI-assisted code, to the definition of done"
+    },
+    {
+     "key": "C",
+     "text": "Make the team member responsible for all security checks"
+    },
+    {
+     "key": "D",
+     "text": "Rely on the AI tool's own warnings"
+    }
+   ],
+   "correct": [
+    "B"
+   ],
+   "rationales": {
+    "A": "Bans may be unnecessary and lose productivity.",
+    "C": "Quality is a team responsibility.",
+    "D": "Tool warnings are not sufficient assurance."
+   }
+  },
+  {
+   "id": "G011",
+   "domain": "PROCESS",
+   "taskId": "PROCESS-T3",
+   "approach": "HYBRID",
+   "stem": "Benefits analysis shows a delivered feature is rarely used, while users ask for an improvement to another feature. What should the team do?",
+   "explanation": "Value-based delivery uses outcome data to change priorities and stops investing in low-value features.",
+   "tags": [
+    "scenario"
+   ],
+   "difficulty": 2,
+   "concept": "Benefits and outcomes",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "Continue enhancing the unused feature as planned"
+    },
+    {
+     "key": "B",
+     "text": "Reprioritize the backlog toward the requested improvement and consider retiring the unused feature"
+    },
+    {
+     "key": "C",
+     "text": "Wait until the end of the project to decide"
+    },
+    {
+     "key": "D",
+     "text": "Ask users to use the feature more"
+    }
+   ],
+   "correct": [
+    "B"
+   ],
+   "rationales": {
+    "A": "Planned work that adds no value is waste.",
+    "C": "Delaying the decision wastes value.",
+    "D": "The data shows users' needs are elsewhere."
+   }
+  },
+  {
+   "id": "G012",
+   "domain": "PROCESS",
+   "taskId": "PROCESS-T1",
+   "approach": "HYBRID",
+   "stem": "For each project element, choose the more suitable approach.",
+   "explanation": "Stable, fixed or regulated work suits predictive planning. Uncertain, feedback-driven work suits adaptive delivery. Combining both in one project is a hybrid approach.",
+   "tags": [],
+   "difficulty": 2,
+   "concept": "Tailoring the approach",
+   "type": "DRAG_CATEGORIZE",
+   "buckets": [
+    {
+     "key": "B1",
+     "text": "Predictive"
+    },
+    {
+     "key": "B2",
+     "text": "Adaptive (agile)"
+    }
+   ],
+   "items": [
+    {
+     "key": "I1",
+     "text": "Building foundations under a fixed building permit"
+    },
+    {
+     "key": "I2",
+     "text": "A customer mobile app with uncertain feature needs"
+    },
+    {
+     "key": "I3",
+     "text": "Regulatory validation documents with fixed content"
+    },
+    {
+     "key": "I4",
+     "text": "A marketing website refined through user feedback"
+    }
+   ],
+   "pairs": {
+    "I1": "B1",
+    "I2": "B2",
+    "I3": "B1",
+    "I4": "B2"
+   }
   }
  ],
  "resources": [
@@ -5272,16 +5767,6 @@
    "lastVerified": "2026-11-20"
   },
   {
-   "id": "R-PMP-HANDBOOK",
-   "category": "OFFICIAL",
-   "title": "PMP Certification Handbook",
-   "provider": "Project Management Institute",
-   "url": "https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/project-management-professional-handbook.pdf",
-   "cost": "Free",
-   "description": "PMP-specific handbook. Read it before applying.",
-   "lastVerified": "2026-11-20"
-  },
-  {
    "id": "R-SCRUM",
    "category": "GUIDE",
    "title": "The 2020 Scrum Guide",
@@ -5313,6 +5798,26 @@
    "lastVerified": "2026-11-20"
   },
   {
+   "id": "R-AA-GLOSSARY",
+   "category": "GUIDE",
+   "title": "Agile Glossary",
+   "provider": "Agile Alliance",
+   "url": "https://agilealliance.org/agile101/agile-glossary/",
+   "cost": "Free",
+   "description": "Definitions of agile terms and practices, useful for the agile and hybrid questions on the exam.",
+   "lastVerified": "2026-11-20"
+  },
+  {
+   "id": "R-SCRUM-OPEN",
+   "category": "SAMPLE_QUESTIONS",
+   "title": "Scrum Open Assessments",
+   "provider": "Scrum.org",
+   "url": "https://www.scrum.org/open-assessments",
+   "cost": "Free (no fee)",
+   "description": "Free practice quizzes on Scrum and scaled agile. They are not PMP questions but are good practice for the exam's agile topics.",
+   "lastVerified": "2026-11-20"
+  },
+  {
    "id": "R-WATT",
    "category": "OER",
    "title": "Project Management – 2nd Edition (open textbook)",
@@ -5329,8 +5834,8 @@
    "title": "PMI webinars library",
    "provider": "Project Management Institute",
    "url": "https://www.pmi.org/learning/webinars",
-   "cost": "Varies – some free, many need PMI membership",
-   "description": "On-demand presentations that earn PDUs. Check access requirements for each webinar.",
+   "cost": "Mostly free for PMI members (membership is paid)",
+   "description": "On-demand presentations that earn PDUs. Many are labelled 'Free for Members'; check access for each webinar.",
    "lastVerified": "2026-11-20"
   },
   {
@@ -5339,8 +5844,8 @@
    "title": "ProjectManagement.com on-demand webinars",
    "provider": "ProjectManagement.com (PMI)",
    "url": "https://www.projectmanagement.com/webinars/webinarmainondemand.cfm",
-   "cost": "Varies – free registration; some content for members",
-   "description": "Large library of webinars and articles on agile, risk, leadership and more.",
+   "cost": "524 free + 1,941 premium webinars (Nov 2026)",
+   "description": "Large webinar library on agile, risk, leadership and more. Use the 'Free' access filter; premium items need a paid membership.",
    "lastVerified": "2026-11-20"
   },
   {
@@ -5349,8 +5854,8 @@
    "title": "Find a local PMI chapter",
    "provider": "Project Management Institute",
    "url": "https://www.pmi.org/membership/chapters",
-   "cost": "Browsing free; chapter events vary",
-   "description": "Local chapters often run study groups, networking events and free or low-cost sessions.",
+   "cost": "Browsing free; joining requires PMI membership",
+   "description": "300+ local chapters worldwide. Many run study groups and events; check each chapter for sessions open to non-members.",
    "lastVerified": "2026-11-20"
   }
  ],
@@ -5386,7 +5891,7 @@
    "type": "Training partner directory",
    "country": "Global",
    "website": "https://www.pmi.org/learning/authorized-training-partners",
-   "description": "PMI's official directory of approved training providers. From 1 December 2026, PMI is changing which live training counts toward the 35 contact hours; check the PMI page."
+   "description": "PMI's directory of approved training providers. From 1 December 2026, live (instructor-led) training hours count for the PMP application only if delivered by a PMI Authorized Training Partner, a China Registered Education Provider, or an eligible accredited academic program. Training completed before that date still counts under the old rules."
   },
   {
    "id": "I-GAC",
@@ -5394,7 +5899,7 @@
    "type": "University program directory",
    "country": "Global",
    "website": "https://gac-dir.weaveaccreditation.com/",
-   "description": "Directory of university project-management programs accredited by PMI's Global Accreditation Center."
+   "description": "Directory of project-management degree programs accredited by PMI's Global Accreditation Center. PMI's exam page links to it as 'Browse GAC Programs'."
   },
   {
    "id": "I-SCRUMORG",
@@ -5411,10 +5916,10 @@
   {
    "id": "I-AGILEALLIANCE",
    "name": "Agile Alliance",
-   "type": "Non-profit association",
+   "type": "Non-profit association (part of PMI since 2025)",
    "country": "Global",
-   "website": "https://www.agilealliance.org/",
-   "description": "Non-profit supporting agile practitioners; publishes a free agile glossary and articles.",
+   "website": "https://agilealliance.org/",
+   "description": "Global non-profit promoting agile ways of working. Agile Alliance joined PMI in January 2025; its membership remains separate from PMI membership.",
    "freeOfferings": [
     "Agile glossary",
     "Articles"

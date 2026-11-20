@@ -26,6 +26,14 @@ android {
     }
 
     signingConfigs {
+        // Fixed, committed DEBUG key (not a secret) so every debug build can be installed as an update
+        // over the previous one without uninstalling (which would erase the learner's local progress).
+        getByName("debug") {
+            storeFile = file("debug.keystore")
+            storePassword = "android"
+            keyAlias = "androiddebugkey"
+            keyPassword = "android"
+        }
         // Release signing is read from keystore.properties (never committed). See docs/DEPLOYMENT.md.
         val f = rootProject.file("keystore.properties")
         if (f.exists()) {

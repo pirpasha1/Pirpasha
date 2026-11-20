@@ -647,3 +647,81 @@ S("C203", "BUSINESS_ENV-T5", "P", "The supplier delay risk (R7) has now occurred
 ORDER("C204", "PROCESS-T10", "P", "The final site is accepted. Order these closing steps.",
       ["Obtain formal acceptance of the final deliverables", "Close the robot supplier contracts", "Transfer support to the operations team", "Finalize lessons learned and archive records", "Release the project team"],
       "Accept → close procurements → transition → lessons and archive → release resources. Some steps may overlap, but this sequence protects the organization.", case="CASE-02")
+
+# ---------------------------------------------------------------- Added after verification review (gap fill:
+# thin tasks, agile/hybrid balance, July 2026 themes AI & sustainability)
+S("G001", "PEOPLE-T5", "A",
+  "At release planning, the product owner and the head of sales disagree on what 'done' means for a reporting feature. What should the project manager do FIRST?",
+  ["Use the product owner's definition because they own the backlog", "Facilitate a session to agree explicit acceptance criteria for the feature with both parties",
+   "Ask the team to build both versions", "Escalate to the sponsor for a ruling"],
+  "B", "Explicit, agreed acceptance criteria align expectations before work starts and prevent rework at the review.",
+  ["Ownership of priority does not remove the need to align acceptance criteria with key stakeholders.", None,
+   "Building both wastes capacity.", "Escalation is premature before facilitation."], concept="Acceptance criteria")
+S("G002", "PEOPLE-T6", "H",
+  "A steering committee member keeps asking for detailed weekly reports, while the agile team already publishes a live dashboard. The member says the dashboard 'is hard to read'. What is the BEST response?",
+  ["Produce the detailed weekly report as requested", "Meet the member to understand what decisions they need to make and adapt the dashboard or provide a short tailored summary",
+   "Tell the member the dashboard is the agile standard", "Remove the member from the distribution list"],
+  "B", "Managing expectations starts with understanding the stakeholder's real information needs, then tailoring the format without adding waste.",
+  ["This may add effort without meeting the underlying need.", None, "Dismissing the concern damages engagement.", "Excluding a governance stakeholder is inappropriate."], concept="Tailored communication")
+S("G003", "PEOPLE-T7", "A",
+  "Only one developer understands the payment module, and the team's velocity drops whenever she is away. Which action BEST addresses this?",
+  ["Ask her to document the module fully", "Introduce pairing and rotate payment stories across team members",
+   "Hire a contractor specialist as a backup", "Add the risk to the register and accept it"],
+  "B", "Pairing and story rotation spread tacit knowledge and remove a single point of failure. This is collective code ownership.",
+  ["Documentation helps but rarely transfers tacit knowledge.", None, "A contractor creates another silo.", "Acceptance ignores an easy, effective response."], concept="Knowledge sharing")
+S("G004", "PROCESS-T9", "A",
+  "A release burnup chart shows the completed-work line rising steadily, but the total-scope line is rising just as fast. What does this indicate?",
+  ["The team's velocity is too low", "Scope is growing at about the same rate as work is completed, so the release date is at risk",
+   "The project is on track", "The chart is incorrectly configured"],
+  "B", "A burnup chart shows scope separately. If scope grows as fast as completion, the lines never meet; the product owner must re-plan or reprioritize.",
+  ["Velocity looks steady; scope growth is the problem.", None, "Parallel lines mean no convergence.", "This is a normal and useful burnup pattern."], concept="Burnup chart")
+S("G005", "BUSINESS_ENV-T6", "H",
+  "Retrospective actions are agreed each sprint but rarely implemented. What should the project manager do?",
+  ["Stop holding retrospectives", "Limit improvements to one or two actions, add them to the backlog with owners and review them at the next retrospective",
+   "Assign all improvement actions to the scrum master", "Report the team to management"],
+  "B", "Continuous improvement needs few, visible, owned actions that are checked (PDCA). Putting them in the backlog makes them real work.",
+  ["Removing retrospectives removes learning.", None, "Improvement is a whole-team responsibility.", "Punitive action discourages honesty."], concept="Retrospective actions")
+S("G006", "BUSINESS_ENV-T8", "H",
+  "Midway through a hybrid project, a new trade tariff raises the cost of imported hardware by 20%. What should the project manager do FIRST?",
+  ["Absorb the cost using management reserve", "Assess the impact on budget, schedule and business case and inform the sponsor with options",
+   "Switch suppliers immediately", "Ask the team to reduce scope to compensate"],
+  "B", "External changes are analyzed for impact on the business case before decisions. The sponsor or governance body decides on options.",
+  ["Using reserve needs approval and analysis first.", None, "Switching without analysis may add risk.", "Scope changes need stakeholder decisions."], concept="PESTLE / external change")
+S("G007", "BUSINESS_ENV-T8", "A",
+  "A new AI service appears that could automate a large part of the product the team is building. What is the MOST appropriate action?",
+  ["Ignore it until the project ends", "Facilitate a quick spike to assess the service, and review the backlog and business case with the product owner",
+   "Cancel the project", "Integrate the service immediately"],
+  "B", "Technology shifts are external environment changes. A time-boxed spike gives evidence for the product owner and sponsor to decide.",
+  ["Ignoring the change risks building obsolete features.", None, "Cancelling is not the PM's unilateral decision.", "Integrating without assessment adds risk (security, cost, compliance)."],
+  tags=("scenario", "ai"), d=3, concept="Spikes, external environment")
+S("G008", "PROCESS-T1", "H",
+  "Your organization requires all new projects to report expected carbon emissions at the business-case gate. Where should this be addressed FIRST?",
+  ["In the closure report", "In planning: add sustainability objectives and metrics to the project management plan and business case",
+   "Only if the sponsor asks", "In the lessons-learned register"],
+  "B", "Sustainability requirements shape the plan from the start: objectives, metrics, procurement choices and reporting. The July 2026 outline adds sustainability to project scenarios.",
+  ["Too late to influence decisions.", None, "It is an organizational requirement.", "Lessons learned don't meet the requirement."],
+  tags=("scenario", "sustainability"), concept="Sustainability in planning")
+M("G009", "BUSINESS_ENV-T2", "H", "A team wants to use a generative-AI tool to summarize customer interviews. Which TWO actions should come FIRST?",
+  ["Check the organization's AI and data-protection policies", "Upload the interviews to test the tool's quality",
+   "Confirm customer consent or anonymize data as required", "Let each team member choose their own tool", "Skip review because the summaries are internal"],
+  ["A", "C"], "Using AI on personal data is a compliance question first: follow policy and protect personal data (consent, anonymization) before any processing.",
+  tags=("ai",), concept="Responsible AI and compliance")
+S("G010", "PEOPLE-T3", "A",
+  "A team member uses an AI coding assistant and submits code that contains a security flaw. How should the team prevent this in future?",
+  ["Ban AI tools", "Add security review and automated scanning of all code, including AI-assisted code, to the definition of done",
+   "Make the team member responsible for all security checks", "Rely on the AI tool's own warnings"],
+  "B", "Humans remain accountable for AI-assisted output. Building checks into the definition of done applies the control consistently to everyone.",
+  ["Bans may be unnecessary and lose productivity.", None, "Quality is a team responsibility.", "Tool warnings are not sufficient assurance."],
+  tags=("situational", "ai"), concept="Responsible AI, definition of done")
+S("G011", "PROCESS-T3", "H",
+  "Benefits analysis shows a delivered feature is rarely used, while users ask for an improvement to another feature. What should the team do?",
+  ["Continue enhancing the unused feature as planned", "Reprioritize the backlog toward the requested improvement and consider retiring the unused feature",
+   "Wait until the end of the project to decide", "Ask users to use the feature more"],
+  "B", "Value-based delivery uses outcome data to change priorities and stops investing in low-value features.",
+  ["Planned work that adds no value is waste.", None, "Delaying the decision wastes value.", "The data shows users' needs are elsewhere."], concept="Benefits and outcomes")
+CAT("G012", "PROCESS-T1", "H", "For each project element, choose the more suitable approach.",
+    ["Predictive", "Adaptive (agile)"],
+    [("Building foundations under a fixed building permit", 0), ("A customer mobile app with uncertain feature needs", 1),
+     ("Regulatory validation documents with fixed content", 0), ("A marketing website refined through user feedback", 1)],
+    "Stable, fixed or regulated work suits predictive planning. Uncertain, feedback-driven work suits adaptive delivery. Combining both in one project is a hybrid approach.",
+    concept="Tailoring the approach")
