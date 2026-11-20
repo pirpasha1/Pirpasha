@@ -21,3 +21,6 @@ checkpoint*
 weights
 __*.zip
 **-cache
+# property_comparison app data
+property_comparison/instance/
+.pytest_cache

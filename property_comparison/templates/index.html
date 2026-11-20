@@ -1,0 +1,142 @@
+{% extends "base.html" %}
+{% block content %}
+<form class="filters card" method="get" action="{{ url_for('main.index') }}">
+  <div class="field">
+    <label for="min_price">Min budget (₹)</label>
+    <input type="number" id="min_price" name="min_price" min="0" step="any"
+           value="{{ filters.min_price|num }}" placeholder="e.g. 3000000">
+  </div>
+  <div class="field">
+    <label for="max_price">Max budget (₹)</label>
+    <input type="number" id="max_price" name="max_price" min="0" step="any"
+           value="{{ filters.max_price|num }}" placeholder="e.g. 8000000">
+  </div>
+  <div class="field">
+    <label for="type">Property type</label>
+    <select id="type" name="type">
+      <option value="">Flats &amp; plots</option>
+      <option value="Flat" {{ 'selected' if filters.type == 'Flat' }}>Flats</option>
+      <option value="Plot" {{ 'selected' if filters.type == 'Plot' }}>Plots</option>
+    </select>
+  </div>
+  <div class="field">
+    <label for="location">Location</label>
+    <input id="location" name="location" list="locations" value="{{ filters.location }}" placeholder="Locality or city">
+    <datalist id="locations">{% for l in locations %}<option value="{{ l }}">{% endfor %}</datalist>
+  </div>
+  <div class="field">
+    <label for="ready">Status</label>
+    <select id="ready" name="ready">
+      <option value="">Any</option>
+      <option value="yes" {{ 'selected' if filters.ready == 'yes' }}>Ready to move</option>
+      <option value="no" {{ 'selected' if filters.ready == 'no' }}>Under construction</option>
+    </select>
+  </div>
+  <div class="field">
+    <label for="sort">Sort by</label>
+    <select id="sort" name="sort">
+      {% for key, (label, _) in sorts.items() %}
+        <option value="{{ key }}" {{ 'selected' if filters.sort == key }}>{{ label }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="field actions">
+    <button class="btn btn-primary" type="submit">Apply</button>
+    {% if filtered %}<a class="btn" href="{{ url_for('main.index') }}">Clear</a>{% endif %}
+  </div>
+</form>
+
+{% if summary %}
+<section class="summary">
+  {% for s in summary %}
+  <div class="stat card">
+    <div class="stat-title">{{ s.type }}s <span class="muted">({{ s.count }})</span></div>
+    <div class="stat-row"><span>Avg price</span><strong>{{ s.avg_price|inr_short }}</strong></div>
+    <div class="stat-row"><span>Avg price / sq ft</span><strong>{{ s.avg_ppsf|inr }}</strong></div>
+    <div class="stat-row"><span>Lowest price / sq ft</span><strong>{{ s.min_ppsf|inr }}</strong></div>
+  </div>
+  {% endfor %}
+</section>
+{% endif %}
+
+<div class="toolbar">
+  <div><strong>{{ props|length }}</strong> propert{{ 'y' if props|length == 1 else 'ies' }}{% if filtered %} match your filters{% endif %}</div>
+  {% if props %}
+  <div class="toolbar-actions">
+    <span class="muted">Export {{ 'filtered' if filtered else 'all' }}:</span>
+    <a class="btn" href="{{ url_for('main.report_pdf', **export_args) }}">PDF</a>
+    <a class="btn" href="{{ url_for('main.report_excel', **export_args) }}">Excel</a>
+  </div>
+  {% endif %}
+</div>
+
+{% if props %}
+<form id="compare-form" method="get" action="{{ url_for('main.compare') }}">
+  <div class="compare-bar">
+    <span id="compare-count">Tick 2 or more properties to compare</span>
+    <button class="btn btn-primary" id="compare-btn" type="submit" disabled>Compare selected</button>
+  </div>
+  <div class="grid">
+    {% for p in props %}
+    <article class="listing card">
+      <label class="pick"><input type="checkbox" name="ids" value="{{ p.id }}"> Compare</label>
+      <a href="{{ url_for('main.detail', pid=p.id) }}" class="thumb">
+        {% if p.photos %}
+          <img src="{{ url_for('main.uploaded_file', filename=p.photos[0].filename) }}" alt="{{ p.title }}" loading="lazy">
+        {% else %}
+          <span class="no-photo">No photo</span>
+        {% endif %}
+      </a>
+      <div class="listing-body">
+        <div class="badges">
+          <span class="badge badge-{{ p.property_type|lower }}">{{ p.property_type }}</span>
+          {% if p.ready_to_move %}<span class="badge badge-ready">Ready to move</span>
+          {% else %}<span class="badge badge-uc">Under construction</span>{% endif %}
+        </div>
+        <h3><a href="{{ url_for('main.detail', pid=p.id) }}">{{ p.title }}</a></h3>
+        <div class="muted">{{ p.locality }}, {{ p.city }}</div>
+        <div class="price">{{ p.price|inr_short }}</div>
+        <dl class="facts">
+          <dt>Area</dt><dd>{{ p.carpet_area_sqft|sqft }}</dd>
+          <dt>Per sq ft</dt><dd>{{ p.price_per_sqft|inr }}</dd>
+          {% if p.bhk %}<dt>BHK</dt><dd>{{ p.bhk }}</dd>{% endif %}
+          <dt>Railway</dt><dd>{{ p.railway_station_km|km }}</dd>
+          <dt>Bus stand</dt><dd>{{ p.bus_stand_km|km }}</dd>
+          <dt>Highway</dt><dd>{{ p.highway_km|km }}</dd>
+        </dl>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</form>
+{% else %}
+<div class="empty card">
+  {% if filtered %}
+    <p>No properties match these filters.</p>
+    <a class="btn" href="{{ url_for('main.index') }}">Clear filters</a>
+  {% else %}
+    <p>No properties yet. Add your first listing to start comparing.</p>
+    <a class="btn btn-primary" href="{{ url_for('main.new_property') }}">+ Add property</a>
+  {% endif %}
+</div>
+{% endif %}
+{% endblock %}
+
+{% block scripts %}
+<script>
+(function () {
+  var form = document.getElementById('compare-form');
+  if (!form) return;
+  var btn = document.getElementById('compare-btn');
+  var label = document.getElementById('compare-count');
+  function update() {
+    var n = form.querySelectorAll('input[name=ids]:checked').length;
+    btn.disabled = n < 2;
+    label.textContent = n === 0 ? 'Tick 2 or more properties to compare'
+                      : n + ' selected' + (n < 2 ? ' — pick at least one more' : '');
+  }
+  form.addEventListener('change', update);
+  update();
+})();
+</script>
+{% endblock %}

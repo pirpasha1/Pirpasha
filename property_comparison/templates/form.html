@@ -1,0 +1,154 @@
+{% extends "base.html" %}
+{% block title %}{{ 'Edit' if mode == 'edit' else 'Add' }} property — Property Compare{% endblock %}
+{% block content %}
+{% set p = prop %}
+<h1>{{ 'Edit property' if mode == 'edit' else 'Add a property' }}</h1>
+<form class="card form" method="post" enctype="multipart/form-data"
+      action="{{ url_for('main.edit_property', pid=p.id) if mode == 'edit' else url_for('main.new_property') }}">
+
+  <fieldset>
+    <legend>Basics</legend>
+    <div class="row">
+      <div class="field grow">
+        <label for="title">Title *</label>
+        <input id="title" name="title" required maxlength="200" value="{{ p.title or '' }}"
+               placeholder="e.g. 2 BHK in Skyline Residency">
+      </div>
+      <div class="field">
+        <label for="property_type">Type *</label>
+        <select id="property_type" name="property_type">
+          {% for t in types %}<option {{ 'selected' if p.property_type == t }}>{{ t }}</option>{% endfor %}
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="field">
+        <label for="price">Price (₹) *</label>
+        <input id="price" name="price" type="number" min="1" step="any" required
+               value="{{ p.price|num }}" placeholder="e.g. 6850000">
+        <small class="hint" id="price-hint"></small>
+      </div>
+      <div class="field">
+        <label for="carpet_area_sqft"><span class="flat-only">Carpet area</span><span class="plot-only">Plot area</span> (sq ft) *</label>
+        <input id="carpet_area_sqft" name="carpet_area_sqft" type="number" min="1" step="any" required
+               value="{{ p.carpet_area_sqft|num }}">
+      </div>
+      <div class="field">
+        <label>Price per sq ft</label>
+        <output id="ppsf" class="computed">—</output>
+      </div>
+    </div>
+    <div class="row flat-only">
+      <div class="field"><label for="bhk">BHK</label>
+        <input id="bhk" name="bhk" type="number" min="0" value="{{ p.bhk|num }}"></div>
+      <div class="field"><label for="floor">Floor</label>
+        <input id="floor" name="floor" type="number" min="0" value="{{ p.floor|num }}"></div>
+      <div class="field"><label for="total_floors">Total floors</label>
+        <input id="total_floors" name="total_floors" type="number" min="0" value="{{ p.total_floors|num }}"></div>
+    </div>
+    <div class="row">
+      <div class="field"><label for="facing">Facing</label>
+        <select id="facing" name="facing">
+          {% for f in facings %}<option value="{{ f }}" {{ 'selected' if (p.facing or '') == f }}>{{ f or '—' }}</option>{% endfor %}
+        </select></div>
+      <div class="field grow"><label for="developer">Developer / seller</label>
+        <input id="developer" name="developer" value="{{ p.developer or '' }}"></div>
+    </div>
+    <div class="row">
+      <div class="field check">
+        <label><input type="checkbox" name="ready_to_move" value="1" {{ 'checked' if p.ready_to_move }}> Ready to move</label>
+      </div>
+      <div class="field"><label for="possession_date">Possession date</label>
+        <input id="possession_date" name="possession_date" type="date" value="{{ p.possession_date or '' }}"></div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Locality</legend>
+    <div class="row">
+      <div class="field"><label for="locality">Locality *</label>
+        <input id="locality" name="locality" required value="{{ p.locality or '' }}"></div>
+      <div class="field"><label for="city">City *</label>
+        <input id="city" name="city" required value="{{ p.city or '' }}"></div>
+    </div>
+    <div class="field"><label for="address">Address</label>
+      <textarea id="address" name="address" rows="2">{{ p.address or '' }}</textarea></div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Connectivity</legend>
+    <div class="row">
+      <div class="field grow"><label for="railway_station_name">Nearest railway station</label>
+        <input id="railway_station_name" name="railway_station_name" value="{{ p.railway_station_name or '' }}"></div>
+      <div class="field"><label for="railway_station_km">Distance (km)</label>
+        <input id="railway_station_km" name="railway_station_km" type="number" min="0" step="0.1"
+               value="{{ p.railway_station_km|num }}"></div>
+    </div>
+    <div class="row">
+      <div class="field grow"><label for="bus_stand_name">Nearest bus stand</label>
+        <input id="bus_stand_name" name="bus_stand_name" value="{{ p.bus_stand_name or '' }}"></div>
+      <div class="field"><label for="bus_stand_km">Distance (km)</label>
+        <input id="bus_stand_km" name="bus_stand_km" type="number" min="0" step="0.1"
+               value="{{ p.bus_stand_km|num }}"></div>
+    </div>
+    <div class="row">
+      <div class="field grow"><label for="highway_name">Nearest highway</label>
+        <input id="highway_name" name="highway_name" value="{{ p.highway_name or '' }}"></div>
+      <div class="field"><label for="highway_km">Distance (km)</label>
+        <input id="highway_km" name="highway_km" type="number" min="0" step="0.1"
+               value="{{ p.highway_km|num }}"></div>
+    </div>
+    <div class="field"><label for="connectivity_notes">Other connectivity notes</label>
+      <textarea id="connectivity_notes" name="connectivity_notes" rows="2"
+                placeholder="Metro, airport, schools, hospitals…">{{ p.connectivity_notes or '' }}</textarea></div>
+  </fieldset>
+
+  <fieldset>
+    <legend>More</legend>
+    <div class="field"><label for="amenities">Amenities</label>
+      <textarea id="amenities" name="amenities" rows="2">{{ p.amenities or '' }}</textarea></div>
+    <div class="field"><label for="notes">Notes</label>
+      <textarea id="notes" name="notes" rows="3">{{ p.notes or '' }}</textarea></div>
+    <div class="field"><label for="photos">{{ 'Add more photos' if mode == 'edit' else 'Photos' }}</label>
+      <input id="photos" name="photos" type="file" accept="image/*" multiple>
+      <small class="hint">JPEG, PNG, WebP, GIF or BMP. Large images are resized to 1600 px.</small></div>
+  </fieldset>
+
+  <div class="form-actions">
+    <button class="btn btn-primary" type="submit">{{ 'Save changes' if mode == 'edit' else 'Add property' }}</button>
+    <a class="btn" href="{{ url_for('main.detail', pid=p.id) if mode == 'edit' else url_for('main.index') }}">Cancel</a>
+  </div>
+</form>
+{% endblock %}
+
+{% block scripts %}
+<script>
+(function () {
+  var type = document.getElementById('property_type');
+  var price = document.getElementById('price');
+  var area = document.getElementById('carpet_area_sqft');
+  var out = document.getElementById('ppsf');
+  var hint = document.getElementById('price-hint');
+  var inr = new Intl.NumberFormat('en-IN', {style: 'currency', currency: 'INR', maximumFractionDigits: 0});
+  function short(v) {
+    if (v >= 1e7) return '₹' + (v / 1e7).toFixed(2) + ' Cr';
+    if (v >= 1e5) return '₹' + (v / 1e5).toFixed(2) + ' L';
+    return inr.format(v);
+  }
+  function toggle() {
+    var isPlot = type.value === 'Plot';
+    document.querySelectorAll('.flat-only').forEach(function (el) { el.hidden = isPlot; });
+    document.querySelectorAll('.plot-only').forEach(function (el) { el.hidden = !isPlot; });
+  }
+  function calc() {
+    var p = parseFloat(price.value), a = parseFloat(area.value);
+    out.textContent = (p > 0 && a > 0) ? inr.format(p / a) + ' / sq ft' : '—';
+    hint.textContent = p > 0 ? short(p) : '';
+  }
+  type.addEventListener('change', toggle);
+  price.addEventListener('input', calc);
+  area.addEventListener('input', calc);
+  toggle(); calc();
+})();
+</script>
+{% endblock %}

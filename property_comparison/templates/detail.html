@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% block title %}{{ p.title }} — Property Compare{% endblock %}
+{% block content %}
+<div class="detail-head">
+  <div>
+    <div class="badges">
+      <span class="badge badge-{{ p.property_type|lower }}">{{ p.property_type }}</span>
+      {% if p.ready_to_move %}<span class="badge badge-ready">Ready to move</span>
+      {% else %}<span class="badge badge-uc">Under construction</span>{% endif %}
+    </div>
+    <h1>{{ p.title }}</h1>
+    <div class="muted">{{ p.locality }}, {{ p.city }}{% if p.address %} · {{ p.address }}{% endif %}</div>
+  </div>
+  <div class="detail-actions">
+    <a class="btn" href="{{ url_for('main.report_pdf', ids=p.id) }}">PDF</a>
+    <a class="btn" href="{{ url_for('main.report_excel', ids=p.id) }}">Excel</a>
+    <a class="btn" href="{{ url_for('main.edit_property', pid=p.id) }}">Edit</a>
+    <form method="post" action="{{ url_for('main.delete_property', pid=p.id) }}"
+          onsubmit="return confirm('Delete this property and its photos?');">
+      <button class="btn btn-danger" type="submit">Delete</button>
+    </form>
+  </div>
+</div>
+
+<section class="key-figures">
+  <div class="card kf"><span>Price</span><strong>{{ p.price|inr_short }}</strong><small>{{ p.price|inr }}</small></div>
+  <div class="card kf"><span>{{ 'Carpet area' if p.property_type == 'Flat' else 'Plot area' }}</span><strong>{{ p.carpet_area_sqft|sqft }}</strong></div>
+  <div class="card kf"><span>Price per sq ft</span><strong>{{ p.price_per_sqft|inr }}</strong></div>
+</section>
+
+<div class="two-col">
+  <section class="card">
+    <h2>Details</h2>
+    <dl class="facts wide">
+      {% if p.property_type == 'Flat' %}
+        <dt>BHK</dt><dd>{{ p.bhk if p.bhk is not none else '—' }}</dd>
+        <dt>Floor</dt><dd>{{ p.floor_display or '—' }}</dd>
+      {% endif %}
+      <dt>Facing</dt><dd>{{ p.facing or '—' }}</dd>
+      <dt>Possession</dt><dd>{{ p.possession_date or ('Immediate' if p.ready_to_move else '—') }}</dd>
+      <dt>Developer / seller</dt><dd>{{ p.developer or '—' }}</dd>
+      <dt>Amenities</dt><dd>{{ p.amenities or '—' }}</dd>
+      <dt>Notes</dt><dd class="pre">{{ p.notes or '—' }}</dd>
+    </dl>
+  </section>
+  <section class="card">
+    <h2>Connectivity</h2>
+    <table class="conn">
+      <tr><th>Railway station</th><td>{{ p.railway_station_name or '—' }}</td><td class="num">{{ p.railway_station_km|km }}</td></tr>
+      <tr><th>Bus stand</th><td>{{ p.bus_stand_name or '—' }}</td><td class="num">{{ p.bus_stand_km|km }}</td></tr>
+      <tr><th>Highway</th><td>{{ p.highway_name or '—' }}</td><td class="num">{{ p.highway_km|km }}</td></tr>
+    </table>
+    {% if p.connectivity_notes %}<p class="pre">{{ p.connectivity_notes }}</p>{% endif %}
+  </section>
+</div>
+
+<section class="card" id="photos">
+  <h2>Photographs <span class="muted">({{ p.photos|length }})</span></h2>
+  {% if p.photos %}
+  <div class="gallery">
+    {% for ph in p.photos %}
+    <figure>
+      <a href="{{ url_for('main.uploaded_file', filename=ph.filename) }}" target="_blank" rel="noopener">
+        <img src="{{ url_for('main.uploaded_file', filename=ph.filename) }}" alt="{{ ph.original_name or 'Photo' }}" loading="lazy">
+      </a>
+      <form method="post" action="{{ url_for('main.delete_photo', photo_id=ph.id) }}"
+            onsubmit="return confirm('Remove this photo?');">
+        <button class="link-danger" type="submit">Remove</button>
+      </form>
+    </figure>
+    {% endfor %}
+  </div>
+  {% else %}
+  <p class="muted">No photos yet.</p>
+  {% endif %}
+  <form class="upload" method="post" enctype="multipart/form-data" action="{{ url_for('main.upload_photos', pid=p.id) }}">
+    <input type="file" name="photos" accept="image/*" multiple required>
+    <button class="btn" type="submit">Upload photos</button>
+  </form>
+</section>
+{% endblock %}
