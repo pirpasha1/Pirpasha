@@ -76,7 +76,13 @@ The build machine's HTTPS proxy re-terminates TLS, so local checks would only se
 | kanbanguides.org | kanbanguides.org | GeoTrust TLS RSA CA G1 | 2027-05-05 | A |
 | agilealliance.org | agilealliance.org | YR2 (a Let's Encrypt 2025 intermediate; short-lived, auto-renewing) | 2026-12-22 | A |
 | www.scrum.org | scrum.org | Amazon RSA 2048 M04 | 2027-04-07 | A+ (4 endpoints) |
-| scrumguides.org, agilemanifesto.org, opentextbc.ca, collection.bccampus.ca, gac-dir.weaveaccreditation.com | see §3c | | | |
+| scrumguides.org | scrumguides.org | YR1 (Let's Encrypt) | 2027-01-22 | B (4 endpoints) ¹ |
+| agilemanifesto.org | agilemanifesto.org | YR1 (Let's Encrypt) | 2027-01-27 | B (4 endpoints) ¹ |
+| opentextbc.ca | opentextbc.ca | WR1 (Google Trust Services) | 2027-01-20 | A (6 endpoints) |
+| collection.bccampus.ca | bccampus.ca | WR1 (Google Trust Services) | 2027-01-20 | A+ (6 endpoints) |
+| gac-dir.weaveaccreditation.com | *.weaveaccreditation.com | Amazon RSA 2048 S24 | 2027-06-02 | A+ (12 endpoints) |
+
+¹ The B grade is a server-configuration cap, not a certificate problem. These two sites are on GitHub Pages' shared servers (185.199.108–111.153). The certificate is valid and trusted, only TLS 1.2 and 1.3 are offered, and there is no RC4 or BEAST exposure. SSL Labs caps the grade because only some cipher suites provide forward secrecy (its forward-secrecy rating is 1) and HSTS is absent. Visitors' connections are still encrypted and authenticated; the owners would need to change this on their side.
 
 The pmi.org and agilealliance.org certificates expire within ~5 weeks. That is normal for 90-day auto-renewing certificates, and the sites will renew them themselves. The app only opens these links in the phone's browser, which does its own certificate checks.
 
@@ -89,7 +95,11 @@ The pmi.org and agilealliance.org certificates expire within ~5 weeks. That is n
 **Fix applied:** that debug key was generated inside a temporary cloud machine, so a future rebuild would have produced a differently signed APK. That would force an uninstall, wiping a learner's local progress. The same key is now committed as `android/app/debug.keystore` (debug keys are not secret) and pinned in the build. The rebuilt APK has the identical SHA-256 fingerprint, so it installs as an update.
 
 ### 3c. Remaining TLS scans
-As of this report, SSL Labs had **not finished** scanning scrumguides.org, agilemanifesto.org, opentextbc.ca, collection.bccampus.ca and gac-dir.weaveaccreditation.com (still queued or in progress). All five loaded over HTTPS in the real-browser check (§1), but that is not a certificate audit, so they are listed as **pending** until the scans complete.
+All 10 hosts are now scanned (final poll at 02:15 UTC, 20 Nov 2026).
+- **Result:** every certificate is valid, trusted, covers its hostname and is in date.
+- **Grades:** 6 × A+, 2 × A, 2 × B. The B grades are server cipher configuration only (see footnote ¹).
+- **Earliest expiries:** agilealliance.org (22 Dec 2026) and pmi.org (24 Dec 2026). Both use short-lived certificates from automatically renewing authorities.
+- **Re-check:** repeat this check at each content release.
 
 ---
 
