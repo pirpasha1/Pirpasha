@@ -1,0 +1,106 @@
+"""Resource library and institution directory.
+
+Rules: every link was checked on the date in VERIFIED. Links point to the owner's site;
+nothing is re-hosted. Cost notes describe what was visible at verification time.
+Institutions are LISTED only. No partnership exists unless written authorization is on file.
+"""
+
+VERIFIED = "2026-11-20"
+
+RESOURCES = [
+    dict(id="R-ECO", category="OFFICIAL", title="PMP Examination Content Outline (July 2026)", provider="Project Management Institute",
+         url="https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/new-pmp-examination-content-outline-2026.pdf",
+         cost="Free", description="The official outline of domains, tasks and enablers tested on the current PMP exam. Start here."),
+    dict(id="R-NEWEXAM", category="OFFICIAL", title="What's new in the updated PMP exam", provider="Project Management Institute",
+         url="https://www.pmi.org/certifications/project-management-pmp/new-exam",
+         cost="Free", description="PMI's summary of the July 2026 changes: new domain weights, AI and sustainability topics, eligibility updates."),
+    dict(id="R-HANDBOOK", category="OFFICIAL", title="PMI Certification Handbook", provider="Project Management Institute",
+         url="https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/generic-certification-handbook.pdf",
+         cost="Free", description="Official policies on applications, eligibility, exam scheduling, scoring reports and retakes."),
+    dict(id="R-PMP-HANDBOOK", category="OFFICIAL", title="PMP Certification Handbook", provider="Project Management Institute",
+         url="https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/project-management-professional-handbook.pdf",
+         cost="Free", description="PMP-specific handbook. Read it before applying."),
+    dict(id="R-SCRUM", category="GUIDE", title="The 2020 Scrum Guide", provider="Ken Schwaber & Jeff Sutherland",
+         url="https://scrumguides.org/scrum-guide.html", cost="Free", licence="CC BY-SA 4.0",
+         description="The official definition of Scrum: roles, events and artifacts. Short and essential for agile questions."),
+    dict(id="R-KANBAN", category="GUIDE", title="The Kanban Guide", provider="Kanban Guides (Coleman & Vacanti)",
+         url="https://kanbanguides.org/the-kanban-guide/", cost="Free",
+         description="A concise reference to Kanban flow, WIP limits and flow metrics."),
+    dict(id="R-MANIFESTO", category="GUIDE", title="Manifesto for Agile Software Development", provider="agilemanifesto.org",
+         url="https://agilemanifesto.org/", cost="Free", description="The four values and twelve principles behind agile approaches."),
+    dict(id="R-WATT", category="OER", title="Project Management – 2nd Edition (open textbook)", provider="Adrienne Watt / BCcampus",
+         url="https://opentextbc.ca/projectmanagement/", cost="Free", licence="CC BY 4.0",
+         description="A complete, openly licensed introductory textbook covering the project life cycle, planning, scheduling, budgeting and risk."),
+    dict(id="R-PMIWEB", category="WEBINAR", title="PMI webinars library", provider="Project Management Institute",
+         url="https://www.pmi.org/learning/webinars", cost="Varies – some free, many need PMI membership",
+         description="On-demand presentations that earn PDUs. Check access requirements for each webinar."),
+    dict(id="R-PMCOM", category="WEBINAR", title="ProjectManagement.com on-demand webinars", provider="ProjectManagement.com (PMI)",
+         url="https://www.projectmanagement.com/webinars/webinarmainondemand.cfm", cost="Varies – free registration; some content for members",
+         description="Large library of webinars and articles on agile, risk, leadership and more."),
+    dict(id="R-CHAPTERS", category="WEBINAR", title="Find a local PMI chapter", provider="Project Management Institute",
+         url="https://www.pmi.org/membership/chapters", cost="Browsing free; chapter events vary",
+         description="Local chapters often run study groups, networking events and free or low-cost sessions."),
+]
+
+INSTITUTIONS = [
+    dict(id="I-PMI", name="Project Management Institute (PMI)", type="Professional body", country="Global (HQ USA)",
+         website="https://www.pmi.org/",
+         description="Global professional association that owns and administers the PMP certification and publishes the Exam Content Outline.",
+         freeOfferings=["Exam Content Outline", "Certification handbooks", "Some free webinars and articles"]),
+    dict(id="I-CHAPTERS", name="PMI local chapters", type="PMI chapter network", country="300+ chapters worldwide",
+         website="https://www.pmi.org/membership/chapters",
+         description="Volunteer-led chapters that host local events, study groups and networking.",
+         freeOfferings=["Chapter events (vary)", "Networking"]),
+    dict(id="I-ATP", name="PMI Authorized Training Partners (directory)", type="Training partner directory", country="Global",
+         website="https://www.pmi.org/learning/authorized-training-partners",
+         description="PMI's official directory of approved training providers. From 1 December 2026, PMI is changing which live training counts toward the 35 contact hours; check the PMI page."),
+    dict(id="I-GAC", name="GAC-accredited degree programs (directory)", type="University program directory", country="Global",
+         website="https://gac-dir.weaveaccreditation.com/",
+         description="Directory of university project-management programs accredited by PMI's Global Accreditation Center."),
+    dict(id="I-SCRUMORG", name="Scrum.org", type="Agile training organization", country="Global",
+         website="https://www.scrum.org/",
+         description="Publishes free Scrum resources and open practice assessments; offers paid certifications.",
+         freeOfferings=["Open practice assessments", "Articles and blogs"]),
+    dict(id="I-AGILEALLIANCE", name="Agile Alliance", type="Non-profit association", country="Global",
+         website="https://www.agilealliance.org/",
+         description="Non-profit supporting agile practitioners; publishes a free agile glossary and articles.",
+         freeOfferings=["Agile glossary", "Articles"]),
+    dict(id="I-BCCAMPUS", name="BCcampus Open Education", type="Open education publisher", country="Canada",
+         website="https://collection.bccampus.ca/textbook/qG6YTBiy/",
+         description="Publisher of the openly licensed 'Project Management – 2nd Edition' textbook.",
+         freeOfferings=["Open textbook (CC BY 4.0)"]),
+]
+
+FAQS = [
+    ("Is this app made by PMI?", "No. OpenPM Prep is an independent, free study platform. It is not affiliated with, endorsed by or sponsored by Project Management Institute (PMI). PMP, PMBOK and PMI are registered marks of Project Management Institute, Inc."),
+    ("Which exam version does this app follow?", "The PMP exam launched in July 2026 (ECO-2026-07): People 33%, Process 41%, Business Environment 26%; 180 questions (170 scored) in 240 minutes with two 10-minute breaks. Every lesson and question shows its ECO tag."),
+    ("Is everything really free?", "Yes. Registration, study material, practice tests, mock exams, results and basic assistance are free. There are no subscriptions, premium locks or paid exam packages."),
+    ("What does the 'Demo content' label mean?", "Demo items were written for this app and have not yet been reviewed by a PMP-certified subject-matter expert. Reviewed items show 'Reviewed'. Both are original, but use demo items with that in mind."),
+    ("Are these real exam questions?", "No. All questions are original practice items written against the public Exam Content Outline. Real PMP questions are confidential, and sharing them breaks PMI's rules."),
+    ("How is the readiness score calculated?", "Readiness = 25% lesson coverage + 15% flashcard retention + 25% recent practice accuracy + 35% average of your last two full mocks. It is a study guide, not a pass prediction."),
+    ("How are results banded?", "The app uses PMI-style bands (Above Target, Target, Below Target, Needs Improvement) with thresholds of 80/65/50%. PMI does not publish its passing score, so treat bands as estimates."),
+    ("Can I use the app offline?", "Yes. All lessons, flashcards and questions are on your device. Guest progress is stored on the device only."),
+    ("How do breaks work in the full mock?", "Like the real exam: after the case-study section and about halfway through the independent questions you may take a 10-minute break. Once you start a break, you cannot go back to the previous section. The exam clock pauses during breaks."),
+    ("How are multiple-response and drag-and-drop items scored?", "All-or-nothing, as on the real exam. The review screen shows which parts you got right so you can learn."),
+    ("Do I still need 35 contact hours of training?", "Yes. PMI requires 35 hours of project management education to apply. PMI is changing which live training counts from 1 December 2026; check PMI's official pages. This app is a study aid and does not issue contact hours."),
+    ("Can institutions partner with the app?", "Yes. Use the partnership enquiry form in the Institutions section. Directory entries are 'Listed' public information only. A 'Verified partner' badge appears only after written authorization."),
+]
+
+REVISION = [
+    ("CV / SV", "CV = EV − AC; SV = EV − PV. Negative = over budget / behind schedule."),
+    ("CPI / SPI", "CPI = EV / AC; SPI = EV / PV. Below 1 = bad."),
+    ("EAC (typical)", "EAC = BAC / CPI. Atypical: AC + (BAC − EV). With CPI×SPI: AC + (BAC − EV)/(CPI × SPI)."),
+    ("ETC / VAC", "ETC = EAC − AC; VAC = BAC − EAC."),
+    ("TCPI", "TCPI = (BAC − EV) / (BAC − AC) to meet BAC."),
+    ("PERT", "(O + 4M + P) / 6; standard deviation ≈ (P − O) / 6."),
+    ("Communication channels", "n(n − 1) / 2."),
+    ("EMV", "Probability × impact (threats negative, opportunities positive)."),
+    ("Float", "Total float = LS − ES = LF − EF. Critical path float = 0."),
+    ("Compression", "Crashing adds cost; fast tracking adds risk."),
+    ("Contract risk", "Fixed price: seller carries risk. Cost-reimbursable: buyer carries risk. T&M: shared; cap it."),
+    ("Reserves", "Contingency (known-unknowns) is inside the cost baseline; management reserve (unknown-unknowns) is outside it."),
+    ("Quality vs grade", "Low quality is always a problem; low grade may be acceptable."),
+    ("Validate vs control", "Control quality = correct (verified); validate scope = accepted by the customer."),
+    ("Agile vs predictive scope", "Agile: fixed time and cost, flexible scope. Predictive: fixed scope with change control."),
+    ("Risk responses", "Threats: avoid, transfer, mitigate, accept, escalate. Opportunities: exploit, share, enhance, accept, escalate."),
+]

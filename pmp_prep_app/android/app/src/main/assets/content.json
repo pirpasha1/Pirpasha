@@ -1,0 +1,5435 @@
+{
+ "eco": "ECO-2026-07",
+ "contentVersion": 1,
+ "tasks": [
+  {
+   "id": "PEOPLE-T1",
+   "domain": "PEOPLE",
+   "number": 1,
+   "title": "Develop a common vision"
+  },
+  {
+   "id": "PEOPLE-T2",
+   "domain": "PEOPLE",
+   "number": 2,
+   "title": "Manage conflicts"
+  },
+  {
+   "id": "PEOPLE-T3",
+   "domain": "PEOPLE",
+   "number": 3,
+   "title": "Lead the project team"
+  },
+  {
+   "id": "PEOPLE-T4",
+   "domain": "PEOPLE",
+   "number": 4,
+   "title": "Engage stakeholders"
+  },
+  {
+   "id": "PEOPLE-T5",
+   "domain": "PEOPLE",
+   "number": 5,
+   "title": "Align stakeholder expectations"
+  },
+  {
+   "id": "PEOPLE-T6",
+   "domain": "PEOPLE",
+   "number": 6,
+   "title": "Manage stakeholder expectations"
+  },
+  {
+   "id": "PEOPLE-T7",
+   "domain": "PEOPLE",
+   "number": 7,
+   "title": "Help ensure knowledge transfer"
+  },
+  {
+   "id": "PEOPLE-T8",
+   "domain": "PEOPLE",
+   "number": 8,
+   "title": "Plan and manage communication"
+  },
+  {
+   "id": "PROCESS-T1",
+   "domain": "PROCESS",
+   "number": 1,
+   "title": "Develop an integrated project management plan and plan delivery"
+  },
+  {
+   "id": "PROCESS-T2",
+   "domain": "PROCESS",
+   "number": 2,
+   "title": "Develop and manage project scope"
+  },
+  {
+   "id": "PROCESS-T3",
+   "domain": "PROCESS",
+   "number": 3,
+   "title": "Help ensure value-based delivery"
+  },
+  {
+   "id": "PROCESS-T4",
+   "domain": "PROCESS",
+   "number": 4,
+   "title": "Plan and manage resources"
+  },
+  {
+   "id": "PROCESS-T5",
+   "domain": "PROCESS",
+   "number": 5,
+   "title": "Plan and manage procurement"
+  },
+  {
+   "id": "PROCESS-T6",
+   "domain": "PROCESS",
+   "number": 6,
+   "title": "Plan and manage finance"
+  },
+  {
+   "id": "PROCESS-T7",
+   "domain": "PROCESS",
+   "number": 7,
+   "title": "Plan and optimize quality of products/deliverables"
+  },
+  {
+   "id": "PROCESS-T8",
+   "domain": "PROCESS",
+   "number": 8,
+   "title": "Plan and manage schedule"
+  },
+  {
+   "id": "PROCESS-T9",
+   "domain": "PROCESS",
+   "number": 9,
+   "title": "Evaluate project status"
+  },
+  {
+   "id": "PROCESS-T10",
+   "domain": "PROCESS",
+   "number": 10,
+   "title": "Manage project closure"
+  },
+  {
+   "id": "BUSINESS_ENV-T1",
+   "domain": "BUSINESS_ENV",
+   "number": 1,
+   "title": "Define and establish project governance"
+  },
+  {
+   "id": "BUSINESS_ENV-T2",
+   "domain": "BUSINESS_ENV",
+   "number": 2,
+   "title": "Plan and manage project compliance"
+  },
+  {
+   "id": "BUSINESS_ENV-T3",
+   "domain": "BUSINESS_ENV",
+   "number": 3,
+   "title": "Manage and control changes"
+  },
+  {
+   "id": "BUSINESS_ENV-T4",
+   "domain": "BUSINESS_ENV",
+   "number": 4,
+   "title": "Remove impediments and manage issues"
+  },
+  {
+   "id": "BUSINESS_ENV-T5",
+   "domain": "BUSINESS_ENV",
+   "number": 5,
+   "title": "Plan and manage risk"
+  },
+  {
+   "id": "BUSINESS_ENV-T6",
+   "domain": "BUSINESS_ENV",
+   "number": 6,
+   "title": "Continuous improvement"
+  },
+  {
+   "id": "BUSINESS_ENV-T7",
+   "domain": "BUSINESS_ENV",
+   "number": 7,
+   "title": "Support organizational change"
+  },
+  {
+   "id": "BUSINESS_ENV-T8",
+   "domain": "BUSINESS_ENV",
+   "number": 8,
+   "title": "Evaluate external business environment changes"
+  }
+ ],
+ "lessons": [
+  {
+   "id": "L001",
+   "taskId": "PEOPLE-T1",
+   "title": "Develop a common vision",
+   "summary": "A shared vision tells everyone why the project exists and what success looks like, so daily decisions pull in the same direction.",
+   "body": [
+    "A common vision is a short, memorable description of the future state the project will create and the value it brings. It is not the scope statement; it is the 'why' behind the scope.",
+    "Build it with the people who will deliver and use the outcome, not for them. Co-creation builds ownership.",
+    "- Start from the business case and the sponsor's objectives.",
+    "- Run a workshop: product vision box, elevator pitch, or 'press release from the future'.",
+    "- Test the vision against stakeholder needs and constraints, then publish it where the team sees it every day.",
+    "Revisit the vision at key points (release planning, phase gates, major change requests). If the environment changes, update the vision openly rather than letting it silently drift."
+   ],
+   "keyTerms": [
+    {
+     "term": "Product vision",
+     "definition": "A concise statement of who the product is for, the need it meets and why it is better than alternatives."
+    },
+    {
+     "term": "Project charter",
+     "definition": "The document that formally authorizes the project and links it to organizational objectives."
+    },
+    {
+     "term": "North-star metric",
+     "definition": "One outcome measure the team uses to judge whether work moves toward the vision."
+    }
+   ],
+   "example": "A hospital IT team argued about which features to build first. The project manager facilitated a two-hour session with nurses and the sponsor to write a one-sentence vision: 'Nurses spend ten more minutes per shift with patients.' Feature debates were then settled by asking which item moved that number most.",
+   "approachNote": "Predictive projects capture the vision in the charter and business case. Agile teams make it visible in a product vision and refresh it each release; the product owner is its day-to-day guardian.",
+   "examTip": "When a question describes a team pulling in different directions, the best answer usually re-connects people to the shared vision and objectives before any directive action.",
+   "minutes": 8
+  },
+  {
+   "id": "L002",
+   "taskId": "PEOPLE-T2",
+   "title": "Manage conflicts",
+   "summary": "Conflict is normal and can be useful; the project manager's job is to address its source early and collaboratively.",
+   "body": [
+    "Common sources of project conflict are schedules, priorities, resources, technical opinions, procedures, cost and personalities.",
+    "Five classic resolution approaches:",
+    "- Collaborate / problem-solve: work together on the underlying issue; usually the best long-term result.",
+    "- Compromise / reconcile: each side gives something up; acceptable when collaboration is not possible.",
+    "- Smooth / accommodate: emphasize agreement; preserves relationships short-term.",
+    "- Force / direct: one view wins; reserved for emergencies, safety or legal issues.",
+    "- Withdraw / avoid: step back; useful only to let emotions cool or when the issue is trivial.",
+    "Assess the stage of the conflict (from problem to solve, through disagreement, contest and crusade, to world war). The higher it escalates, the more structured and protective the intervention must be. Address conflict privately first and focus on interests, not positions."
+   ],
+   "keyTerms": [
+    {
+     "term": "Collaborating",
+     "definition": "Incorporating multiple viewpoints to reach consensus and commitment."
+    },
+    {
+     "term": "Team charter",
+     "definition": "Team-created agreements on values, decision-making and conflict handling."
+    },
+    {
+     "term": "Psychological safety",
+     "definition": "A shared belief that people can speak up without fear of punishment or humiliation."
+    }
+   ],
+   "example": "Two senior developers disagree loudly in the stand-up about an architecture choice. The project manager thanks both, ends the stand-up on time, then meets them together with the architect to list each option's trade-offs against agreed criteria.",
+   "approachNote": "In agile teams the team charter and retrospectives are the first tools; the servant leader coaches the team to resolve conflict itself. In predictive projects the project manager more often facilitates directly, but collaboration is still preferred.",
+   "examTip": "Look for answers where the PM meets the parties, listens and facilitates a collaborative solution. 'Escalate to the sponsor' or 'force a decision' are rarely first steps.",
+   "minutes": 8
+  },
+  {
+   "id": "L003",
+   "taskId": "PEOPLE-T3",
+   "title": "Lead the project team",
+   "summary": "Leading the team means creating the conditions for people to do their best work: clear goals, support, autonomy and growth.",
+   "body": [
+    "Modern project leadership is mostly servant leadership: remove obstacles, shield the team from disruption, and grow capability.",
+    "- Set direction: link work to the vision and outcomes.",
+    "- Build the team: onboarding, team charter, clear roles (a RACI helps in predictive settings).",
+    "- Empower: let the team decide how to do the work; agree decision boundaries.",
+    "- Develop: coaching, mentoring, training and recognition.",
+    "- Adapt style: directive for a new team, supportive or delegating as maturity grows (situational leadership).",
+    "Emotional intelligence underpins all of this: self-awareness, self-management, social awareness and relationship management. Recognize contributions publicly and give corrective feedback privately.",
+    "AI tools are changing team work. Leaders set norms for responsible use, such as checking AI output, protecting confidential data and keeping humans accountable for decisions."
+   ],
+   "keyTerms": [
+    {
+     "term": "Servant leadership",
+     "definition": "Leading by serving the team's needs, removing impediments and enabling self-organization."
+    },
+    {
+     "term": "Situational leadership",
+     "definition": "Adapting leadership style to the competence and commitment of the individual or team."
+    },
+    {
+     "term": "Emotional intelligence",
+     "definition": "The ability to recognize and manage your own emotions and those of others."
+    }
+   ],
+   "example": "A newly formed team keeps missing sprint goals. Instead of assigning tasks, the project manager runs a working-agreements session, pairs a junior developer with a senior one, and asks the team what blocks them; the top blocker (slow test environment) is fixed within a week.",
+   "approachNote": "Agile: the team self-organizes; the PM/scrum master coaches. Predictive: the PM plans resources and assignments but should still empower and develop people.",
+   "examTip": "Prefer answers that empower, coach and support the team over answers that micromanage, blame or replace people.",
+   "minutes": 8
+  },
+  {
+   "id": "L004",
+   "taskId": "PEOPLE-T4",
+   "title": "Engage stakeholders",
+   "summary": "Stakeholder engagement starts with finding everyone who can affect or is affected by the project, then involving them at the right level.",
+   "body": [
+    "Identify stakeholders early and continuously; new ones appear throughout the project.",
+    "Analyze them with tools such as a power/interest grid, salience model or influence/impact grid.",
+    "Assess current versus desired engagement (unaware, resistant, neutral, supportive, leading) in a stakeholder engagement assessment matrix.",
+    "Plan engagement actions that close the gap, for example demos for neutral users or one-to-one meetings with resistant managers.",
+    "The July 2026 outline puts greater emphasis on stakeholder engagement and on outcomes for stakeholders, including sustainability and social impact."
+   ],
+   "keyTerms": [
+    {
+     "term": "Stakeholder register",
+     "definition": "A list of stakeholders with their role, interest, influence and engagement information."
+    },
+    {
+     "term": "Power/interest grid",
+     "definition": "Groups stakeholders as manage closely, keep satisfied, keep informed or monitor."
+    },
+    {
+     "term": "Engagement assessment matrix",
+     "definition": "Compares current (C) and desired (D) engagement levels per stakeholder."
+    }
+   ],
+   "example": "During a warehouse automation project the PM noticed the union representative was missing from the register. Adding them early and inviting them to design workshops avoided a later dispute about shift patterns.",
+   "approachNote": "Agile teams engage stakeholders through frequent reviews and demos. Predictive projects rely more on planned communications and formal reviews, but both need ongoing engagement.",
+   "examTip": "If a 'new' or 'overlooked' stakeholder appears in a question, the first step is usually to update the stakeholder register and analyze them.",
+   "minutes": 8
+  },
+  {
+   "id": "L005",
+   "taskId": "PEOPLE-T5",
+   "title": "Align stakeholder expectations",
+   "summary": "Alignment means stakeholders agree on objectives, priorities and success criteria before major work commits resources.",
+   "body": [
+    "Misaligned expectations are a leading cause of project failure. Make expectations explicit early.",
+    "- Clarify objectives, acceptance criteria and constraints in the charter or product vision.",
+    "- Prioritize together using MoSCoW, value-versus-effort or weighted scoring.",
+    "- Resolve conflicting requirements by returning to business objectives, and escalate genuine trade-offs to the sponsor or product owner with options.",
+    "- Record agreements: requirements documents, definition of done, service-level targets.",
+    "Alignment is a facilitation task: bring the parties together rather than shuttling messages between them."
+   ],
+   "keyTerms": [
+    {
+     "term": "MoSCoW",
+     "definition": "Prioritization into Must have, Should have, Could have and Won't have this time."
+    },
+    {
+     "term": "Acceptance criteria",
+     "definition": "Conditions a deliverable must meet to be accepted."
+    },
+    {
+     "term": "Definition of done",
+     "definition": "The team's shared checklist for when an increment is complete."
+    }
+   ],
+   "example": "Marketing wanted a launch in March; compliance needed an audit trail that would take until May. The PM ran a joint session that agreed a March pilot for internal users with the audit trail as a must-have for the May public launch.",
+   "approachNote": "Agile: the product owner aligns stakeholders through the backlog. Predictive: alignment is captured in baselined requirements and the scope statement.",
+   "examTip": "Choose answers that bring conflicting stakeholders together around business objectives, rather than siding with the most senior person.",
+   "minutes": 8
+  },
+  {
+   "id": "L006",
+   "taskId": "PEOPLE-T6",
+   "title": "Manage stakeholder expectations",
+   "summary": "Expectations shift during a project; the PM monitors them and responds before small gaps become crises.",
+   "body": [
+    "Monitor engagement and sentiment through conversations, surveys, demos and the issue log.",
+    "- Communicate bad news early with facts, impact and options.",
+    "- Use the issue log to track concerns to resolution.",
+    "- Re-plan engagement when a stakeholder's power, interest or attitude changes.",
+    "- Celebrate delivered value so stakeholders see progress.",
+    "Never hide problems to keep stakeholders 'happy'. Transparency builds trust over time."
+   ],
+   "keyTerms": [
+    {
+     "term": "Issue log",
+     "definition": "A record of current problems, owners and resolution dates."
+    },
+    {
+     "term": "Stakeholder engagement plan",
+     "definition": "Strategies and actions to involve stakeholders effectively."
+    },
+    {
+     "term": "Transparency",
+     "definition": "Openly sharing status, risks and decisions."
+    }
+   ],
+   "example": "A sponsor expected a mobile app to support offline mode, but it was never in scope. Spotting this in a demo, the PM explained the current scope, estimated the change and let the sponsor decide via change control.",
+   "approachNote": "Agile: frequent demos reveal expectation gaps quickly. Predictive: gaps often surface at milestone reviews, so proactive check-ins matter more.",
+   "examTip": "When a stakeholder is unhappy, first understand their concern (meet, listen) and check the plan and register. Then act.",
+   "minutes": 8
+  },
+  {
+   "id": "L007",
+   "taskId": "PEOPLE-T7",
+   "title": "Help ensure knowledge transfer",
+   "summary": "Knowledge transfer makes sure what the team learns stays with the organization and reaches the people who will operate the outcome.",
+   "body": [
+    "Two kinds of knowledge: explicit knowledge (documents, code, procedures), which is easy to codify, and tacit knowledge (experience, judgment), which spreads through people.",
+    "- Explicit tools: lessons-learned register, wikis, runbooks, knowledge bases.",
+    "- Tacit tools: pairing, mentoring, communities of practice, job shadowing, storytelling.",
+    "Capture lessons throughout the project, not only at the end. Plan handover to operations and support teams early, including training and documentation."
+   ],
+   "keyTerms": [
+    {
+     "term": "Lessons-learned register",
+     "definition": "A living record of what worked, what didn't and recommendations, kept throughout the project."
+    },
+    {
+     "term": "Tacit knowledge",
+     "definition": "Personal know-how that is hard to write down."
+    },
+    {
+     "term": "Community of practice",
+     "definition": "A group sharing expertise on a topic across projects."
+    }
+   ],
+   "example": "Before a key engineer rotated off, the PM scheduled two weeks of pairing with her successor and recorded short videos of the deployment process for the support team.",
+   "approachNote": "Agile teams share knowledge through pairing, mob programming and retrospectives. Predictive projects formalize lessons learned at phase ends, but should record them continuously.",
+   "examTip": "Answers that update the lessons-learned register promptly or arrange pairing/mentoring are usually stronger than 'document it at closure'.",
+   "minutes": 8
+  },
+  {
+   "id": "L008",
+   "taskId": "PEOPLE-T8",
+   "title": "Plan and manage communication",
+   "summary": "Communication planning decides who needs what information, when, in what format and through which channel, and checks that it worked.",
+   "body": [
+    "Start from stakeholder analysis: needs differ between a sponsor, a regulator and an end user.",
+    "Number of communication channels = n(n-1)/2, where n is the number of people. Adding people grows complexity fast.",
+    "- Push communication: emails, reports (sent to recipients).",
+    "- Pull communication: intranet, dashboards (recipients fetch it).",
+    "- Interactive communication: meetings, calls, workshops (best for complex or sensitive topics).",
+    "Check effectiveness through feedback. Adjust language, culture, time zone and accessibility needs. Information radiators such as burndown charts and Kanban boards make status visible without extra meetings."
+   ],
+   "keyTerms": [
+    {
+     "term": "Communications management plan",
+     "definition": "Defines how project information is collected, distributed and controlled."
+    },
+    {
+     "term": "Information radiator",
+     "definition": "A visible display of key project information, physical or digital."
+    },
+    {
+     "term": "Communication channels",
+     "definition": "n(n-1)/2 potential paths between n people."
+    }
+   ],
+   "example": "A distributed team across India, Germany and Brazil missed decisions made in calls. The PM moved decisions to a shared decision log (pull), rotated meeting times fairly, and kept an interactive weekly sync for complex topics.",
+   "approachNote": "Agile relies on face-to-face or video conversation and information radiators; predictive plans more formal reporting. Hybrid often uses both.",
+   "examTip": "If a stakeholder says they are not getting information, review the communications management plan before choosing a new tool.",
+   "minutes": 8
+  },
+  {
+   "id": "L009",
+   "taskId": "PROCESS-T1",
+   "title": "Develop an integrated project management plan and plan delivery",
+   "summary": "The integrated plan pulls together how scope, schedule, cost, quality, resources, risk and stakeholders will be managed, and chooses the delivery approach.",
+   "body": [
+    "Integration is the project manager's core responsibility: making the parts of the plan consistent with each other.",
+    "- Choose the development approach (predictive, adaptive or hybrid) by assessing requirement certainty, stakeholder availability, risk, regulation and organizational culture.",
+    "- Tailor processes to the project; do not apply every tool by default.",
+    "- Set baselines (scope, schedule, cost) in predictive work. Agile uses a roadmap, release plan and backlog instead.",
+    "- Define how the plan will be updated and approved.",
+    "The kickoff meeting launches execution and aligns the team and stakeholders on the plan."
+   ],
+   "keyTerms": [
+    {
+     "term": "Tailoring",
+     "definition": "Adapting processes, tools and artifacts to fit the project context."
+    },
+    {
+     "term": "Performance measurement baseline",
+     "definition": "The integrated scope, schedule and cost baselines used to measure performance."
+    },
+    {
+     "term": "Hybrid approach",
+     "definition": "Combining predictive and adaptive elements, e.g. predictive hardware with agile software."
+    }
+   ],
+   "example": "A medical-device project used a predictive plan for regulatory hardware milestones and two-week sprints for the companion app, integrated through a shared milestone roadmap.",
+   "approachNote": "The exam uses a mix of about 40% predictive and 60% agile or hybrid items. Expect questions asking which approach fits a scenario.",
+   "examTip": "When choosing an approach: high uncertainty and frequent feedback point to agile; fixed regulatory requirements and stable scope point to predictive; mixed points to hybrid.",
+   "minutes": 8
+  },
+  {
+   "id": "L010",
+   "taskId": "PROCESS-T2",
+   "title": "Develop and manage project scope",
+   "summary": "Scope management defines and controls what is and is not included, whether as a baselined WBS or a prioritized backlog.",
+   "body": [
+    "Predictive: collect requirements, create the scope statement, decompose work into a WBS down to work packages, and baseline it (scope statement + WBS + WBS dictionary).",
+    "Adaptive: capture needs as a product backlog of user stories, refined continuously and prioritized by value.",
+    "- Validate scope: the customer formally accepts deliverables.",
+    "- Control scope: manage changes and prevent scope creep (uncontrolled changes) and gold plating (adding extras nobody asked for).",
+    "- Requirements traceability matrix: links requirements to objectives and deliverables."
+   ],
+   "keyTerms": [
+    {
+     "term": "WBS",
+     "definition": "Hierarchical decomposition of the total scope of work."
+    },
+    {
+     "term": "Scope creep",
+     "definition": "Uncontrolled expansion of scope without adjustments to time, cost and resources."
+    },
+    {
+     "term": "Product backlog",
+     "definition": "An ordered list of everything that might be needed in the product."
+    }
+   ],
+   "example": "A developer added a 'nice' animation that the client never asked for, which delayed testing by two days: that is gold plating. The PM reminded the team to work only on approved scope and logged the idea for the product owner to consider.",
+   "approachNote": "In agile, scope is variable within fixed time and cost (timeboxes). In predictive, scope is fixed and changes go through change control.",
+   "examTip": "Validate scope means customer acceptance; control quality means correctness. Questions often test this difference.",
+   "minutes": 8
+  },
+  {
+   "id": "L011",
+   "taskId": "PROCESS-T3",
+   "title": "Help ensure value-based delivery",
+   "summary": "Value-based delivery means sequencing work to deliver the greatest business value early and measuring outcomes, not just outputs.",
+   "body": [
+    "Value can be financial, social, environmental or strategic. Benefits are realized when outcomes are used.",
+    "- Deliver incrementally: an MVP or minimum marketable feature gets feedback and value early.",
+    "- Prioritize by value against cost and risk; reprioritize as you learn.",
+    "- Measure outcomes with KPIs and benefits realization plans.",
+    "- Stop or pivot work that no longer delivers value.",
+    "The July 2026 outline stresses outcomes, value and business impact over pure output."
+   ],
+   "keyTerms": [
+    {
+     "term": "MVP",
+     "definition": "Minimum viable product: the smallest release that tests a value hypothesis."
+    },
+    {
+     "term": "Benefits management plan",
+     "definition": "Describes how and when benefits will be delivered and measured."
+    },
+    {
+     "term": "Outcome vs output",
+     "definition": "Output is what you produce; outcome is the change it creates."
+    }
+   ],
+   "example": "Instead of building all twelve reporting screens, the team released the two that managers used daily. Usage data then showed that four planned screens were unnecessary.",
+   "approachNote": "Agile embeds value delivery in every iteration. Predictive projects realize value at the end unless phased releases are planned.",
+   "examTip": "Prefer answers that deliver early value and gather feedback over answers that wait until everything is complete.",
+   "minutes": 8
+  },
+  {
+   "id": "L012",
+   "taskId": "PROCESS-T4",
+   "title": "Plan and manage resources",
+   "summary": "Resource management plans, acquires and manages the people, equipment, materials and facilities the project needs.",
+   "body": [
+    "- Estimate resource needs per activity or story; consider skills, availability and calendars.",
+    "- Acquire resources: negotiate with functional managers, use pre-assignment, or source virtual and remote team members.",
+    "- Resource levelling adjusts start and finish dates to fit limited resources and can lengthen the critical path. Resource smoothing stays within float.",
+    "- Physical resources: plan lead times, logistics and just-in-time delivery.",
+    "- Track utilization and resolve over-allocation."
+   ],
+   "keyTerms": [
+    {
+     "term": "Resource levelling",
+     "definition": "Adjusting dates to balance demand with supply; may change the critical path."
+    },
+    {
+     "term": "Resource smoothing",
+     "definition": "Adjusting activities within free and total float; does not change the critical path."
+    },
+    {
+     "term": "RACI",
+     "definition": "Responsible, Accountable, Consulted, Informed assignment matrix."
+    }
+   ],
+   "example": "A shared database expert was booked on two projects in the same week. The PM met the other PM and the functional manager, re-sequenced non-critical work, and agreed a split schedule.",
+   "approachNote": "Agile teams are ideally dedicated, stable and cross-functional. Predictive projects often borrow resources from functional managers.",
+   "examTip": "Over-allocated key person? Look for negotiation with the functional manager and re-planning, not unilateral overtime.",
+   "minutes": 8
+  },
+  {
+   "id": "L013",
+   "taskId": "PROCESS-T5",
+   "title": "Plan and manage procurement",
+   "summary": "Procurement covers deciding what to buy, choosing the right contract type, selecting sellers fairly and managing the agreement through closure.",
+   "body": [
+    "- Make-or-buy analysis: compare cost, capability, risk and strategic fit.",
+    "- Fixed price (FFP, FPIF): seller carries the most cost risk; needs a well-defined scope.",
+    "- Cost-reimbursable (CPFF, CPIF, CPAF): buyer carries the most cost risk; suits uncertain scope.",
+    "- Time and materials: hybrid; good for small or uncertain work, so cap it with a not-to-exceed amount.",
+    "Procurement documents include the statement of work and RFP/RFQ/RFI. Select sellers with weighted source-selection criteria. Manage the contract: inspections, payments, claims and changes only through the contract's change process. Agile contracts can use capped T&M, fixed-price increments or 'money for nothing, change for free' clauses."
+   ],
+   "keyTerms": [
+    {
+     "term": "Statement of work (SOW)",
+     "definition": "Description of the products or services to be procured."
+    },
+    {
+     "term": "Claim",
+     "definition": "A contested change where the buyer and seller disagree on compensation."
+    },
+    {
+     "term": "Privity",
+     "definition": "Only the parties to a contract have rights and obligations under it."
+    }
+   ],
+   "example": "Scope for a new data platform was uncertain, so the buyer chose a cost-plus-incentive-fee contract with clear performance metrics instead of fixed price.",
+   "approachNote": "Agile procurement favours collaboration, incremental delivery and flexible scope within budget caps.",
+   "examTip": "Who carries the risk? Fixed price: seller. Cost-reimbursable: buyer. Disputes are resolved per the contract terms, ideally by negotiation first.",
+   "minutes": 8
+  },
+  {
+   "id": "L014",
+   "taskId": "PROCESS-T6",
+   "title": "Plan and manage finance",
+   "summary": "Financial management estimates costs, sets a budget with reserves, and tracks spending and value with methods such as earned value.",
+   "body": [
+    "- Estimating: analogous, parametric, bottom-up, three-point (PERT: (O + 4M + P) / 6).",
+    "- Budget = cost baseline + management reserve. Contingency reserves for known risks are inside the baseline; management reserve for unknown risks is outside it and needs approval to use.",
+    "- Earned value: PV (planned value), EV (earned value), AC (actual cost).",
+    "- CV = EV − AC; SV = EV − PV; CPI = EV / AC; SPI = EV / PV.",
+    "- EAC (typical) = BAC / CPI; ETC = EAC − AC; VAC = BAC − EAC; TCPI = (BAC − EV) / (BAC − AC).",
+    "CPI or SPI below 1 means over budget or behind schedule."
+   ],
+   "keyTerms": [
+    {
+     "term": "BAC",
+     "definition": "Budget at completion: total planned value."
+    },
+    {
+     "term": "Management reserve",
+     "definition": "Budget withheld for unknown-unknowns; not in the cost baseline."
+    },
+    {
+     "term": "Funding limit reconciliation",
+     "definition": "Aligning planned spending with funding constraints."
+    }
+   ],
+   "example": "BAC = 100,000; EV = 40,000; AC = 50,000; PV = 45,000. CPI = 0.8 and SPI ≈ 0.89, so the project is over budget and behind schedule. EAC = 100,000 / 0.8 = 125,000.",
+   "approachNote": "Agile projects often track cost per iteration and burn rate; cost is relatively fixed by team size and timebox.",
+   "examTip": "Memorize: 'EV first' in the variance and index formulas. Negative variance or an index below 1 is bad.",
+   "minutes": 8
+  },
+  {
+   "id": "L015",
+   "taskId": "PROCESS-T7",
+   "title": "Plan and optimize quality of products/deliverables",
+   "summary": "Quality management plans how to meet requirements and prevents defects, rather than relying only on finding them.",
+   "body": [
+    "- Quality vs grade: low quality is always a problem; low grade (fewer features) may be acceptable.",
+    "- Cost of quality: prevention + appraisal (conformance) versus internal + external failure (non-conformance). Prevention is cheapest.",
+    "- Manage quality (assurance): process audits and improvement. Control quality: inspect and test deliverables.",
+    "- Tools: control charts (the rule of seven, limits), Pareto charts (80/20), fishbone diagrams, checklists, statistical sampling.",
+    "Agile builds quality in through the definition of done, automated tests, continuous integration and frequent reviews."
+   ],
+   "keyTerms": [
+    {
+     "term": "Cost of quality",
+     "definition": "Total cost of conformance and non-conformance over the product life."
+    },
+    {
+     "term": "Control limits",
+     "definition": "Boundaries of common-cause variation on a control chart (typically ±3σ)."
+    },
+    {
+     "term": "Verified vs accepted deliverables",
+     "definition": "Control quality verifies correctness; validate scope gains customer acceptance."
+    }
+   ],
+   "example": "A Pareto analysis of help-desk tickets showed that three defect types caused 78% of complaints. The team fixed those first.",
+   "approachNote": "Agile: quality is everyone's job every sprint. Predictive: a quality management plan defines metrics, audits and inspections.",
+   "examTip": "Seven consecutive points on one side of the mean is a signal of a non-random pattern even inside the control limits.",
+   "minutes": 8
+  },
+  {
+   "id": "L016",
+   "taskId": "PROCESS-T8",
+   "title": "Plan and manage schedule",
+   "summary": "Schedule management sequences work, estimates durations, finds the critical path and keeps delivery on track.",
+   "body": [
+    "- Define and sequence activities (FS, SS, FF, SF dependencies; leads and lags).",
+    "- Critical path: the longest path through the network; zero total float. A delay on it delays the project.",
+    "- Compression: crashing adds resources (adds cost); fast tracking overlaps activities (adds risk).",
+    "- Agile scheduling: timeboxed iterations, velocity-based release planning and burndown or burnup charts.",
+    "Float (slack) = LS − ES or LF − EF."
+   ],
+   "keyTerms": [
+    {
+     "term": "Critical path",
+     "definition": "The sequence of activities that determines the shortest project duration."
+    },
+    {
+     "term": "Fast tracking",
+     "definition": "Doing activities in parallel that were planned in sequence."
+    },
+    {
+     "term": "Velocity",
+     "definition": "Amount of work a team completes per iteration, used for forecasting."
+    }
+   ],
+   "example": "To recover two weeks, the team began interior wiring before all walls were inspected (fast tracking), accepting some rework risk after discussing it with the sponsor.",
+   "approachNote": "Predictive: schedule baseline and critical path. Agile: fixed cadence, forecast scope using velocity.",
+   "examTip": "Crashing costs money; fast tracking adds risk. Only compress activities on the critical path.",
+   "minutes": 8
+  },
+  {
+   "id": "L017",
+   "taskId": "PROCESS-T9",
+   "title": "Evaluate project status",
+   "summary": "Evaluating status compares actual performance with plans and outcomes and communicates it honestly so decisions can be made.",
+   "body": [
+    "- Predictive: variance analysis, earned value, milestone tracking and the schedule baseline.",
+    "- Agile: burndown and burnup charts, velocity trends, cumulative flow diagrams and sprint reviews.",
+    "- Use KPIs that reflect outcomes (adoption, satisfaction) as well as delivery.",
+    "- Forecast completion and highlight trends, not just current numbers.",
+    "Dashboards and information radiators make status transparent. 'Watermelon reporting' (green outside, red inside) erodes trust."
+   ],
+   "keyTerms": [
+    {
+     "term": "Burnup chart",
+     "definition": "Shows work completed against total scope over time."
+    },
+    {
+     "term": "Cumulative flow diagram",
+     "definition": "Shows work items in each state over time, revealing bottlenecks."
+    },
+    {
+     "term": "Variance analysis",
+     "definition": "Explaining differences between planned and actual performance."
+    }
+   ],
+   "example": "A cumulative flow diagram showed the 'testing' band widening every week. The team limited work in progress and paired developers with testers, and flow recovered.",
+   "approachNote": "Agile status is visible daily; predictive status is often reported at intervals against baselines.",
+   "examTip": "If metrics and reality disagree, investigate root causes before reporting or re-baselining.",
+   "minutes": 8
+  },
+  {
+   "id": "L018",
+   "taskId": "PROCESS-T10",
+   "title": "Manage project closure",
+   "summary": "Closure confirms acceptance, transfers outcomes, releases resources, closes contracts and captures lessons, including for terminated projects.",
+   "body": [
+    "- Obtain formal acceptance of final deliverables.",
+    "- Transition to operations: training, documentation, support agreements.",
+    "- Close procurements: verify all work is complete and settle claims.",
+    "- Finalize the lessons-learned register and archive records.",
+    "- Release and recognize the team.",
+    "- Confirm benefits measurement will continue after the project ends.",
+    "Even a cancelled project goes through closure to capture knowledge and close obligations."
+   ],
+   "keyTerms": [
+    {
+     "term": "Final report",
+     "definition": "Summary of performance, achievements and variances at closure."
+    },
+    {
+     "term": "Transition plan",
+     "definition": "How deliverables move to operational ownership."
+    },
+    {
+     "term": "Administrative closure",
+     "definition": "Collecting records, archiving and releasing resources."
+    }
+   ],
+   "example": "The sponsor cancelled a project after a merger. The PM still documented work completed, closed vendor contracts, archived code and ran a lessons-learned session.",
+   "approachNote": "Agile products may never 'close'; releases end, and teams move on. Project closure still applies to funding and contracts.",
+   "examTip": "Before closing, confirm acceptance and close all contracts. Lessons learned are captured even when projects are terminated.",
+   "minutes": 8
+  },
+  {
+   "id": "L019",
+   "taskId": "BUSINESS_ENV-T1",
+   "title": "Define and establish project governance",
+   "summary": "Governance defines who decides what, how decisions are escalated, and how the project stays aligned with organizational strategy.",
+   "body": [
+    "- Governance framework: roles (sponsor, steering committee, PMO, product owner), decision rights, phase gates and escalation paths.",
+    "- Organizational structures (functional, matrix, projectized) affect the PM's authority.",
+    "- The PMO may be supportive, controlling or directive.",
+    "- Adaptive governance uses lightweight, frequent decision points: backlog reviews and portfolio Kanban.",
+    "Good governance is proportional: enough control for risk and compliance, not so much that it blocks delivery."
+   ],
+   "keyTerms": [
+    {
+     "term": "Steering committee",
+     "definition": "Senior group that provides direction and makes key decisions."
+    },
+    {
+     "term": "Phase gate",
+     "definition": "A review at the end of a phase to decide whether to continue, modify or stop."
+    },
+    {
+     "term": "Escalation path",
+     "definition": "Agreed route for raising decisions beyond the team's authority."
+    }
+   ],
+   "example": "A decision about data residency stalled for weeks. The PM proposed a governance change: decisions under 50k were delegated to the product owner, and above that went to a fortnightly steering meeting with a 5-day decision target.",
+   "approachNote": "Agile governance focuses on outcomes and transparency; predictive uses formal gates and baselines.",
+   "examTip": "When a decision is above the PM's authority, follow the governance or escalation path rather than deciding alone.",
+   "minutes": 8
+  },
+  {
+   "id": "L020",
+   "taskId": "BUSINESS_ENV-T2",
+   "title": "Plan and manage project compliance",
+   "summary": "Compliance makes sure the project and its outcomes meet legal, regulatory, contractual, security, privacy, accessibility and internal policy requirements.",
+   "body": [
+    "- Identify applicable requirements early: industry regulation, data protection, safety, environmental and accessibility.",
+    "- Classify each requirement by consequence of non-compliance and plan how to meet it.",
+    "- Build compliance into acceptance criteria and the definition of done.",
+    "- Audit and track compliance, involving legal and compliance experts.",
+    "- Sustainability and ESG reporting obligations increasingly apply to projects.",
+    "Non-compliance is not a negotiable trade-off: escalate and stop if necessary."
+   ],
+   "keyTerms": [
+    {
+     "term": "Regulatory requirement",
+     "definition": "A requirement imposed by law or a regulator."
+    },
+    {
+     "term": "Compliance audit",
+     "definition": "An independent check that processes and outputs meet obligations."
+    },
+    {
+     "term": "ESG",
+     "definition": "Environmental, social and governance criteria."
+    }
+   ],
+   "example": "Midway through a CRM rollout, a new data privacy rule took effect. The PM engaged the privacy officer, added consent tracking to the backlog as a must-have, and updated the risk register.",
+   "approachNote": "Agile teams embed compliance checks in the definition of done; predictive projects plan compliance activities and audits in the plan.",
+   "examTip": "If a team member discovers non-compliance, the right answer addresses it immediately and transparently, never hiding it to meet a deadline.",
+   "minutes": 8
+  },
+  {
+   "id": "L021",
+   "taskId": "BUSINESS_ENV-T3",
+   "title": "Manage and control changes",
+   "summary": "Change control evaluates, approves or rejects changes in a structured way so the impact on scope, schedule, cost, risk and value is understood.",
+   "body": [
+    "Predictive change process:",
+    "- Log the change request.",
+    "- Analyze the impact on all constraints.",
+    "- Present options to the change control board (CCB) or authorized decision maker.",
+    "- Record the decision.",
+    "- Update plans and baselines, then communicate.",
+    "Adaptive: changes are welcomed and enter the product backlog; the product owner reprioritizes. Changes inside a sprint goal are negotiated with the team.",
+    "Configuration management controls versions of deliverables and documents."
+   ],
+   "keyTerms": [
+    {
+     "term": "Change control board",
+     "definition": "Group responsible for reviewing and approving change requests."
+    },
+    {
+     "term": "Configuration management",
+     "definition": "Controlling specifications and versions of deliverables."
+    },
+    {
+     "term": "Integrated change control",
+     "definition": "Reviewing changes against all project constraints together."
+    }
+   ],
+   "example": "A sponsor emailed the developer directly asking for a new report. The developer told the PM, who logged a change request, analyzed a 3-day impact and took it to the CCB, which approved it for the next release.",
+   "approachNote": "Agile: the backlog absorbs change; predictive: formal change control protects the baselines.",
+   "examTip": "Typical sequence: evaluate impact → submit to CCB → update plan → communicate. Never implement a change before approval in a predictive setting.",
+   "minutes": 8
+  },
+  {
+   "id": "L022",
+   "taskId": "BUSINESS_ENV-T4",
+   "title": "Remove impediments and manage issues",
+   "summary": "Impediments and issues block progress; the project manager makes them visible, owns their resolution, and prevents recurrence.",
+   "body": [
+    "- An issue is a current problem; a risk is an uncertain future event.",
+    "- Make impediments visible: stand-ups, impediment boards, the issue log.",
+    "- Prioritize by impact, assign owners and due dates, and follow up.",
+    "- Remove blockers within your control. Escalate those beyond it with facts and options.",
+    "- Analyze root causes (5 whys, fishbone) to stop repeats."
+   ],
+   "keyTerms": [
+    {
+     "term": "Impediment",
+     "definition": "Anything that slows or stops the team's progress."
+    },
+    {
+     "term": "Root cause analysis",
+     "definition": "Identifying the underlying reason a problem occurred."
+    },
+    {
+     "term": "Workaround",
+     "definition": "An unplanned response to an issue that has occurred."
+    }
+   ],
+   "example": "Developers waited 3 days for test-environment access each sprint. The scrum master escalated with data on lost hours; IT automated access requests, removing the impediment permanently.",
+   "approachNote": "The scrum master or servant leader is the impediment remover in agile; in predictive, the PM manages the issue log.",
+   "examTip": "Look for the servant leader removing the impediment for the team, not telling the team to work around it alone.",
+   "minutes": 8
+  },
+  {
+   "id": "L023",
+   "taskId": "BUSINESS_ENV-T5",
+   "title": "Plan and manage risk",
+   "summary": "Risk management finds, analyzes and responds to uncertainty, both threats and opportunities, throughout the project.",
+   "body": [
+    "- Identify risks continuously, using workshops, checklists, SWOT and assumption analysis.",
+    "- Qualitative analysis: probability and impact. Quantitative: expected monetary value (EMV = probability × impact), Monte Carlo, decision trees.",
+    "- Threat responses: avoid, transfer, mitigate, accept, escalate.",
+    "- Opportunity responses: exploit, share, enhance, accept, escalate.",
+    "- Assign risk owners and triggers. Monitor residual and secondary risks. Reserves fund responses.",
+    "AI tools bring new risks (bias, data leakage, hallucination) as well as opportunities (better forecasting)."
+   ],
+   "keyTerms": [
+    {
+     "term": "Risk appetite",
+     "definition": "The degree of uncertainty an organization is willing to accept."
+    },
+    {
+     "term": "Risk owner",
+     "definition": "Person responsible for monitoring a risk and executing the response."
+    },
+    {
+     "term": "Residual risk",
+     "definition": "Risk remaining after responses are implemented."
+    }
+   ],
+   "example": "A threat with 30% probability and a 50,000 cost impact has an EMV of -15,000. An opportunity with 20% probability and a 40,000 saving has an EMV of +8,000. The net contingency need is 7,000.",
+   "approachNote": "Agile reduces risk through short iterations, early feedback and risk-adjusted backlogs; predictive uses a formal risk register and reserves.",
+   "examTip": "If a risk occurs, implement the planned response (it's now an issue). If an unidentified risk occurs, apply a workaround and then update the registers.",
+   "minutes": 8
+  },
+  {
+   "id": "L024",
+   "taskId": "BUSINESS_ENV-T6",
+   "title": "Continuous improvement",
+   "summary": "Continuous improvement uses feedback and data to improve processes, products and team performance throughout the project.",
+   "body": [
+    "- Retrospectives at the end of each iteration or phase: what went well, what to improve, and one or two concrete actions.",
+    "- Plan-Do-Check-Act (PDCA) and Kaizen: small, frequent improvements.",
+    "- Lean: eliminate waste, such as waiting, handoffs, over-processing, defects and partially done work.",
+    "- Use metrics such as cycle time and defect rates to verify improvement.",
+    "Share improvements across projects through the PMO and communities of practice."
+   ],
+   "keyTerms": [
+    {
+     "term": "Retrospective",
+     "definition": "A regular meeting where the team reflects and agrees improvements."
+    },
+    {
+     "term": "PDCA",
+     "definition": "Plan-Do-Check-Act improvement cycle."
+    },
+    {
+     "term": "Kaizen",
+     "definition": "Philosophy of continuous small improvements."
+    }
+   ],
+   "example": "Retrospectives showed that code reviews waited an average of 2 days. The team agreed a 'review before starting new work' rule, and cycle time fell 30% in two sprints.",
+   "approachNote": "Agile builds improvement into every iteration; predictive projects should still review lessons at phase ends and act on them, not just record them.",
+   "examTip": "The best answer turns lessons into action now, not only for future projects.",
+   "minutes": 8
+  },
+  {
+   "id": "L025",
+   "taskId": "BUSINESS_ENV-T7",
+   "title": "Support organizational change",
+   "summary": "Projects create change; supporting organizational change means helping people adopt new ways of working so benefits are realized.",
+   "body": [
+    "- Assess change readiness and the impact on people, processes and culture.",
+    "- Use change models: ADKAR (Awareness, Desire, Knowledge, Ability, Reinforcement), Kotter's 8 steps, Satir model of change.",
+    "- Engage change champions; communicate the why; train; and reinforce new behaviours.",
+    "- Plan for resistance as a normal reaction; listen to it, since it often contains useful information.",
+    "- Measure adoption to confirm the change sticks."
+   ],
+   "keyTerms": [
+    {
+     "term": "ADKAR",
+     "definition": "Individual change model: Awareness, Desire, Knowledge, Ability, Reinforcement."
+    },
+    {
+     "term": "Change readiness",
+     "definition": "The organization's preparedness to accept and adopt change."
+    },
+    {
+     "term": "Change champion",
+     "definition": "Influential person who promotes and supports the change locally."
+    }
+   ],
+   "example": "A new procurement tool went live but staff kept using spreadsheets. The PM worked with team leaders as champions, ran short hands-on clinics and switched off the spreadsheet templates after a 4-week overlap.",
+   "approachNote": "Agile's frequent releases reduce change shock; predictive 'big bang' deployments need more deliberate change management.",
+   "examTip": "Low adoption after go-live points to change management (training, communication, reinforcement), not to a new technical solution.",
+   "minutes": 8
+  },
+  {
+   "id": "L026",
+   "taskId": "BUSINESS_ENV-T8",
+   "title": "Evaluate external business environment changes",
+   "summary": "The external environment (market, regulation, technology, economy, society, environment) changes during the project; the PM watches for changes and adjusts.",
+   "body": [
+    "- Scan regularly with PESTLE: political, economic, social, technological, legal, environmental.",
+    "- Assess the impact on objectives, business case and risk register.",
+    "- Recommend adjusting scope, approach or even stopping the project when the business case no longer holds.",
+    "- Consider sustainability: carbon footprint, supply-chain ethics and community impact.",
+    "- Keep the sponsor informed so strategic decisions are made in time."
+   ],
+   "keyTerms": [
+    {
+     "term": "PESTLE",
+     "definition": "Framework for analyzing external factors: Political, Economic, Social, Technological, Legal, Environmental."
+    },
+    {
+     "term": "Business case",
+     "definition": "Justification for the project, documenting expected benefits versus costs."
+    },
+    {
+     "term": "Market disruption",
+     "definition": "A significant external shift affecting product value."
+    }
+   ],
+   "example": "A competitor launched a free version of the product being built. The PM organized a rapid impact assessment with the product owner and sponsor, who refocused the backlog on two differentiating features.",
+   "approachNote": "Agile responds quickly via backlog reprioritization; predictive may need formal change requests and business-case revalidation.",
+   "examTip": "When external change threatens the business case, assess the impact and inform the sponsor or governance body. Don't continue blindly or cancel unilaterally.",
+   "minutes": 8
+  }
+ ],
+ "flashcards": [
+  {
+   "id": "F001-1",
+   "taskId": "PEOPLE-T1",
+   "front": "Product vision",
+   "back": "A concise statement of who the product is for, the need it meets and why it is better than alternatives."
+  },
+  {
+   "id": "F001-2",
+   "taskId": "PEOPLE-T1",
+   "front": "Project charter",
+   "back": "The document that formally authorizes the project and links it to organizational objectives."
+  },
+  {
+   "id": "F001-3",
+   "taskId": "PEOPLE-T1",
+   "front": "North-star metric",
+   "back": "One outcome measure the team uses to judge whether work moves toward the vision."
+  },
+  {
+   "id": "F002-1",
+   "taskId": "PEOPLE-T2",
+   "front": "Collaborating",
+   "back": "Incorporating multiple viewpoints to reach consensus and commitment."
+  },
+  {
+   "id": "F002-2",
+   "taskId": "PEOPLE-T2",
+   "front": "Team charter",
+   "back": "Team-created agreements on values, decision-making and conflict handling."
+  },
+  {
+   "id": "F002-3",
+   "taskId": "PEOPLE-T2",
+   "front": "Psychological safety",
+   "back": "A shared belief that people can speak up without fear of punishment or humiliation."
+  },
+  {
+   "id": "F003-1",
+   "taskId": "PEOPLE-T3",
+   "front": "Servant leadership",
+   "back": "Leading by serving the team's needs, removing impediments and enabling self-organization."
+  },
+  {
+   "id": "F003-2",
+   "taskId": "PEOPLE-T3",
+   "front": "Situational leadership",
+   "back": "Adapting leadership style to the competence and commitment of the individual or team."
+  },
+  {
+   "id": "F003-3",
+   "taskId": "PEOPLE-T3",
+   "front": "Emotional intelligence",
+   "back": "The ability to recognize and manage your own emotions and those of others."
+  },
+  {
+   "id": "F004-1",
+   "taskId": "PEOPLE-T4",
+   "front": "Stakeholder register",
+   "back": "A list of stakeholders with their role, interest, influence and engagement information."
+  },
+  {
+   "id": "F004-2",
+   "taskId": "PEOPLE-T4",
+   "front": "Power/interest grid",
+   "back": "Groups stakeholders as manage closely, keep satisfied, keep informed or monitor."
+  },
+  {
+   "id": "F004-3",
+   "taskId": "PEOPLE-T4",
+   "front": "Engagement assessment matrix",
+   "back": "Compares current (C) and desired (D) engagement levels per stakeholder."
+  },
+  {
+   "id": "F005-1",
+   "taskId": "PEOPLE-T5",
+   "front": "MoSCoW",
+   "back": "Prioritization into Must have, Should have, Could have and Won't have this time."
+  },
+  {
+   "id": "F005-2",
+   "taskId": "PEOPLE-T5",
+   "front": "Acceptance criteria",
+   "back": "Conditions a deliverable must meet to be accepted."
+  },
+  {
+   "id": "F005-3",
+   "taskId": "PEOPLE-T5",
+   "front": "Definition of done",
+   "back": "The team's shared checklist for when an increment is complete."
+  },
+  {
+   "id": "F006-1",
+   "taskId": "PEOPLE-T6",
+   "front": "Issue log",
+   "back": "A record of current problems, owners and resolution dates."
+  },
+  {
+   "id": "F006-2",
+   "taskId": "PEOPLE-T6",
+   "front": "Stakeholder engagement plan",
+   "back": "Strategies and actions to involve stakeholders effectively."
+  },
+  {
+   "id": "F006-3",
+   "taskId": "PEOPLE-T6",
+   "front": "Transparency",
+   "back": "Openly sharing status, risks and decisions."
+  },
+  {
+   "id": "F007-1",
+   "taskId": "PEOPLE-T7",
+   "front": "Lessons-learned register",
+   "back": "A living record of what worked, what didn't and recommendations, kept throughout the project."
+  },
+  {
+   "id": "F007-2",
+   "taskId": "PEOPLE-T7",
+   "front": "Tacit knowledge",
+   "back": "Personal know-how that is hard to write down."
+  },
+  {
+   "id": "F007-3",
+   "taskId": "PEOPLE-T7",
+   "front": "Community of practice",
+   "back": "A group sharing expertise on a topic across projects."
+  },
+  {
+   "id": "F008-1",
+   "taskId": "PEOPLE-T8",
+   "front": "Communications management plan",
+   "back": "Defines how project information is collected, distributed and controlled."
+  },
+  {
+   "id": "F008-2",
+   "taskId": "PEOPLE-T8",
+   "front": "Information radiator",
+   "back": "A visible display of key project information, physical or digital."
+  },
+  {
+   "id": "F008-3",
+   "taskId": "PEOPLE-T8",
+   "front": "Communication channels",
+   "back": "n(n-1)/2 potential paths between n people."
+  },
+  {
+   "id": "F009-1",
+   "taskId": "PROCESS-T1",
+   "front": "Tailoring",
+   "back": "Adapting processes, tools and artifacts to fit the project context."
+  },
+  {
+   "id": "F009-2",
+   "taskId": "PROCESS-T1",
+   "front": "Performance measurement baseline",
+   "back": "The integrated scope, schedule and cost baselines used to measure performance."
+  },
+  {
+   "id": "F009-3",
+   "taskId": "PROCESS-T1",
+   "front": "Hybrid approach",
+   "back": "Combining predictive and adaptive elements, e.g. predictive hardware with agile software."
+  },
+  {
+   "id": "F010-1",
+   "taskId": "PROCESS-T2",
+   "front": "WBS",
+   "back": "Hierarchical decomposition of the total scope of work."
+  },
+  {
+   "id": "F010-2",
+   "taskId": "PROCESS-T2",
+   "front": "Scope creep",
+   "back": "Uncontrolled expansion of scope without adjustments to time, cost and resources."
+  },
+  {
+   "id": "F010-3",
+   "taskId": "PROCESS-T2",
+   "front": "Product backlog",
+   "back": "An ordered list of everything that might be needed in the product."
+  },
+  {
+   "id": "F011-1",
+   "taskId": "PROCESS-T3",
+   "front": "MVP",
+   "back": "Minimum viable product: the smallest release that tests a value hypothesis."
+  },
+  {
+   "id": "F011-2",
+   "taskId": "PROCESS-T3",
+   "front": "Benefits management plan",
+   "back": "Describes how and when benefits will be delivered and measured."
+  },
+  {
+   "id": "F011-3",
+   "taskId": "PROCESS-T3",
+   "front": "Outcome vs output",
+   "back": "Output is what you produce; outcome is the change it creates."
+  },
+  {
+   "id": "F012-1",
+   "taskId": "PROCESS-T4",
+   "front": "Resource levelling",
+   "back": "Adjusting dates to balance demand with supply; may change the critical path."
+  },
+  {
+   "id": "F012-2",
+   "taskId": "PROCESS-T4",
+   "front": "Resource smoothing",
+   "back": "Adjusting activities within free and total float; does not change the critical path."
+  },
+  {
+   "id": "F012-3",
+   "taskId": "PROCESS-T4",
+   "front": "RACI",
+   "back": "Responsible, Accountable, Consulted, Informed assignment matrix."
+  },
+  {
+   "id": "F013-1",
+   "taskId": "PROCESS-T5",
+   "front": "Statement of work (SOW)",
+   "back": "Description of the products or services to be procured."
+  },
+  {
+   "id": "F013-2",
+   "taskId": "PROCESS-T5",
+   "front": "Claim",
+   "back": "A contested change where the buyer and seller disagree on compensation."
+  },
+  {
+   "id": "F013-3",
+   "taskId": "PROCESS-T5",
+   "front": "Privity",
+   "back": "Only the parties to a contract have rights and obligations under it."
+  },
+  {
+   "id": "F014-1",
+   "taskId": "PROCESS-T6",
+   "front": "BAC",
+   "back": "Budget at completion: total planned value."
+  },
+  {
+   "id": "F014-2",
+   "taskId": "PROCESS-T6",
+   "front": "Management reserve",
+   "back": "Budget withheld for unknown-unknowns; not in the cost baseline."
+  },
+  {
+   "id": "F014-3",
+   "taskId": "PROCESS-T6",
+   "front": "Funding limit reconciliation",
+   "back": "Aligning planned spending with funding constraints."
+  },
+  {
+   "id": "F015-1",
+   "taskId": "PROCESS-T7",
+   "front": "Cost of quality",
+   "back": "Total cost of conformance and non-conformance over the product life."
+  },
+  {
+   "id": "F015-2",
+   "taskId": "PROCESS-T7",
+   "front": "Control limits",
+   "back": "Boundaries of common-cause variation on a control chart (typically ±3σ)."
+  },
+  {
+   "id": "F015-3",
+   "taskId": "PROCESS-T7",
+   "front": "Verified vs accepted deliverables",
+   "back": "Control quality verifies correctness; validate scope gains customer acceptance."
+  },
+  {
+   "id": "F016-1",
+   "taskId": "PROCESS-T8",
+   "front": "Critical path",
+   "back": "The sequence of activities that determines the shortest project duration."
+  },
+  {
+   "id": "F016-2",
+   "taskId": "PROCESS-T8",
+   "front": "Fast tracking",
+   "back": "Doing activities in parallel that were planned in sequence."
+  },
+  {
+   "id": "F016-3",
+   "taskId": "PROCESS-T8",
+   "front": "Velocity",
+   "back": "Amount of work a team completes per iteration, used for forecasting."
+  },
+  {
+   "id": "F017-1",
+   "taskId": "PROCESS-T9",
+   "front": "Burnup chart",
+   "back": "Shows work completed against total scope over time."
+  },
+  {
+   "id": "F017-2",
+   "taskId": "PROCESS-T9",
+   "front": "Cumulative flow diagram",
+   "back": "Shows work items in each state over time, revealing bottlenecks."
+  },
+  {
+   "id": "F017-3",
+   "taskId": "PROCESS-T9",
+   "front": "Variance analysis",
+   "back": "Explaining differences between planned and actual performance."
+  },
+  {
+   "id": "F018-1",
+   "taskId": "PROCESS-T10",
+   "front": "Final report",
+   "back": "Summary of performance, achievements and variances at closure."
+  },
+  {
+   "id": "F018-2",
+   "taskId": "PROCESS-T10",
+   "front": "Transition plan",
+   "back": "How deliverables move to operational ownership."
+  },
+  {
+   "id": "F018-3",
+   "taskId": "PROCESS-T10",
+   "front": "Administrative closure",
+   "back": "Collecting records, archiving and releasing resources."
+  },
+  {
+   "id": "F019-1",
+   "taskId": "BUSINESS_ENV-T1",
+   "front": "Steering committee",
+   "back": "Senior group that provides direction and makes key decisions."
+  },
+  {
+   "id": "F019-2",
+   "taskId": "BUSINESS_ENV-T1",
+   "front": "Phase gate",
+   "back": "A review at the end of a phase to decide whether to continue, modify or stop."
+  },
+  {
+   "id": "F019-3",
+   "taskId": "BUSINESS_ENV-T1",
+   "front": "Escalation path",
+   "back": "Agreed route for raising decisions beyond the team's authority."
+  },
+  {
+   "id": "F020-1",
+   "taskId": "BUSINESS_ENV-T2",
+   "front": "Regulatory requirement",
+   "back": "A requirement imposed by law or a regulator."
+  },
+  {
+   "id": "F020-2",
+   "taskId": "BUSINESS_ENV-T2",
+   "front": "Compliance audit",
+   "back": "An independent check that processes and outputs meet obligations."
+  },
+  {
+   "id": "F020-3",
+   "taskId": "BUSINESS_ENV-T2",
+   "front": "ESG",
+   "back": "Environmental, social and governance criteria."
+  },
+  {
+   "id": "F021-1",
+   "taskId": "BUSINESS_ENV-T3",
+   "front": "Change control board",
+   "back": "Group responsible for reviewing and approving change requests."
+  },
+  {
+   "id": "F021-2",
+   "taskId": "BUSINESS_ENV-T3",
+   "front": "Configuration management",
+   "back": "Controlling specifications and versions of deliverables."
+  },
+  {
+   "id": "F021-3",
+   "taskId": "BUSINESS_ENV-T3",
+   "front": "Integrated change control",
+   "back": "Reviewing changes against all project constraints together."
+  },
+  {
+   "id": "F022-1",
+   "taskId": "BUSINESS_ENV-T4",
+   "front": "Impediment",
+   "back": "Anything that slows or stops the team's progress."
+  },
+  {
+   "id": "F022-2",
+   "taskId": "BUSINESS_ENV-T4",
+   "front": "Root cause analysis",
+   "back": "Identifying the underlying reason a problem occurred."
+  },
+  {
+   "id": "F022-3",
+   "taskId": "BUSINESS_ENV-T4",
+   "front": "Workaround",
+   "back": "An unplanned response to an issue that has occurred."
+  },
+  {
+   "id": "F023-1",
+   "taskId": "BUSINESS_ENV-T5",
+   "front": "Risk appetite",
+   "back": "The degree of uncertainty an organization is willing to accept."
+  },
+  {
+   "id": "F023-2",
+   "taskId": "BUSINESS_ENV-T5",
+   "front": "Risk owner",
+   "back": "Person responsible for monitoring a risk and executing the response."
+  },
+  {
+   "id": "F023-3",
+   "taskId": "BUSINESS_ENV-T5",
+   "front": "Residual risk",
+   "back": "Risk remaining after responses are implemented."
+  },
+  {
+   "id": "F024-1",
+   "taskId": "BUSINESS_ENV-T6",
+   "front": "Retrospective",
+   "back": "A regular meeting where the team reflects and agrees improvements."
+  },
+  {
+   "id": "F024-2",
+   "taskId": "BUSINESS_ENV-T6",
+   "front": "PDCA",
+   "back": "Plan-Do-Check-Act improvement cycle."
+  },
+  {
+   "id": "F024-3",
+   "taskId": "BUSINESS_ENV-T6",
+   "front": "Kaizen",
+   "back": "Philosophy of continuous small improvements."
+  },
+  {
+   "id": "F025-1",
+   "taskId": "BUSINESS_ENV-T7",
+   "front": "ADKAR",
+   "back": "Individual change model: Awareness, Desire, Knowledge, Ability, Reinforcement."
+  },
+  {
+   "id": "F025-2",
+   "taskId": "BUSINESS_ENV-T7",
+   "front": "Change readiness",
+   "back": "The organization's preparedness to accept and adopt change."
+  },
+  {
+   "id": "F025-3",
+   "taskId": "BUSINESS_ENV-T7",
+   "front": "Change champion",
+   "back": "Influential person who promotes and supports the change locally."
+  },
+  {
+   "id": "F026-1",
+   "taskId": "BUSINESS_ENV-T8",
+   "front": "PESTLE",
+   "back": "Framework for analyzing external factors: Political, Economic, Social, Technological, Legal, Environmental."
+  },
+  {
+   "id": "F026-2",
+   "taskId": "BUSINESS_ENV-T8",
+   "front": "Business case",
+   "back": "Justification for the project, documenting expected benefits versus costs."
+  },
+  {
+   "id": "F026-3",
+   "taskId": "BUSINESS_ENV-T8",
+   "front": "Market disruption",
+   "back": "A significant external shift affecting product value."
+  }
+ ],
+ "faqs": [
+  {
+   "id": "Q01",
+   "question": "Is this app made by PMI?",
+   "answer": "No. OpenPM Prep is an independent, free study platform. It is not affiliated with, endorsed by or sponsored by Project Management Institute (PMI). PMP, PMBOK and PMI are registered marks of Project Management Institute, Inc."
+  },
+  {
+   "id": "Q02",
+   "question": "Which exam version does this app follow?",
+   "answer": "The PMP exam launched in July 2026 (ECO-2026-07): People 33%, Process 41%, Business Environment 26%; 180 questions (170 scored) in 240 minutes with two 10-minute breaks. Every lesson and question shows its ECO tag."
+  },
+  {
+   "id": "Q03",
+   "question": "Is everything really free?",
+   "answer": "Yes. Registration, study material, practice tests, mock exams, results and basic assistance are free. There are no subscriptions, premium locks or paid exam packages."
+  },
+  {
+   "id": "Q04",
+   "question": "What does the 'Demo content' label mean?",
+   "answer": "Demo items were written for this app and have not yet been reviewed by a PMP-certified subject-matter expert. Reviewed items show 'Reviewed'. Both are original, but use demo items with that in mind."
+  },
+  {
+   "id": "Q05",
+   "question": "Are these real exam questions?",
+   "answer": "No. All questions are original practice items written against the public Exam Content Outline. Real PMP questions are confidential, and sharing them breaks PMI's rules."
+  },
+  {
+   "id": "Q06",
+   "question": "How is the readiness score calculated?",
+   "answer": "Readiness = 25% lesson coverage + 15% flashcard retention + 25% recent practice accuracy + 35% average of your last two full mocks. It is a study guide, not a pass prediction."
+  },
+  {
+   "id": "Q07",
+   "question": "How are results banded?",
+   "answer": "The app uses PMI-style bands (Above Target, Target, Below Target, Needs Improvement) with thresholds of 80/65/50%. PMI does not publish its passing score, so treat bands as estimates."
+  },
+  {
+   "id": "Q08",
+   "question": "Can I use the app offline?",
+   "answer": "Yes. All lessons, flashcards and questions are on your device. Guest progress is stored on the device only."
+  },
+  {
+   "id": "Q09",
+   "question": "How do breaks work in the full mock?",
+   "answer": "Like the real exam: after the case-study section and about halfway through the independent questions you may take a 10-minute break. Once you start a break, you cannot go back to the previous section. The exam clock pauses during breaks."
+  },
+  {
+   "id": "Q10",
+   "question": "How are multiple-response and drag-and-drop items scored?",
+   "answer": "All-or-nothing, as on the real exam. The review screen shows which parts you got right so you can learn."
+  },
+  {
+   "id": "Q11",
+   "question": "Do I still need 35 contact hours of training?",
+   "answer": "Yes. PMI requires 35 hours of project management education to apply. PMI is changing which live training counts from 1 December 2026; check PMI's official pages. This app is a study aid and does not issue contact hours."
+  },
+  {
+   "id": "Q12",
+   "question": "Can institutions partner with the app?",
+   "answer": "Yes. Use the partnership enquiry form in the Institutions section. Directory entries are 'Listed' public information only. A 'Verified partner' badge appears only after written authorization."
+  }
+ ],
+ "revision": [
+  {
+   "term": "CV / SV",
+   "definition": "CV = EV − AC; SV = EV − PV. Negative = over budget / behind schedule."
+  },
+  {
+   "term": "CPI / SPI",
+   "definition": "CPI = EV / AC; SPI = EV / PV. Below 1 = bad."
+  },
+  {
+   "term": "EAC (typical)",
+   "definition": "EAC = BAC / CPI. Atypical: AC + (BAC − EV). With CPI×SPI: AC + (BAC − EV)/(CPI × SPI)."
+  },
+  {
+   "term": "ETC / VAC",
+   "definition": "ETC = EAC − AC; VAC = BAC − EAC."
+  },
+  {
+   "term": "TCPI",
+   "definition": "TCPI = (BAC − EV) / (BAC − AC) to meet BAC."
+  },
+  {
+   "term": "PERT",
+   "definition": "(O + 4M + P) / 6; standard deviation ≈ (P − O) / 6."
+  },
+  {
+   "term": "Communication channels",
+   "definition": "n(n − 1) / 2."
+  },
+  {
+   "term": "EMV",
+   "definition": "Probability × impact (threats negative, opportunities positive)."
+  },
+  {
+   "term": "Float",
+   "definition": "Total float = LS − ES = LF − EF. Critical path float = 0."
+  },
+  {
+   "term": "Compression",
+   "definition": "Crashing adds cost; fast tracking adds risk."
+  },
+  {
+   "term": "Contract risk",
+   "definition": "Fixed price: seller carries risk. Cost-reimbursable: buyer carries risk. T&M: shared; cap it."
+  },
+  {
+   "term": "Reserves",
+   "definition": "Contingency (known-unknowns) is inside the cost baseline; management reserve (unknown-unknowns) is outside it."
+  },
+  {
+   "term": "Quality vs grade",
+   "definition": "Low quality is always a problem; low grade may be acceptable."
+  },
+  {
+   "term": "Validate vs control",
+   "definition": "Control quality = correct (verified); validate scope = accepted by the customer."
+  },
+  {
+   "term": "Agile vs predictive scope",
+   "definition": "Agile: fixed time and cost, flexible scope. Predictive: fixed scope with change control."
+  },
+  {
+   "term": "Risk responses",
+   "definition": "Threats: avoid, transfer, mitigate, accept, escalate. Opportunities: exploit, share, enhance, accept, escalate."
+  }
+ ],
+ "cases": [
+  {
+   "id": "CASE-01",
+   "title": "Clinic appointment platform",
+   "body": "You lead a 9-person hybrid team building an online appointment platform for a group of 14 health clinics. The hardware kiosks for clinic lobbies are procured under a fixed-price contract with a predictive schedule. The patient web and mobile apps are built in two-week sprints. The sponsor is the group's operations director. Halfway through, a regional health authority publishes new rules on storing patient data. Clinic receptionists, who will use the system daily, have attended only one of six sprint reviews.",
+   "exhibits": [
+    "Status at week 12: Kiosk contract: 2 of 4 milestones accepted. App: velocity 24, 26, 21, 22. Remaining backlog: 160 points. Budget: BAC 400,000; EV 180,000; AC 210,000; PV 200,000."
+   ]
+  },
+  {
+   "id": "CASE-02",
+   "title": "Warehouse automation rollout",
+   "body": "Your company is installing automated picking robots in three warehouses over nine months. The project follows a predictive plan with phase gates. Warehouse staff are anxious about job changes, and the union has asked for a meeting. After installation in the first warehouse, picking speed improved only 5%, against a business case target of 25%. A supplier delay has used most of the schedule float on the second site.",
+   "exhibits": [
+    "Risk register extract: R7 'Robot supplier delay' – probability 40%, impact 30 days – response: mitigate (secondary supplier pre-qualified)."
+   ]
+  }
+ ],
+ "questions": [
+  {
+   "id": "P001",
+   "domain": "PEOPLE",
+   "taskId": "PEOPLE-T1",
+   "approach": "AGILE",
+   "stem": "A newly formed agile team is debating which features matter most, and each member argues from their own department's point of view. What should the project manager do first?",
+   "explanation": "A shared vision gives the team a common basis for decisions. Co-creating it with the product owner builds ownership and resolves departmental tunnel vision.",
+   "tags": [
+    "scenario"
+   ],
+   "difficulty": 2,
+   "concept": "Product vision",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "Ask the sponsor to rank the features and share the list"
+    },
+    {
+     "key": "B",
+     "text": "Facilitate a session with the team and product owner to create a shared product vision"
+    },
+    {
+     "key": "C",
+     "text": "Assign the most experienced developer to make feature decisions"
+    },
+    {
+     "key": "D",
+     "text": "Start the first sprint and let priorities emerge from velocity"
+    }
+   ],
+   "correct": [
+    "B"
+   ],
+   "rationales": {
+    "A": "Imposing a ranking skips alignment; the team still lacks a shared 'why'.",
+    "C": "Delegating to one person bypasses collaboration and the product owner's role.",
+    "D": "Starting without direction wastes effort; velocity does not set priorities."
+   }
+  },
+  {
+   "id": "P002",
+   "domain": "PEOPLE",
+   "taskId": "PEOPLE-T2",
+   "approach": "PREDICTIVE",
+   "stem": "Two functional leads repeatedly argue about test-environment time during status meetings, and the meetings now overrun. What is the BEST action for the project manager?",
+   "explanation": "Collaborating / problem-solving addresses the root cause and builds commitment. It is the preferred first approach.",
+   "tags": [
+    "scenario"
+   ],
+   "difficulty": 2,
+   "concept": "Conflict resolution techniques",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "Meet both leads together to understand their needs and agree a shared booking approach"
+    },
+    {
+     "key": "B",
+     "text": "Escalate the issue to their functional managers"
+    },
+    {
+     "key": "C",
+     "text": "Give priority to the lead whose work is on the critical path"
+    },
+    {
+     "key": "D",
+     "text": "Remove the topic from the status meeting agenda"
+    }
+   ],
+   "correct": [
+    "A"
+   ],
+   "rationales": {
+    "B": "Escalation is premature before the PM tries to resolve it.",
+    "C": "Forcing a decision may be needed later but ignores the other lead's needs.",
+    "D": "Withdrawing avoids the conflict without solving it."
+   }
+  },
+  {
+   "id": "P003",
+   "domain": "PEOPLE",
+   "taskId": "PEOPLE-T2",
+   "approach": "AGILE",
+   "stem": "During a retrospective, one developer becomes visibly upset after a teammate criticizes his code in front of everyone. What should the scrum master do?",
+   "explanation": "Psychological safety is essential. Using the team's own working agreement and following up privately addresses the behaviour without humiliating anyone.",
+   "tags": [
+    "situational"
+   ],
+   "difficulty": 2,
+   "concept": "Team charter, psychological safety",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "Ask the developer to stay calm and continue the retrospective"
+    },
+    {
+     "key": "B",
+     "text": "End the retrospective early and report the incident to HR"
+    },
+    {
+     "key": "C",
+     "text": "Pause, remind the team of the working agreement on respectful feedback, and follow up privately with both people"
+    },
+    {
+     "key": "D",
+     "text": "Ignore it, as conflict is healthy in agile teams"
+    }
+   ],
+   "correct": [
+    "C"
+   ],
+   "rationales": {
+    "A": "Dismissing emotions damages psychological safety.",
+    "B": "HR escalation is disproportionate for a first incident.",
+    "D": "Healthy conflict is about ideas; this has become personal."
+   }
+  },
+  {
+   "id": "P004",
+   "domain": "PEOPLE",
+   "taskId": "PEOPLE-T3",
+   "approach": "AGILE",
+   "stem": "A team member has been late with their tasks for three sprints and seems disengaged in meetings. What should the project manager do first?",
+   "explanation": "Leaders give corrective attention privately and start by understanding the cause, which might be personal, skill-related or a blocker.",
+   "tags": [
+    "situational"
+   ],
+   "difficulty": 2,
+   "concept": "Emotional intelligence, servant leadership",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "Raise the issue in the daily stand-up so the team can help"
+    },
+    {
+     "key": "B",
+     "text": "Meet privately with the team member to understand what is happening"
+    },
+    {
+     "key": "C",
+     "text": "Ask the functional manager to replace the team member"
+    },
+    {
+     "key": "D",
+     "text": "Reassign their stories to other team members"
+    }
+   ],
+   "correct": [
+    "B"
+   ],
+   "rationales": {
+    "A": "Public discussion can embarrass the person.",
+    "C": "Replacement is premature without understanding the cause.",
+    "D": "Reassigning treats the symptom only."
+   }
+  },
+  {
+   "id": "P005",
+   "domain": "PEOPLE",
+   "taskId": "PEOPLE-T3",
+   "approach": "HYBRID",
+   "stem": "Your organization has started allowing generative-AI assistants for drafting project documents. A team member pasted confidential client requirements into a public AI tool. What should you do FIRST?",
+   "explanation": "Data exposure is a compliance and security incident. It must be reported and contained using the organization's procedures. Team norms for responsible AI use can follow.",
+   "tags": [
+    "situational",
+    "ai"
+   ],
+   "difficulty": 3,
+   "concept": "Responsible AI use",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "Ban all AI tools for the team immediately"
+    },
+    {
+     "key": "B",
+     "text": "Report the incident according to the organization's data-protection procedure and contain the exposure"
+    },
+    {
+     "key": "C",
+     "text": "Ask the team member to delete their chat history and say nothing"
+    },
+    {
+     "key": "D",
+     "text": "Add an item to the lessons-learned register"
+    }
+   ],
+   "correct": [
+    "B"
+   ],
+   "rationales": {
+    "A": "A blanket ban may be considered later, but it does not address the exposure.",
+    "C": "Concealing the incident breaches policy and ethics.",
+    "D": "Lessons learned are useful, but not first."
+   }
+  },
+  {
+   "id": "P006",
+   "domain": "PEOPLE",
+   "taskId": "PEOPLE-T3",
+   "approach": "AGILE",
+   "stem": "Which TWO actions best demonstrate servant leadership by a project manager on an agile team?",
+   "explanation": "Servant leaders enable the team by removing impediments and protecting focus. Task assignment, approval gates and individual metrics undermine self-organization.",
+   "tags": [],
+   "difficulty": 3,
+   "concept": "Servant leadership",
+   "type": "MCQ_MULTI",
+   "options": [
+    {
+     "key": "A",
+     "text": "Removing an impediment the team cannot resolve themselves"
+    },
+    {
+     "key": "B",
+     "text": "Assigning daily tasks to each developer"
+    },
+    {
+     "key": "C",
+     "text": "Shielding the team from mid-sprint requests from outside stakeholders"
+    },
+    {
+     "key": "D",
+     "text": "Approving every technical design decision personally"
+    },
+    {
+     "key": "E",
+     "text": "Reporting each team member's velocity individually"
+    }
+   ],
+   "correct": [
+    "A",
+    "C"
+   ],
+   "selectCount": 2,
+   "rationales": {
+    "A": "Correct: removing impediments is a core servant-leader duty.",
+    "B": "Assigning tasks undermines self-organization.",
+    "C": "Correct: protecting the team's focus enables delivery.",
+    "D": "Central approval creates a bottleneck.",
+    "E": "Individual velocity encourages local optimization and gaming."
+   }
+  },
+  {
+   "id": "P007",
+   "domain": "PEOPLE",
+   "taskId": "PEOPLE-T4",
+   "approach": "PREDICTIVE",
+   "stem": "Three months into a construction project, the project manager learns that a local residents' association has concerns about noise. The association is not in the stakeholder register. What should the project manager do NEXT?",
+   "explanation": "Stakeholder identification is continuous. A newly found stakeholder is first recorded and analyzed so engagement can be planned.",
+   "tags": [
+    "scenario"
+   ],
+   "difficulty": 2,
+   "concept": "Stakeholder register",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "Add the association to the stakeholder register and analyze its interest and influence"
+    },
+    {
+     "key": "B",
+     "text": "Send the association the project's noise permits"
+    },
+    {
+     "key": "C",
+     "text": "Ask the sponsor to deal with external groups"
+    },
+    {
+     "key": "D",
+     "text": "Continue as planned because the permits are already approved"
+    }
+   ],
+   "correct": [
+    "A"
+   ],
+   "rationales": {
+    "B": "Sending documents without analysis may not address the concern.",
+    "C": "The PM owns stakeholder engagement.",
+    "D": "Ignoring an influential group risks delays."
+   }
+  },
+  {
+   "id": "P008",
+   "domain": "PEOPLE",
+   "taskId": "PEOPLE-T4",
+   "approach": "HYBRID",
+   "stem": "A key business user rarely attends sprint reviews, and features delivered for her department have had low adoption. What is the BEST approach?",
+   "explanation": "Engagement must suit the stakeholder. Understanding her constraints and adapting the format (short demos, async video, a delegate) moves her from neutral to supportive.",
+   "tags": [
+    "scenario"
+   ],
+   "difficulty": 2,
+   "concept": "Engagement assessment matrix",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "Escalate her absence to the sponsor"
+    },
+    {
+     "key": "B",
+     "text": "Meet her to understand her constraints and agree a more convenient way to involve her in feedback"
+    },
+    {
+     "key": "C",
+     "text": "Stop building features for her department"
+    },
+    {
+     "key": "D",
+     "text": "Ask the product owner to accept the features on her behalf"
+    }
+   ],
+   "correct": [
+    "B"
+   ],
+   "rationales": {
+    "A": "Escalation before trying to engage damages the relationship.",
+    "C": "Abandoning features ignores real business needs.",
+    "D": "Acceptance without user input continues the adoption problem."
+   }
+  },
+  {
+   "id": "P009",
+   "domain": "PEOPLE",
+   "taskId": "PEOPLE-T5",
+   "approach": "PREDICTIVE",
+   "stem": "Marketing requires a product launch in June, but the compliance team states that mandatory controls cannot be ready until August. Both are powerful stakeholders. What should the project manager do?",
+   "explanation": "Alignment means bringing conflicting stakeholders together around objectives and finding options. For example, a limited pilot could launch while the controls are completed. Genuine trade-offs go to the sponsor.",
+   "tags": [
+    "scenario"
+   ],
+   "difficulty": 3,
+   "concept": "Aligning expectations",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "Proceed with the June launch and add the controls afterwards"
+    },
+    {
+     "key": "B",
+     "text": "Facilitate a joint meeting to explore options against business objectives and take the trade-off to the sponsor"
+    },
+    {
+     "key": "C",
+     "text": "Side with compliance because regulation always wins"
+    },
+    {
+     "key": "D",
+     "text": "Ask each stakeholder to submit a change request"
+    }
+   ],
+   "correct": [
+    "B"
+   ],
+   "rationales": {
+    "A": "Launching without mandatory controls breaches compliance.",
+    "C": "Compliance must be met, but other options may satisfy both groups.",
+    "D": "Change requests do not resolve the underlying conflict."
+   }
+  },
+  {
+   "id": "P010",
+   "domain": "PEOPLE",
+   "taskId": "PEOPLE-T6",
+   "approach": "AGILE",
+   "stem": "During a sprint review, the sponsor says she expected a feature that was never in the product backlog. What should the project manager do?",
+   "explanation": "In agile, new needs go into the product backlog, where the product owner prioritizes them against other value. This respects the sponsor's need without disrupting the sprint.",
+   "tags": [
+    "scenario"
+   ],
+   "difficulty": 2,
+   "concept": "Product backlog",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "Promise to add it in the next sprint"
+    },
+    {
+     "key": "B",
+     "text": "Explain that the feature is out of scope and move on"
+    },
+    {
+     "key": "C",
+     "text": "Work with the product owner to discuss the need and, if valuable, add it to the backlog for prioritization"
+    },
+    {
+     "key": "D",
+     "text": "Ask the team to work overtime to include it in this sprint"
+    }
+   ],
+   "correct": [
+    "C"
+   ],
+   "rationales": {
+    "A": "The PM cannot promise; prioritization belongs to the product owner.",
+    "B": "Dismissing the sponsor damages engagement.",
+    "D": "Overtime and mid-sprint scope changes are unsustainable."
+   }
+  },
+  {
+   "id": "P011",
+   "domain": "PEOPLE",
+   "taskId": "PEOPLE-T7",
+   "approach": "HYBRID",
+   "stem": "A senior engineer who is the only expert on a legacy interface will leave the project in four weeks. What should the project manager do?",
+   "explanation": "Tacit knowledge transfers best through people: pairing and shadowing. Documentation supports it but cannot capture judgment alone.",
+   "tags": [
+    "scenario"
+   ],
+   "difficulty": 2,
+   "concept": "Tacit vs explicit knowledge",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "Ask the engineer to write complete documentation before leaving"
+    },
+    {
+     "key": "B",
+     "text": "Arrange pairing and shadowing with a successor, supported by key documentation"
+    },
+    {
+     "key": "C",
+     "text": "Request that HR extend the engineer's assignment"
+    },
+    {
+     "key": "D",
+     "text": "Add a risk to the register and accept it"
+    }
+   ],
+   "correct": [
+    "B"
+   ],
+   "rationales": {
+    "A": "Documentation alone misses tacit knowledge.",
+    "C": "Extension may not be possible and only delays the problem.",
+    "D": "Acceptance is passive when a mitigation is available."
+   }
+  },
+  {
+   "id": "P012",
+   "domain": "PEOPLE",
+   "taskId": "PEOPLE-T8",
+   "approach": "PREDICTIVE",
+   "stem": "A project team grows from 6 to 10 members. How many additional communication channels does this create?",
+   "explanation": "Channels = n(n−1)/2. For 6 people: 15. For 10 people: 45. Additional channels = 45 − 15 = 30.",
+   "tags": [
+    "calculation"
+   ],
+   "difficulty": 2,
+   "concept": "Communication channels",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "4"
+    },
+    {
+     "key": "B",
+     "text": "15"
+    },
+    {
+     "key": "C",
+     "text": "30"
+    },
+    {
+     "key": "D",
+     "text": "45"
+    }
+   ],
+   "correct": [
+    "C"
+   ],
+   "rationales": {
+    "A": "4 is just the extra people.",
+    "B": "15 is the original number of channels.",
+    "D": "45 is the new total, not the increase."
+   }
+  },
+  {
+   "id": "P013",
+   "domain": "PEOPLE",
+   "taskId": "PEOPLE-T8",
+   "approach": "HYBRID",
+   "stem": "Team members in three countries complain that they learn about decisions late. Meetings are held in the head office's time zone. What should the project manager do FIRST?",
+   "explanation": "Revisit the communications plan with the people affected. Use a mix of pull (decision log), push and interactive methods, and set fair meeting times.",
+   "tags": [
+    "scenario"
+   ],
+   "difficulty": 2,
+   "concept": "Communications management plan",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "Review the communications management plan with the team and adjust channels, timing and a shared decision log"
+    },
+    {
+     "key": "B",
+     "text": "Require everyone to attend all meetings regardless of local time"
+    },
+    {
+     "key": "C",
+     "text": "Send a weekly summary email to the whole team"
+    },
+    {
+     "key": "D",
+     "text": "Escalate the time-zone problem to the PMO"
+    }
+   ],
+   "correct": [
+    "A"
+   ],
+   "rationales": {
+    "B": "This ignores wellbeing and fairness.",
+    "C": "Summaries help, but alone they may not fix the timing of decisions.",
+    "D": "The PM can resolve this within their authority."
+   }
+  },
+  {
+   "id": "P014",
+   "domain": "PEOPLE",
+   "taskId": "PEOPLE-T2",
+   "approach": "PREDICTIVE",
+   "stem": "Match each conflict-resolution technique to its description.",
+   "explanation": "Collaborating gives the most durable solution. Compromise is lose-lose but workable. Smoothing preserves relationships temporarily. Forcing suits emergencies.",
+   "tags": [],
+   "difficulty": 2,
+   "concept": "Conflict resolution",
+   "type": "MATCHING",
+   "left": [
+    {
+     "key": "L1",
+     "text": "Collaborate / problem-solve"
+    },
+    {
+     "key": "L2",
+     "text": "Compromise"
+    },
+    {
+     "key": "L3",
+     "text": "Smooth / accommodate"
+    },
+    {
+     "key": "L4",
+     "text": "Force / direct"
+    }
+   ],
+   "right": [
+    {
+     "key": "R1",
+     "text": "Each party gives up something to reach a partial solution"
+    },
+    {
+     "key": "R2",
+     "text": "Emphasize areas of agreement over differences"
+    },
+    {
+     "key": "R3",
+     "text": "Escalate every conflict to the sponsor"
+    },
+    {
+     "key": "R4",
+     "text": "Impose one viewpoint, often for urgent or safety issues"
+    },
+    {
+     "key": "R5",
+     "text": "Incorporate multiple viewpoints to reach consensus"
+    }
+   ],
+   "pairs": {
+    "L1": "R5",
+    "L2": "R1",
+    "L3": "R2",
+    "L4": "R4"
+   }
+  },
+  {
+   "id": "P015",
+   "domain": "PEOPLE",
+   "taskId": "PEOPLE-T4",
+   "approach": "PREDICTIVE",
+   "stem": "Place each stakeholder in the most appropriate power/interest grid quadrant.",
+   "explanation": "High power and high interest: manage closely. High power and low interest: keep satisfied. Low power and high interest: keep informed. Low on both: monitor.",
+   "tags": [],
+   "difficulty": 2,
+   "concept": "Power/interest grid",
+   "type": "DRAG_CATEGORIZE",
+   "buckets": [
+    {
+     "key": "B1",
+     "text": "Manage closely"
+    },
+    {
+     "key": "B2",
+     "text": "Keep satisfied"
+    },
+    {
+     "key": "B3",
+     "text": "Keep informed"
+    },
+    {
+     "key": "B4",
+     "text": "Monitor"
+    }
+   ],
+   "items": [
+    {
+     "key": "I1",
+     "text": "Project sponsor who approves funding and attends every steering meeting"
+    },
+    {
+     "key": "I2",
+     "text": "CFO who signs off budget but rarely follows project details"
+    },
+    {
+     "key": "I3",
+     "text": "End users eager for the new system but with no decision authority"
+    },
+    {
+     "key": "I4",
+     "text": "Building facilities staff who are minimally affected"
+    }
+   ],
+   "pairs": {
+    "I1": "B1",
+    "I2": "B2",
+    "I3": "B3",
+    "I4": "B4"
+   }
+  },
+  {
+   "id": "P016",
+   "domain": "PEOPLE",
+   "taskId": "PEOPLE-T4",
+   "approach": "PREDICTIVE",
+   "stem": "Arrange these stakeholder engagement activities in the order they are normally performed.",
+   "explanation": "Engagement follows identify → analyze → plan → engage → monitor, and repeats as new stakeholders appear.",
+   "tags": [],
+   "difficulty": 2,
+   "concept": "Stakeholder engagement",
+   "type": "DRAG_ORDER",
+   "items": [
+    {
+     "key": "I2",
+     "text": "Analyze power, interest and attitudes"
+    },
+    {
+     "key": "I4",
+     "text": "Carry out engagement actions"
+    },
+    {
+     "key": "I1",
+     "text": "Identify stakeholders"
+    },
+    {
+     "key": "I3",
+     "text": "Plan engagement strategies"
+    },
+    {
+     "key": "I5",
+     "text": "Monitor engagement and adjust"
+    }
+   ],
+   "correct": [
+    "I1",
+    "I2",
+    "I3",
+    "I4",
+    "I5"
+   ]
+  },
+  {
+   "id": "P017",
+   "domain": "PEOPLE",
+   "taskId": "PEOPLE-T1",
+   "approach": "PREDICTIVE",
+   "stem": "The project charter has been approved, but team members describe the project's purpose very differently. What should the project manager do?",
+   "explanation": "Interactive sessions build shared understanding. A document alone rarely creates a common vision.",
+   "tags": [
+    "scenario"
+   ],
+   "difficulty": 2,
+   "concept": "Kickoff meeting",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "Email the charter to the team again"
+    },
+    {
+     "key": "B",
+     "text": "Hold a kickoff workshop to walk through the business case, objectives and success criteria, and invite questions"
+    },
+    {
+     "key": "C",
+     "text": "Ask the sponsor to issue a memo to the team"
+    },
+    {
+     "key": "D",
+     "text": "Proceed; purposes become clear during execution"
+    }
+   ],
+   "correct": [
+    "B"
+   ],
+   "rationales": {
+    "A": "Pushing the document again is unlikely to change understanding.",
+    "C": "A memo is one-way communication.",
+    "D": "Misunderstanding now causes rework later."
+   }
+  },
+  {
+   "id": "P018",
+   "domain": "PEOPLE",
+   "taskId": "PEOPLE-T6",
+   "approach": "PREDICTIVE",
+   "stem": "Testing shows the project will miss the milestone the customer expects next month. The customer has not been told. What should the project manager do?",
+   "explanation": "Transparency and early communication of bad news maintain trust and give stakeholders time to decide.",
+   "tags": [
+    "situational"
+   ],
+   "difficulty": 2,
+   "concept": "Managing expectations",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "Wait until the testing results are final"
+    },
+    {
+     "key": "B",
+     "text": "Inform the customer promptly with the impact, cause and recovery options"
+    },
+    {
+     "key": "C",
+     "text": "Ask the team to compress testing to protect the date"
+    },
+    {
+     "key": "D",
+     "text": "Report the milestone as 'at risk' only on the internal dashboard"
+    }
+   ],
+   "correct": [
+    "B"
+   ],
+   "rationales": {
+    "A": "Delay reduces the options available.",
+    "C": "Compressing testing creates quality risk.",
+    "D": "Hiding it from the customer erodes trust."
+   }
+  },
+  {
+   "id": "P019",
+   "domain": "PEOPLE",
+   "taskId": "PEOPLE-T3",
+   "approach": "PREDICTIVE",
+   "stem": "A highly skilled but new team member is unsure about a complex task. Using situational leadership, which style is MOST appropriate?",
+   "explanation": "Someone with some competence and variable confidence benefits from coaching: high direction plus high support.",
+   "tags": [
+    "scenario"
+   ],
+   "difficulty": 3,
+   "concept": "Situational leadership",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "Delegating"
+    },
+    {
+     "key": "B",
+     "text": "Supporting"
+    },
+    {
+     "key": "C",
+     "text": "Coaching"
+    },
+    {
+     "key": "D",
+     "text": "Directing"
+    }
+   ],
+   "correct": [
+    "C"
+   ],
+   "rationales": {
+    "A": "Delegating suits high competence and high commitment.",
+    "B": "Supporting suits capable people with low confidence on familiar tasks.",
+    "D": "Directing suits enthusiastic beginners with low skill."
+   }
+  },
+  {
+   "id": "P020",
+   "domain": "PEOPLE",
+   "taskId": "PEOPLE-T7",
+   "approach": "AGILE",
+   "stem": "Which THREE practices help transfer knowledge within and beyond an agile team?",
+   "explanation": "Pairing, communities of practice and accessible recordings spread knowledge. Private registers and single specialists create knowledge silos.",
+   "tags": [],
+   "difficulty": 3,
+   "concept": "Knowledge transfer",
+   "type": "MCQ_MULTI",
+   "options": [
+    {
+     "key": "A",
+     "text": "Pair programming"
+    },
+    {
+     "key": "B",
+     "text": "Communities of practice"
+    },
+    {
+     "key": "C",
+     "text": "Keeping the lessons-learned register private to the PM"
+    },
+    {
+     "key": "D",
+     "text": "Recording short demo videos for support staff"
+    },
+    {
+     "key": "E",
+     "text": "Assigning each component to one specialist only"
+    }
+   ],
+   "correct": [
+    "A",
+    "B",
+    "D"
+   ],
+   "selectCount": 3
+  },
+  {
+   "id": "P021",
+   "domain": "PEOPLE",
+   "taskId": "PEOPLE-T5",
+   "approach": "AGILE",
+   "stem": "Two business units want contradictory features in the next release. The product owner asks the project manager for help. What should the project manager do?",
+   "explanation": "The product owner owns prioritization. The PM facilitates by bringing the stakeholders together and making value transparent.",
+   "tags": [
+    "scenario"
+   ],
+   "difficulty": 2,
+   "concept": "Value-based prioritization",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "Decide which feature is more valuable"
+    },
+    {
+     "key": "B",
+     "text": "Facilitate a prioritization workshop with both units using agreed value criteria, so the product owner can decide"
+    },
+    {
+     "key": "C",
+     "text": "Build both features with half the effort each"
+    },
+    {
+     "key": "D",
+     "text": "Escalate to the sponsor immediately"
+    }
+   ],
+   "correct": [
+    "B"
+   ],
+   "rationales": {
+    "A": "Prioritization is the product owner's call.",
+    "C": "Splitting effort usually delivers neither well.",
+    "D": "Escalation comes after facilitation fails."
+   }
+  },
+  {
+   "id": "P022",
+   "domain": "PEOPLE",
+   "taskId": "PEOPLE-T8",
+   "approach": "AGILE",
+   "stem": "Which artifact is the BEST example of an information radiator?",
+   "explanation": "Information radiators are highly visible, current displays of progress, such as Kanban boards and burndown charts.",
+   "tags": [],
+   "difficulty": 1,
+   "concept": "Information radiator",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "The communications management plan"
+    },
+    {
+     "key": "B",
+     "text": "A Kanban board displayed where the team and stakeholders can see it"
+    },
+    {
+     "key": "C",
+     "text": "A monthly status report emailed to sponsors"
+    },
+    {
+     "key": "D",
+     "text": "The stakeholder register"
+    }
+   ],
+   "correct": [
+    "B"
+   ],
+   "rationales": {
+    "A": "A plan is not a live display.",
+    "C": "Email is push communication.",
+    "D": "The register is not a progress display and may hold sensitive data."
+   }
+  },
+  {
+   "id": "P023",
+   "domain": "PEOPLE",
+   "taskId": "PEOPLE-T1",
+   "approach": "HYBRID",
+   "stem": "Mid-project, the organization announces a sustainability commitment to cut emissions by 30%. How should the project manager handle the project vision?",
+   "explanation": "The vision must stay aligned with organizational strategy. The July 2026 outline emphasizes sustainability and value. Updating the vision is done openly, with the sponsor.",
+   "tags": [
+    "scenario",
+    "sustainability"
+   ],
+   "difficulty": 3,
+   "concept": "Vision and strategic alignment",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "Ignore it, as the charter was already approved"
+    },
+    {
+     "key": "B",
+     "text": "Work with the sponsor to assess the impact and, if needed, update the vision and success criteria to include sustainability outcomes"
+    },
+    {
+     "key": "C",
+     "text": "Add a sustainability slide to the next status report"
+    },
+    {
+     "key": "D",
+     "text": "Wait for the next project to adopt it"
+    }
+   ],
+   "correct": [
+    "B"
+   ],
+   "rationales": {
+    "A": "Strategy changes can invalidate the charter's assumptions.",
+    "C": "A slide doesn't change direction.",
+    "D": "Waiting misses alignment with strategy."
+   }
+  },
+  {
+   "id": "P024",
+   "domain": "PEOPLE",
+   "taskId": "PEOPLE-T2",
+   "approach": "PREDICTIVE",
+   "stem": "A safety inspector and the site supervisor disagree about whether scaffolding can be used today. Work is due to start in one hour. Which conflict approach is most appropriate?",
+   "explanation": "Safety issues justify a directive (forcing) approach. Safety always takes precedence; the underlying disagreement can be resolved afterwards.",
+   "tags": [
+    "situational"
+   ],
+   "difficulty": 2,
+   "concept": "Forcing in emergencies",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "Compromise: use the scaffolding for half the day"
+    },
+    {
+     "key": "B",
+     "text": "Force: follow the safety inspector's decision until the issue is resolved"
+    },
+    {
+     "key": "C",
+     "text": "Smooth: emphasize shared goals and proceed"
+    },
+    {
+     "key": "D",
+     "text": "Withdraw: let them sort it out"
+    }
+   ],
+   "correct": [
+    "B"
+   ],
+   "rationales": {
+    "A": "Partial use is still unsafe.",
+    "C": "Proceeding ignores the safety concern.",
+    "D": "Withdrawing leaves risk unmanaged."
+   }
+  },
+  {
+   "id": "R001",
+   "domain": "PROCESS",
+   "taskId": "PROCESS-T1",
+   "approach": "HYBRID",
+   "stem": "A project will build a regulated medical device with a companion mobile app. Device requirements are fixed by regulation; app features depend on user feedback. Which delivery approach is MOST appropriate?",
+   "explanation": "Hybrid combines approaches based on each component's uncertainty and constraints.",
+   "tags": [
+    "scenario"
+   ],
+   "difficulty": 2,
+   "concept": "Choosing the development approach",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "Predictive for the whole project"
+    },
+    {
+     "key": "B",
+     "text": "Agile for the whole project"
+    },
+    {
+     "key": "C",
+     "text": "Hybrid: predictive for the device, iterative and incremental for the app"
+    },
+    {
+     "key": "D",
+     "text": "Wait until all app requirements are known"
+    }
+   ],
+   "correct": [
+    "C"
+   ],
+   "rationales": {
+    "A": "Predictive suits the device but slows app learning.",
+    "B": "Agile alone may conflict with regulatory documentation and gates.",
+    "D": "Waiting delays value and learning."
+   }
+  },
+  {
+   "id": "R002",
+   "domain": "PROCESS",
+   "taskId": "PROCESS-T1",
+   "approach": "PREDICTIVE",
+   "stem": "Which items make up the performance measurement baseline?",
+   "explanation": "The performance measurement baseline integrates the scope, schedule and cost baselines. Management reserve is not part of it.",
+   "tags": [],
+   "difficulty": 1,
+   "concept": "Performance measurement baseline",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "Scope, schedule and cost baselines"
+    },
+    {
+     "key": "B",
+     "text": "Scope baseline, risk register and quality plan"
+    },
+    {
+     "key": "C",
+     "text": "Cost baseline and management reserve"
+    },
+    {
+     "key": "D",
+     "text": "Project charter and project management plan"
+    }
+   ],
+   "correct": [
+    "A"
+   ],
+   "rationales": {
+    "B": "The risk register and quality plan are not baselines.",
+    "C": "Management reserve sits outside the baseline.",
+    "D": "The charter authorizes; it is not a baseline."
+   }
+  },
+  {
+   "id": "R003",
+   "domain": "PROCESS",
+   "taskId": "PROCESS-T2",
+   "approach": "PREDICTIVE",
+   "stem": "A developer adds an extra dashboard widget that the customer did not request, believing it will please them. This is an example of:",
+   "explanation": "Gold plating means adding features beyond requirements without a request. It adds risk and cost and is discouraged.",
+   "tags": [],
+   "difficulty": 1,
+   "concept": "Gold plating",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "Scope creep"
+    },
+    {
+     "key": "B",
+     "text": "Gold plating"
+    },
+    {
+     "key": "C",
+     "text": "Progressive elaboration"
+    },
+    {
+     "key": "D",
+     "text": "Value engineering"
+    }
+   ],
+   "correct": [
+    "B"
+   ],
+   "rationales": {
+    "A": "Scope creep is uncontrolled change, usually from stakeholders.",
+    "C": "Progressive elaboration is adding detail as information emerges.",
+    "D": "Value engineering seeks the same function at lower cost."
+   }
+  },
+  {
+   "id": "R004",
+   "domain": "PROCESS",
+   "taskId": "PROCESS-T2",
+   "approach": "PREDICTIVE",
+   "stem": "The customer inspected the completed deliverables and formally signed acceptance. Which process does this represent?",
+   "explanation": "Validate scope is formal customer acceptance of deliverables. Control quality (verification of correctness) normally happens before it.",
+   "tags": [],
+   "difficulty": 1,
+   "concept": "Validate scope vs control quality",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "Control quality"
+    },
+    {
+     "key": "B",
+     "text": "Validate scope"
+    },
+    {
+     "key": "C",
+     "text": "Close project"
+    },
+    {
+     "key": "D",
+     "text": "Control scope"
+    }
+   ],
+   "correct": [
+    "B"
+   ],
+   "rationales": {
+    "A": "Control quality checks correctness internally.",
+    "C": "Closing comes after acceptance of all deliverables.",
+    "D": "Control scope monitors scope and changes."
+   }
+  },
+  {
+   "id": "R005",
+   "domain": "PROCESS",
+   "taskId": "PROCESS-T2",
+   "approach": "PREDICTIVE",
+   "stem": "Arrange these scope management activities in the typical predictive order.",
+   "explanation": "Predictive scope work moves from requirements to scope statement, WBS decomposition, then ongoing validation and control.",
+   "tags": [],
+   "difficulty": 2,
+   "concept": "Scope management",
+   "type": "DRAG_ORDER",
+   "items": [
+    {
+     "key": "I2",
+     "text": "Define scope (scope statement)"
+    },
+    {
+     "key": "I4",
+     "text": "Validate scope with the customer"
+    },
+    {
+     "key": "I1",
+     "text": "Collect requirements"
+    },
+    {
+     "key": "I3",
+     "text": "Create the WBS"
+    },
+    {
+     "key": "I5",
+     "text": "Control scope throughout the project"
+    }
+   ],
+   "correct": [
+    "I1",
+    "I2",
+    "I3",
+    "I4",
+    "I5"
+   ]
+  },
+  {
+   "id": "R006",
+   "domain": "PROCESS",
+   "taskId": "PROCESS-T3",
+   "approach": "AGILE",
+   "stem": "Stakeholders want all twelve planned reports delivered together at the end of the project. Usage of the current reporting system is unknown. What should the project manager recommend?",
+   "explanation": "Value-based delivery releases the highest-value items early to gain feedback and value sooner. This often reveals unneeded scope.",
+   "tags": [
+    "scenario"
+   ],
+   "difficulty": 2,
+   "concept": "Incremental value delivery",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "Deliver all twelve reports together as requested"
+    },
+    {
+     "key": "B",
+     "text": "Release the two highest-value reports first, measure usage and adjust the backlog"
+    },
+    {
+     "key": "C",
+     "text": "Ask the team to estimate all twelve in detail first"
+    },
+    {
+     "key": "D",
+     "text": "Cancel the reporting scope"
+    }
+   ],
+   "correct": [
+    "B"
+   ],
+   "rationales": {
+    "A": "Big-bang delivery delays value and feedback.",
+    "C": "Detailed upfront estimates add little value under uncertainty.",
+    "D": "Cancelling ignores a legitimate need."
+   }
+  },
+  {
+   "id": "R007",
+   "domain": "PROCESS",
+   "taskId": "PROCESS-T3",
+   "approach": "HYBRID",
+   "stem": "Which TWO measures best indicate that a project is delivering business value rather than just outputs?",
+   "explanation": "Outcome measures such as adoption and process improvement show value. Output counts do not.",
+   "tags": [],
+   "difficulty": 3,
+   "concept": "Outcomes vs outputs",
+   "type": "MCQ_MULTI",
+   "options": [
+    {
+     "key": "A",
+     "text": "Number of features completed"
+    },
+    {
+     "key": "B",
+     "text": "Increase in customer adoption rate"
+    },
+    {
+     "key": "C",
+     "text": "Lines of code written"
+    },
+    {
+     "key": "D",
+     "text": "Reduction in processing time for the target business process"
+    },
+    {
+     "key": "E",
+     "text": "Hours logged by the team"
+    }
+   ],
+   "correct": [
+    "B",
+    "D"
+   ],
+   "selectCount": 2
+  },
+  {
+   "id": "R008",
+   "domain": "PROCESS",
+   "taskId": "PROCESS-T4",
+   "approach": "PREDICTIVE",
+   "stem": "A critical specialist is over-allocated across two activities in the same week, and both activities have float. Which technique should be used FIRST?",
+   "explanation": "Resource smoothing reschedules within available float, so the critical path is not affected. Use it before levelling, which may extend the project.",
+   "tags": [
+    "scenario"
+   ],
+   "difficulty": 3,
+   "concept": "Resource smoothing vs levelling",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "Resource levelling"
+    },
+    {
+     "key": "B",
+     "text": "Resource smoothing"
+    },
+    {
+     "key": "C",
+     "text": "Crashing"
+    },
+    {
+     "key": "D",
+     "text": "Fast tracking"
+    }
+   ],
+   "correct": [
+    "B"
+   ],
+   "rationales": {
+    "A": "Levelling can change the end date; use it if smoothing is insufficient.",
+    "C": "Crashing adds resources to shorten duration.",
+    "D": "Fast tracking overlaps activities to save time."
+   }
+  },
+  {
+   "id": "R009",
+   "domain": "PROCESS",
+   "taskId": "PROCESS-T4",
+   "approach": "PREDICTIVE",
+   "stem": "A functional manager reassigns a key team member to another project without notice. What should the project manager do FIRST?",
+   "explanation": "In a matrix organization the PM negotiates resources with functional managers first; escalation comes later if needed.",
+   "tags": [
+    "scenario"
+   ],
+   "difficulty": 2,
+   "concept": "Negotiating resources",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "Escalate to the sponsor"
+    },
+    {
+     "key": "B",
+     "text": "Meet the functional manager to understand the reason and negotiate a solution"
+    },
+    {
+     "key": "C",
+     "text": "Hire a contractor immediately"
+    },
+    {
+     "key": "D",
+     "text": "Update the schedule to show the delay"
+    }
+   ],
+   "correct": [
+    "B"
+   ],
+   "rationales": {
+    "A": "Escalation before negotiation harms relationships.",
+    "C": "Hiring may be unnecessary and is not first.",
+    "D": "Re-planning happens after the situation is understood."
+   }
+  },
+  {
+   "id": "R010",
+   "domain": "PROCESS",
+   "taskId": "PROCESS-T5",
+   "approach": "PREDICTIVE",
+   "stem": "The scope of work for a vendor is well defined and stable, and the buyer wants to minimize its own cost risk. Which contract type is MOST appropriate?",
+   "explanation": "With a clear, stable scope, firm fixed price places most cost risk on the seller.",
+   "tags": [],
+   "difficulty": 1,
+   "concept": "Contract types",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "Cost plus fixed fee"
+    },
+    {
+     "key": "B",
+     "text": "Time and materials"
+    },
+    {
+     "key": "C",
+     "text": "Firm fixed price"
+    },
+    {
+     "key": "D",
+     "text": "Cost plus award fee"
+    }
+   ],
+   "correct": [
+    "C"
+   ],
+   "rationales": {
+    "A": "Cost-reimbursable contracts put risk on the buyer.",
+    "B": "T&M suits small or undefined work.",
+    "D": "Award-fee contracts are cost-reimbursable."
+   }
+  },
+  {
+   "id": "R011",
+   "domain": "PROCESS",
+   "taskId": "PROCESS-T5",
+   "approach": "PREDICTIVE",
+   "stem": "A seller claims additional payment because, it says, the buyer changed requirements. The buyer disagrees. What is the PREFERRED way to resolve this?",
+   "explanation": "Contested changes (claims) should be settled by negotiation following the contract's terms. Alternative dispute resolution or litigation are later options.",
+   "tags": [
+    "scenario"
+   ],
+   "difficulty": 2,
+   "concept": "Claims administration",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "Take the seller to court"
+    },
+    {
+     "key": "B",
+     "text": "Negotiate according to the contract's claims administration process"
+    },
+    {
+     "key": "C",
+     "text": "Withhold all payments until the seller drops the claim"
+    },
+    {
+     "key": "D",
+     "text": "Terminate the contract"
+    }
+   ],
+   "correct": [
+    "B"
+   ],
+   "rationales": {
+    "A": "Litigation is a last resort.",
+    "C": "Withholding payment may breach the contract.",
+    "D": "Termination is extreme and costly."
+   }
+  },
+  {
+   "id": "R012",
+   "domain": "PROCESS",
+   "taskId": "PROCESS-T5",
+   "approach": "PREDICTIVE",
+   "stem": "Match each procurement document to its purpose.",
+   "explanation": "RFI gathers information, RFQ requests prices, RFP requests proposals, and the SOW describes the work.",
+   "tags": [],
+   "difficulty": 2,
+   "concept": "Procurement documents",
+   "type": "MATCHING",
+   "left": [
+    {
+     "key": "L1",
+     "text": "RFI"
+    },
+    {
+     "key": "L2",
+     "text": "RFQ"
+    },
+    {
+     "key": "L3",
+     "text": "RFP"
+    },
+    {
+     "key": "L4",
+     "text": "SOW"
+    }
+   ],
+   "right": [
+    {
+     "key": "R1",
+     "text": "Describe the work to be performed"
+    },
+    {
+     "key": "R2",
+     "text": "Gather information about seller capabilities"
+    },
+    {
+     "key": "R3",
+     "text": "Record contested changes"
+    },
+    {
+     "key": "R4",
+     "text": "Request detailed solution proposals"
+    },
+    {
+     "key": "R5",
+     "text": "Request price quotes for well-defined items"
+    }
+   ],
+   "pairs": {
+    "L1": "R2",
+    "L2": "R5",
+    "L3": "R4",
+    "L4": "R1"
+   }
+  },
+  {
+   "id": "R013",
+   "domain": "PROCESS",
+   "taskId": "PROCESS-T6",
+   "approach": "PREDICTIVE",
+   "stem": "BAC = 200,000. EV = 80,000. AC = 100,000. PV = 90,000. What is the cost performance index (CPI)?",
+   "explanation": "CPI = EV / AC = 80,000 / 100,000 = 0.80. The project is over budget.",
+   "tags": [
+    "calculation"
+   ],
+   "difficulty": 2,
+   "concept": "Earned value",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "0.80"
+    },
+    {
+     "key": "B",
+     "text": "0.89"
+    },
+    {
+     "key": "C",
+     "text": "1.13"
+    },
+    {
+     "key": "D",
+     "text": "1.25"
+    }
+   ],
+   "correct": [
+    "A"
+   ],
+   "rationales": {
+    "B": "0.89 is SPI (EV/PV).",
+    "C": "1.13 is PV/EV.",
+    "D": "1.25 is AC/EV."
+   }
+  },
+  {
+   "id": "R014",
+   "domain": "PROCESS",
+   "taskId": "PROCESS-T6",
+   "approach": "PREDICTIVE",
+   "stem": "Using the same data (BAC 200,000, EV 80,000, AC 100,000), what is the estimate at completion if current cost performance continues?",
+   "explanation": "EAC = BAC / CPI = 200,000 / 0.8 = 250,000.",
+   "tags": [
+    "calculation"
+   ],
+   "difficulty": 3,
+   "concept": "EAC",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "220,000"
+    },
+    {
+     "key": "B",
+     "text": "250,000"
+    },
+    {
+     "key": "C",
+     "text": "180,000"
+    },
+    {
+     "key": "D",
+     "text": "200,000"
+    }
+   ],
+   "correct": [
+    "B"
+   ],
+   "rationales": {
+    "A": "220,000 is AC + (BAC − EV).",
+    "C": "Not a valid formula result.",
+    "D": "That is the BAC, which assumes no variance."
+   }
+  },
+  {
+   "id": "R015",
+   "domain": "PROCESS",
+   "taskId": "PROCESS-T6",
+   "approach": "PREDICTIVE",
+   "stem": "Where is the contingency reserve for identified risks held?",
+   "explanation": "Contingency reserves (for known-unknowns) are part of the cost baseline. Management reserve (unknown-unknowns) is outside it.",
+   "tags": [],
+   "difficulty": 2,
+   "concept": "Reserves",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "Outside the cost baseline, controlled by management"
+    },
+    {
+     "key": "B",
+     "text": "Inside the cost baseline"
+    },
+    {
+     "key": "C",
+     "text": "In the procurement budget"
+    },
+    {
+     "key": "D",
+     "text": "In the management reserve"
+    }
+   ],
+   "correct": [
+    "B"
+   ],
+   "rationales": {
+    "A": "That describes management reserve.",
+    "C": "Not a standard reserve location.",
+    "D": "Management reserve is for unknown-unknowns."
+   }
+  },
+  {
+   "id": "R016",
+   "domain": "PROCESS",
+   "taskId": "PROCESS-T6",
+   "approach": "PREDICTIVE",
+   "stem": "An activity has optimistic 6, most likely 9 and pessimistic 18 days. What is the PERT (beta) estimate?",
+   "explanation": "(O + 4M + P) / 6 = (6 + 36 + 18) / 6 = 10 days.",
+   "tags": [
+    "calculation"
+   ],
+   "difficulty": 2,
+   "concept": "Three-point estimating",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "9 days"
+    },
+    {
+     "key": "B",
+     "text": "10 days"
+    },
+    {
+     "key": "C",
+     "text": "11 days"
+    },
+    {
+     "key": "D",
+     "text": "12 days"
+    }
+   ],
+   "correct": [
+    "B"
+   ],
+   "rationales": {
+    "A": "9 is the most likely value only.",
+    "C": "11 is the triangular average.",
+    "D": "Not a valid result."
+   }
+  },
+  {
+   "id": "R017",
+   "domain": "PROCESS",
+   "taskId": "PROCESS-T7",
+   "approach": "PREDICTIVE",
+   "stem": "A control chart shows seven consecutive measurements above the mean, all within the control limits. What should the project manager conclude?",
+   "explanation": "The 'rule of seven': seven consecutive points on one side of the mean suggests a non-random pattern that needs investigation.",
+   "tags": [],
+   "difficulty": 2,
+   "concept": "Control charts",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "The process is in control; no action is needed"
+    },
+    {
+     "key": "B",
+     "text": "The process may be out of control and should be investigated"
+    },
+    {
+     "key": "C",
+     "text": "The control limits should be widened"
+    },
+    {
+     "key": "D",
+     "text": "The specification limits have been exceeded"
+    }
+   ],
+   "correct": [
+    "B"
+   ],
+   "rationales": {
+    "A": "Points within limits can still show a non-random trend.",
+    "C": "Changing limits hides the signal.",
+    "D": "No information about specification limits is given."
+   }
+  },
+  {
+   "id": "R018",
+   "domain": "PROCESS",
+   "taskId": "PROCESS-T7",
+   "approach": "PREDICTIVE",
+   "stem": "Classify each cost as a cost of conformance or a cost of non-conformance.",
+   "explanation": "Prevention (training) and appraisal (inspection, testing) are conformance costs. Internal and external failures (rework, warranty, lost business) are non-conformance costs.",
+   "tags": [],
+   "difficulty": 2,
+   "concept": "Cost of quality",
+   "type": "DRAG_CATEGORIZE",
+   "buckets": [
+    {
+     "key": "B1",
+     "text": "Cost of conformance"
+    },
+    {
+     "key": "B2",
+     "text": "Cost of non-conformance"
+    }
+   ],
+   "items": [
+    {
+     "key": "I1",
+     "text": "Team training"
+    },
+    {
+     "key": "I2",
+     "text": "Product inspections"
+    },
+    {
+     "key": "I3",
+     "text": "Rework of defective units"
+    },
+    {
+     "key": "I4",
+     "text": "Warranty claims"
+    },
+    {
+     "key": "I5",
+     "text": "Test equipment"
+    },
+    {
+     "key": "I6",
+     "text": "Lost business from poor reviews"
+    }
+   ],
+   "pairs": {
+    "I1": "B1",
+    "I2": "B1",
+    "I3": "B2",
+    "I4": "B2",
+    "I5": "B1",
+    "I6": "B2"
+   }
+  },
+  {
+   "id": "R019",
+   "domain": "PROCESS",
+   "taskId": "PROCESS-T7",
+   "approach": "AGILE",
+   "stem": "A team keeps finding defects during the sprint review that should have been caught earlier. What is the BEST way to prevent this?",
+   "explanation": "Agile builds quality in. A stronger definition of done prevents defects instead of finding them late.",
+   "tags": [
+    "scenario"
+   ],
+   "difficulty": 2,
+   "concept": "Definition of done",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "Add a separate testing sprint after every two development sprints"
+    },
+    {
+     "key": "B",
+     "text": "Strengthen the definition of done to include automated tests and peer review"
+    },
+    {
+     "key": "C",
+     "text": "Ask the product owner to stop accepting stories"
+    },
+    {
+     "key": "D",
+     "text": "Extend the sprint by a week"
+    }
+   ],
+   "correct": [
+    "B"
+   ],
+   "rationales": {
+    "A": "Separate test sprints delay feedback (a 'mini waterfall').",
+    "C": "Withholding acceptance does not fix the cause.",
+    "D": "Longer sprints do not fix the process."
+   }
+  },
+  {
+   "id": "R020",
+   "domain": "PROCESS",
+   "taskId": "PROCESS-T8",
+   "approach": "PREDICTIVE",
+   "stem": "The project is three weeks behind schedule. The sponsor will not approve more budget but accepts some additional risk. Which compression technique fits BEST?",
+   "explanation": "Fast tracking overlaps activities. It adds risk rather than cost, which matches the sponsor's constraints.",
+   "tags": [
+    "scenario"
+   ],
+   "difficulty": 2,
+   "concept": "Schedule compression",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "Crashing"
+    },
+    {
+     "key": "B",
+     "text": "Fast tracking"
+    },
+    {
+     "key": "C",
+     "text": "Resource levelling"
+    },
+    {
+     "key": "D",
+     "text": "Reducing scope without approval"
+    }
+   ],
+   "correct": [
+    "B"
+   ],
+   "rationales": {
+    "A": "Crashing adds cost.",
+    "C": "Levelling usually lengthens the schedule.",
+    "D": "Scope changes need approval."
+   }
+  },
+  {
+   "id": "R021",
+   "domain": "PROCESS",
+   "taskId": "PROCESS-T8",
+   "approach": "PREDICTIVE",
+   "stem": "Activity A (4 days) precedes B (6 days) and C (3 days). B and C both precede D (2 days). What is the critical path duration?",
+   "explanation": "Paths: A-B-D = 4 + 6 + 2 = 12; A-C-D = 4 + 3 + 2 = 9. The longest is 12 days.",
+   "tags": [
+    "calculation"
+   ],
+   "difficulty": 2,
+   "concept": "Critical path",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "9 days"
+    },
+    {
+     "key": "B",
+     "text": "12 days"
+    },
+    {
+     "key": "C",
+     "text": "15 days"
+    },
+    {
+     "key": "D",
+     "text": "13 days"
+    }
+   ],
+   "correct": [
+    "B"
+   ],
+   "rationales": {
+    "A": "9 is the shorter path.",
+    "C": "15 is the sum of all activities.",
+    "D": "Not a valid path."
+   }
+  },
+  {
+   "id": "R022",
+   "domain": "PROCESS",
+   "taskId": "PROCESS-T8",
+   "approach": "AGILE",
+   "stem": "An agile team's velocity over the last four sprints was 30, 34, 28 and 32 points. 192 points remain in the release, and the team only releases at sprint ends. How many more sprints should the forecast show?",
+   "explanation": "Average velocity = 31 points. 192 / 31 ≈ 6.2 sprints. Because work completes only at sprint boundaries, the forecast is 7 sprints. Present it as a range (6–7) to stakeholders.",
+   "tags": [
+    "calculation"
+   ],
+   "difficulty": 3,
+   "concept": "Velocity forecasting",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "5"
+    },
+    {
+     "key": "B",
+     "text": "6"
+    },
+    {
+     "key": "C",
+     "text": "7"
+    },
+    {
+     "key": "D",
+     "text": "8"
+    }
+   ],
+   "correct": [
+    "C"
+   ],
+   "rationales": {
+    "A": "5 sprints would need about 38 points per sprint.",
+    "B": "6 sprints delivers only about 186 points, short of 192.",
+    "D": "8 is overly pessimistic given stable velocity."
+   }
+  },
+  {
+   "id": "R023",
+   "domain": "PROCESS",
+   "taskId": "PROCESS-T9",
+   "approach": "AGILE",
+   "stem": "A cumulative flow diagram shows the 'In test' band widening every week while 'Done' grows slowly. What does this indicate?",
+   "explanation": "A widening band means work is accumulating in that state: a bottleneck. Limiting WIP and swarming on testing are typical responses.",
+   "tags": [
+    "scenario"
+   ],
+   "difficulty": 2,
+   "concept": "Cumulative flow diagram",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "The team is highly productive"
+    },
+    {
+     "key": "B",
+     "text": "A bottleneck in testing"
+    },
+    {
+     "key": "C",
+     "text": "Scope is decreasing"
+    },
+    {
+     "key": "D",
+     "text": "The backlog needs more stories"
+    }
+   ],
+   "correct": [
+    "B"
+   ],
+   "rationales": {
+    "A": "Accumulating WIP is not productivity.",
+    "C": "Scope is shown by the total height.",
+    "D": "The backlog is not the constraint."
+   }
+  },
+  {
+   "id": "R024",
+   "domain": "PROCESS",
+   "taskId": "PROCESS-T9",
+   "approach": "PREDICTIVE",
+   "stem": "Status reports show green for six months, but the integration test reveals major defects. The sponsor asks why. What should the project manager do going forward?",
+   "explanation": "Honest, metric-based reporting prevents 'watermelon' status and supports timely decisions.",
+   "tags": [
+    "situational"
+   ],
+   "difficulty": 2,
+   "concept": "Status reporting",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "Keep reporting green to avoid alarming the sponsor"
+    },
+    {
+     "key": "B",
+     "text": "Base status on objective measures such as test results and earned value, and report risks transparently"
+    },
+    {
+     "key": "C",
+     "text": "Stop issuing status reports"
+    },
+    {
+     "key": "D",
+     "text": "Blame the test team for late testing"
+    }
+   ],
+   "correct": [
+    "B"
+   ],
+   "rationales": {
+    "A": "This repeats the problem.",
+    "C": "Stakeholders need status information.",
+    "D": "Blame does not fix reporting."
+   }
+  },
+  {
+   "id": "R025",
+   "domain": "PROCESS",
+   "taskId": "PROCESS-T10",
+   "approach": "PREDICTIVE",
+   "stem": "The project's final deliverable is accepted. One vendor contract still has an open punch-list item. What should the project manager do before closing the project?",
+   "explanation": "Procurements must be closed (all work complete and claims settled) before the project is closed.",
+   "tags": [
+    "scenario"
+   ],
+   "difficulty": 2,
+   "concept": "Closing procurements",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "Close the project and handle the vendor later"
+    },
+    {
+     "key": "B",
+     "text": "Complete procurement closure by resolving the open item and confirming contract completion"
+    },
+    {
+     "key": "C",
+     "text": "Transfer the open item to operations"
+    },
+    {
+     "key": "D",
+     "text": "Archive the contract file"
+    }
+   ],
+   "correct": [
+    "B"
+   ],
+   "rationales": {
+    "A": "Leaving contracts open creates liability.",
+    "C": "Contract obligations remain with the project.",
+    "D": "Archiving doesn't resolve the open item."
+   }
+  },
+  {
+   "id": "R026",
+   "domain": "PROCESS",
+   "taskId": "PROCESS-T10",
+   "approach": "HYBRID",
+   "stem": "The sponsor terminates the project because of a strategic merger. What should the project manager do?",
+   "explanation": "Terminated projects still go through closure to protect the organization and preserve knowledge.",
+   "tags": [
+    "scenario"
+   ],
+   "difficulty": 2,
+   "concept": "Project termination",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "Release the team immediately and stop all activity"
+    },
+    {
+     "key": "B",
+     "text": "Follow closure procedures: document status, close contracts, archive work, capture lessons learned and release resources"
+    },
+    {
+     "key": "C",
+     "text": "Keep working quietly in case the decision changes"
+    },
+    {
+     "key": "D",
+     "text": "Ask the team to finish their current tasks"
+    }
+   ],
+   "correct": [
+    "B"
+   ],
+   "rationales": {
+    "A": "Stopping abruptly loses knowledge and leaves obligations open.",
+    "C": "Continuing defies the governance decision.",
+    "D": "Further work is not authorized."
+   }
+  },
+  {
+   "id": "R027",
+   "domain": "PROCESS",
+   "taskId": "PROCESS-T10",
+   "approach": "PREDICTIVE",
+   "stem": "Which THREE activities belong to project closure?",
+   "explanation": "Closure confirms acceptance, finalizes lessons learned and transitions the product. The WBS and charter are created in planning and initiation.",
+   "tags": [],
+   "difficulty": 3,
+   "concept": "Closing",
+   "type": "MCQ_MULTI",
+   "options": [
+    {
+     "key": "A",
+     "text": "Obtain final acceptance of deliverables"
+    },
+    {
+     "key": "B",
+     "text": "Create the WBS"
+    },
+    {
+     "key": "C",
+     "text": "Finalize the lessons-learned register"
+    },
+    {
+     "key": "D",
+     "text": "Transfer the product to operations"
+    },
+    {
+     "key": "E",
+     "text": "Develop the project charter"
+    }
+   ],
+   "correct": [
+    "A",
+    "C",
+    "D"
+   ],
+   "selectCount": 3
+  },
+  {
+   "id": "R028",
+   "domain": "PROCESS",
+   "taskId": "PROCESS-T1",
+   "approach": "AGILE",
+   "stem": "Which event formally marks the start of execution and aligns the team and stakeholders on the plan?",
+   "explanation": "The kickoff meeting launches the project or a major phase and aligns everyone on objectives, roles and plans.",
+   "tags": [],
+   "difficulty": 1,
+   "concept": "Kickoff",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "Sprint retrospective"
+    },
+    {
+     "key": "B",
+     "text": "Kickoff meeting"
+    },
+    {
+     "key": "C",
+     "text": "Phase gate review"
+    },
+    {
+     "key": "D",
+     "text": "Lessons-learned session"
+    }
+   ],
+   "correct": [
+    "B"
+   ],
+   "rationales": {
+    "A": "Retrospectives look back.",
+    "C": "Gates decide go/no-go.",
+    "D": "Lessons sessions capture learning."
+   }
+  },
+  {
+   "id": "R029",
+   "domain": "PROCESS",
+   "taskId": "PROCESS-T6",
+   "approach": "PREDICTIVE",
+   "stem": "Match each earned value formula to what it calculates.",
+   "explanation": "CV = EV − AC; SV = EV − PV; CPI = EV / AC; EAC = BAC / CPI when current performance continues.",
+   "tags": [],
+   "difficulty": 2,
+   "concept": "Earned value",
+   "type": "MATCHING",
+   "left": [
+    {
+     "key": "L1",
+     "text": "EV − AC"
+    },
+    {
+     "key": "L2",
+     "text": "EV − PV"
+    },
+    {
+     "key": "L3",
+     "text": "EV / AC"
+    },
+    {
+     "key": "L4",
+     "text": "BAC / CPI"
+    }
+   ],
+   "right": [
+    {
+     "key": "R1",
+     "text": "Cost performance index (CPI)"
+    },
+    {
+     "key": "R2",
+     "text": "Cost variance (CV)"
+    },
+    {
+     "key": "R3",
+     "text": "Estimate at completion (EAC)"
+    },
+    {
+     "key": "R4",
+     "text": "Schedule variance (SV)"
+    },
+    {
+     "key": "R5",
+     "text": "To-complete performance index (TCPI)"
+    }
+   ],
+   "pairs": {
+    "L1": "R2",
+    "L2": "R4",
+    "L3": "R1",
+    "L4": "R3"
+   }
+  },
+  {
+   "id": "R030",
+   "domain": "PROCESS",
+   "taskId": "PROCESS-T3",
+   "approach": "AGILE",
+   "stem": "What is the main purpose of a minimum viable product (MVP)?",
+   "explanation": "An MVP tests assumptions about value with real users as early as possible.",
+   "tags": [],
+   "difficulty": 1,
+   "concept": "MVP",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "Deliver the full scope at the lowest cost"
+    },
+    {
+     "key": "B",
+     "text": "Test a value hypothesis with the smallest useful release to gain feedback"
+    },
+    {
+     "key": "C",
+     "text": "Satisfy contractual milestones"
+    },
+    {
+     "key": "D",
+     "text": "Produce a prototype that will be thrown away"
+    }
+   ],
+   "correct": [
+    "B"
+   ],
+   "rationales": {
+    "A": "MVP is not full scope.",
+    "C": "Milestones may differ from value hypotheses.",
+    "D": "An MVP is usable, not necessarily throwaway."
+   }
+  },
+  {
+   "id": "R031",
+   "domain": "PROCESS",
+   "taskId": "PROCESS-T6",
+   "approach": "PREDICTIVE",
+   "stem": "Arrange the steps of building a project budget in order.",
+   "explanation": "Costs roll up from activities to work packages and control accounts. Contingency makes the cost baseline; management reserve completes the project budget.",
+   "tags": [],
+   "difficulty": 2,
+   "concept": "Cost aggregation",
+   "type": "DRAG_ORDER",
+   "items": [
+    {
+     "key": "I2",
+     "text": "Aggregate to work-package and control-account costs"
+    },
+    {
+     "key": "I4",
+     "text": "Add management reserve to form the total budget"
+    },
+    {
+     "key": "I1",
+     "text": "Estimate activity costs"
+    },
+    {
+     "key": "I3",
+     "text": "Add contingency reserves to form the cost baseline"
+    }
+   ],
+   "correct": [
+    "I1",
+    "I2",
+    "I3",
+    "I4"
+   ]
+  },
+  {
+   "id": "R032",
+   "domain": "PROCESS",
+   "taskId": "PROCESS-T4",
+   "approach": "AGILE",
+   "stem": "An agile organization wants to maximize team performance on a long-running product. Which staffing approach is BEST?",
+   "explanation": "Stable, dedicated, cross-functional teams build trust, shared knowledge and predictable velocity.",
+   "tags": [],
+   "difficulty": 2,
+   "concept": "Team structure",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "Reassign developers every sprint based on availability"
+    },
+    {
+     "key": "B",
+     "text": "Keep a stable, dedicated, cross-functional team"
+    },
+    {
+     "key": "C",
+     "text": "Use specialists from a central pool per task"
+    },
+    {
+     "key": "D",
+     "text": "Rotate the product owner weekly"
+    }
+   ],
+   "correct": [
+    "B"
+   ],
+   "rationales": {
+    "A": "Frequent reassignment destroys team learning.",
+    "C": "Pooling creates handoffs and waits.",
+    "D": "Product ownership needs continuity."
+   }
+  },
+  {
+   "id": "B001",
+   "domain": "BUSINESS_ENV",
+   "taskId": "BUSINESS_ENV-T1",
+   "approach": "PREDICTIVE",
+   "stem": "A decision about a 500,000 vendor contract is above the project manager's authority. Two stakeholders are pressing for a quick decision. What should the project manager do?",
+   "explanation": "Governance defines decision rights. The PM supports the decision with analysis and follows the escalation path.",
+   "tags": [
+    "scenario"
+   ],
+   "difficulty": 2,
+   "concept": "Decision rights",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "Make the decision to keep the project moving"
+    },
+    {
+     "key": "B",
+     "text": "Prepare options and impacts, and take the decision to the steering committee per the governance framework"
+    },
+    {
+     "key": "C",
+     "text": "Let the two stakeholders decide between themselves"
+    },
+    {
+     "key": "D",
+     "text": "Delay the decision until the next phase"
+    }
+   ],
+   "correct": [
+    "B"
+   ],
+   "rationales": {
+    "A": "Exceeding authority breaches governance.",
+    "C": "Stakeholders lack the formal authority.",
+    "D": "Delay may harm the project."
+   }
+  },
+  {
+   "id": "B002",
+   "domain": "BUSINESS_ENV",
+   "taskId": "BUSINESS_ENV-T1",
+   "approach": "PREDICTIVE",
+   "stem": "In which organizational structure does the project manager typically have the MOST authority?",
+   "explanation": "In projectized organizations the PM controls budget and resources. Authority is lowest in functional organizations.",
+   "tags": [],
+   "difficulty": 1,
+   "concept": "Organizational structures",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "Functional"
+    },
+    {
+     "key": "B",
+     "text": "Weak matrix"
+    },
+    {
+     "key": "C",
+     "text": "Balanced matrix"
+    },
+    {
+     "key": "D",
+     "text": "Projectized"
+    }
+   ],
+   "correct": [
+    "D"
+   ],
+   "rationales": {
+    "A": "Functional: authority sits with functional managers.",
+    "B": "Weak matrix: the PM is more of a coordinator.",
+    "C": "Balanced: authority is shared."
+   }
+  },
+  {
+   "id": "B003",
+   "domain": "BUSINESS_ENV",
+   "taskId": "BUSINESS_ENV-T1",
+   "approach": "HYBRID",
+   "stem": "Match each PMO type to its level of control.",
+   "explanation": "PMO types range from supportive (low control) to controlling (moderate) to directive (high).",
+   "tags": [],
+   "difficulty": 2,
+   "concept": "PMO types",
+   "type": "MATCHING",
+   "left": [
+    {
+     "key": "L1",
+     "text": "Supportive"
+    },
+    {
+     "key": "L2",
+     "text": "Controlling"
+    },
+    {
+     "key": "L3",
+     "text": "Directive"
+    }
+   ],
+   "right": [
+    {
+     "key": "R1",
+     "text": "Approves individual sprint backlogs"
+    },
+    {
+     "key": "R2",
+     "text": "Directly manages projects; high control"
+    },
+    {
+     "key": "R3",
+     "text": "Provides templates and training; low control"
+    },
+    {
+     "key": "R4",
+     "text": "Requires compliance with frameworks; moderate control"
+    }
+   ],
+   "pairs": {
+    "L1": "R3",
+    "L2": "R4",
+    "L3": "R2"
+   }
+  },
+  {
+   "id": "B004",
+   "domain": "BUSINESS_ENV",
+   "taskId": "BUSINESS_ENV-T2",
+   "approach": "HYBRID",
+   "stem": "Midway through a CRM rollout, a new data-protection regulation takes effect that requires explicit consent tracking. What should the project manager do FIRST?",
+   "explanation": "First understand the regulatory requirements with experts, then plan the change (backlog, change control, risk updates).",
+   "tags": [
+    "scenario"
+   ],
+   "difficulty": 2,
+   "concept": "Regulatory compliance",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "Ignore it until the next release"
+    },
+    {
+     "key": "B",
+     "text": "Engage the compliance or privacy officer to assess the impact and requirements"
+    },
+    {
+     "key": "C",
+     "text": "Add consent tracking directly to the current sprint"
+    },
+    {
+     "key": "D",
+     "text": "Ask the vendor to absorb the change"
+    }
+   ],
+   "correct": [
+    "B"
+   ],
+   "rationales": {
+    "A": "Non-compliance is not optional.",
+    "C": "Acting before understanding may produce the wrong solution.",
+    "D": "Contract terms decide who pays; this is not the first step."
+   }
+  },
+  {
+   "id": "B005",
+   "domain": "BUSINESS_ENV",
+   "taskId": "BUSINESS_ENV-T2",
+   "approach": "AGILE",
+   "stem": "A tester finds that the release does not meet mandatory accessibility requirements. The release date is tomorrow. What should the project manager do?",
+   "explanation": "Mandatory requirements are not negotiable trade-offs. Raise the issue transparently and follow policy.",
+   "tags": [
+    "situational"
+   ],
+   "difficulty": 2,
+   "concept": "Compliance in definition of done",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "Release and fix accessibility in a later patch"
+    },
+    {
+     "key": "B",
+     "text": "Inform the product owner and stakeholders, and do not release until the compliance gap is resolved or formally handled per policy"
+    },
+    {
+     "key": "C",
+     "text": "Ask the tester to mark the issue as minor"
+    },
+    {
+     "key": "D",
+     "text": "Release only to internal users without telling anyone"
+    }
+   ],
+   "correct": [
+    "B"
+   ],
+   "rationales": {
+    "A": "Knowingly releasing non-compliant software breaches obligations.",
+    "C": "Downgrading the issue is unethical.",
+    "D": "Concealment is unethical."
+   }
+  },
+  {
+   "id": "B006",
+   "domain": "BUSINESS_ENV",
+   "taskId": "BUSINESS_ENV-T3",
+   "approach": "PREDICTIVE",
+   "stem": "A sponsor asks a developer directly to add a new report. The developer tells the project manager. What should the project manager do FIRST?",
+   "explanation": "In a predictive project, changes are logged and their impact analyzed before the CCB or decision maker decides.",
+   "tags": [
+    "scenario"
+   ],
+   "difficulty": 2,
+   "concept": "Integrated change control",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "Tell the developer to add the report"
+    },
+    {
+     "key": "B",
+     "text": "Log a change request and evaluate its impact on scope, schedule, cost and risk"
+    },
+    {
+     "key": "C",
+     "text": "Refuse the request"
+    },
+    {
+     "key": "D",
+     "text": "Ask the change control board to approve it immediately"
+    }
+   ],
+   "correct": [
+    "B"
+   ],
+   "rationales": {
+    "A": "Implementing before approval bypasses change control.",
+    "C": "The request may be valuable.",
+    "D": "The CCB needs an impact analysis first."
+   }
+  },
+  {
+   "id": "B007",
+   "domain": "BUSINESS_ENV",
+   "taskId": "BUSINESS_ENV-T3",
+   "approach": "PREDICTIVE",
+   "stem": "Arrange the steps of handling a change request in a predictive project.",
+   "explanation": "Integrated change control: log → analyze → decide → update → communicate.",
+   "tags": [],
+   "difficulty": 2,
+   "concept": "Change control",
+   "type": "DRAG_ORDER",
+   "items": [
+    {
+     "key": "I2",
+     "text": "Analyze impact on all constraints"
+    },
+    {
+     "key": "I4",
+     "text": "Update plans and baselines if approved"
+    },
+    {
+     "key": "I1",
+     "text": "Log the change request"
+    },
+    {
+     "key": "I3",
+     "text": "Submit to the change control board for decision"
+    },
+    {
+     "key": "I5",
+     "text": "Communicate the decision to stakeholders"
+    }
+   ],
+   "correct": [
+    "I1",
+    "I2",
+    "I3",
+    "I4",
+    "I5"
+   ]
+  },
+  {
+   "id": "B008",
+   "domain": "BUSINESS_ENV",
+   "taskId": "BUSINESS_ENV-T3",
+   "approach": "AGILE",
+   "stem": "In an agile project, where should a newly requested feature normally go?",
+   "explanation": "Agile welcomes change through the product backlog. The product owner orders it by value.",
+   "tags": [],
+   "difficulty": 1,
+   "concept": "Backlog change",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "Into the current sprint immediately"
+    },
+    {
+     "key": "B",
+     "text": "Into the product backlog for the product owner to prioritize"
+    },
+    {
+     "key": "C",
+     "text": "To the change control board"
+    },
+    {
+     "key": "D",
+     "text": "Into the risk register"
+    }
+   ],
+   "correct": [
+    "B"
+   ],
+   "rationales": {
+    "A": "Changing a sprint mid-way disrupts the sprint goal.",
+    "C": "Agile rarely uses a CCB for backlog changes.",
+    "D": "A feature request is not a risk."
+   }
+  },
+  {
+   "id": "B009",
+   "domain": "BUSINESS_ENV",
+   "taskId": "BUSINESS_ENV-T4",
+   "approach": "AGILE",
+   "stem": "In every sprint the team loses two days waiting for database access approvals from another department. What should the scrum master do?",
+   "explanation": "Servant leaders remove impediments beyond the team's control, using data to make the case.",
+   "tags": [
+    "scenario"
+   ],
+   "difficulty": 2,
+   "concept": "Removing impediments",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "Ask the team to plan less work"
+    },
+    {
+     "key": "B",
+     "text": "Escalate the impediment with data on lost time and work with the department to streamline approvals"
+    },
+    {
+     "key": "C",
+     "text": "Tell the team to use production credentials"
+    },
+    {
+     "key": "D",
+     "text": "Record it in the retrospective and accept it"
+    }
+   ],
+   "correct": [
+    "B"
+   ],
+   "rationales": {
+    "A": "This hides the root cause.",
+    "C": "This breaches security policy.",
+    "D": "Accepting a recurring blocker is passive."
+   }
+  },
+  {
+   "id": "B010",
+   "domain": "BUSINESS_ENV",
+   "taskId": "BUSINESS_ENV-T4",
+   "approach": "PREDICTIVE",
+   "stem": "What is the key difference between an issue and a risk?",
+   "explanation": "Risks are uncertain and in the future. Issues are current problems that need resolution.",
+   "tags": [],
+   "difficulty": 1,
+   "concept": "Issue vs risk",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "Issues are always larger than risks"
+    },
+    {
+     "key": "B",
+     "text": "An issue has occurred; a risk is an uncertain future event"
+    },
+    {
+     "key": "C",
+     "text": "Risks are only negative; issues can be positive"
+    },
+    {
+     "key": "D",
+     "text": "Issues are owned by the sponsor; risks by the PM"
+    }
+   ],
+   "correct": [
+    "B"
+   ],
+   "rationales": {
+    "A": "Size is not the distinction.",
+    "C": "Risks can be positive (opportunities).",
+    "D": "Ownership varies."
+   }
+  },
+  {
+   "id": "B011",
+   "domain": "BUSINESS_ENV",
+   "taskId": "BUSINESS_ENV-T5",
+   "approach": "PREDICTIVE",
+   "stem": "A risk has a 25% probability and a cost impact of 80,000. What is its expected monetary value?",
+   "explanation": "EMV = probability × impact = 0.25 × (−80,000) = −20,000.",
+   "tags": [
+    "calculation"
+   ],
+   "difficulty": 2,
+   "concept": "EMV",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "-20,000"
+    },
+    {
+     "key": "B",
+     "text": "-60,000"
+    },
+    {
+     "key": "C",
+     "text": "-80,000"
+    },
+    {
+     "key": "D",
+     "text": "-25,000"
+    }
+   ],
+   "correct": [
+    "A"
+   ],
+   "rationales": {
+    "B": "That is 75% of the impact.",
+    "C": "That is the full impact.",
+    "D": "Not a valid result."
+   }
+  },
+  {
+   "id": "B012",
+   "domain": "BUSINESS_ENV",
+   "taskId": "BUSINESS_ENV-T5",
+   "approach": "PREDICTIVE",
+   "stem": "Classify each risk response as a threat response or an opportunity response.",
+   "explanation": "Threats: avoid, transfer, mitigate (and accept, escalate). Opportunities: exploit, share, enhance (and accept, escalate).",
+   "tags": [],
+   "difficulty": 2,
+   "concept": "Risk responses",
+   "type": "DRAG_CATEGORIZE",
+   "buckets": [
+    {
+     "key": "B1",
+     "text": "Threat response"
+    },
+    {
+     "key": "B2",
+     "text": "Opportunity response"
+    }
+   ],
+   "items": [
+    {
+     "key": "I1",
+     "text": "Avoid"
+    },
+    {
+     "key": "I2",
+     "text": "Transfer"
+    },
+    {
+     "key": "I3",
+     "text": "Mitigate"
+    },
+    {
+     "key": "I4",
+     "text": "Exploit"
+    },
+    {
+     "key": "I5",
+     "text": "Share"
+    },
+    {
+     "key": "I6",
+     "text": "Enhance"
+    }
+   ],
+   "pairs": {
+    "I1": "B1",
+    "I2": "B1",
+    "I3": "B1",
+    "I4": "B2",
+    "I5": "B2",
+    "I6": "B2"
+   }
+  },
+  {
+   "id": "B013",
+   "domain": "BUSINESS_ENV",
+   "taskId": "BUSINESS_ENV-T5",
+   "approach": "PREDICTIVE",
+   "stem": "The project buys insurance to cover possible equipment damage during shipping. Which risk response is this?",
+   "explanation": "Insurance shifts the financial impact to a third party: transfer.",
+   "tags": [],
+   "difficulty": 1,
+   "concept": "Risk responses",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "Avoid"
+    },
+    {
+     "key": "B",
+     "text": "Transfer"
+    },
+    {
+     "key": "C",
+     "text": "Mitigate"
+    },
+    {
+     "key": "D",
+     "text": "Accept"
+    }
+   ],
+   "correct": [
+    "B"
+   ],
+   "rationales": {
+    "A": "Avoid removes the threat entirely, e.g. by not shipping.",
+    "C": "Mitigate reduces probability or impact, e.g. better packing.",
+    "D": "Accept means no proactive action."
+   }
+  },
+  {
+   "id": "B014",
+   "domain": "BUSINESS_ENV",
+   "taskId": "BUSINESS_ENV-T5",
+   "approach": "HYBRID",
+   "stem": "An identified risk occurs, and the planned response is carried out. What should the project manager do NEXT?",
+   "explanation": "After implementing a response, monitor its effectiveness and update the registers for residual and secondary risks.",
+   "tags": [
+    "scenario"
+   ],
+   "difficulty": 2,
+   "concept": "Risk monitoring",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "Close the risk register"
+    },
+    {
+     "key": "B",
+     "text": "Monitor the response's effectiveness and check for secondary or residual risks"
+    },
+    {
+     "key": "C",
+     "text": "Create a new project charter"
+    },
+    {
+     "key": "D",
+     "text": "Request management reserve"
+    }
+   ],
+   "correct": [
+    "B"
+   ],
+   "rationales": {
+    "A": "The register stays active.",
+    "C": "Not related.",
+    "D": "Contingency funds the planned response; management reserve is for unknowns."
+   }
+  },
+  {
+   "id": "B015",
+   "domain": "BUSINESS_ENV",
+   "taskId": "BUSINESS_ENV-T5",
+   "approach": "HYBRID",
+   "stem": "Which TWO statements about using AI forecasting tools on a project are MOST accurate?",
+   "explanation": "AI can improve forecasting but adds risks (bias, hallucination, data leakage). People stay accountable for decisions.",
+   "tags": [
+    "ai"
+   ],
+   "difficulty": 3,
+   "concept": "AI in project management",
+   "type": "MCQ_MULTI",
+   "options": [
+    {
+     "key": "A",
+     "text": "AI forecasts remove the need for risk management"
+    },
+    {
+     "key": "B",
+     "text": "AI tools can introduce risks such as biased or inaccurate outputs that need validation"
+    },
+    {
+     "key": "C",
+     "text": "AI-generated estimates should be reviewed by accountable humans before decisions"
+    },
+    {
+     "key": "D",
+     "text": "AI tools are always compliant with data-protection rules"
+    },
+    {
+     "key": "E",
+     "text": "AI outputs do not need to be documented"
+    }
+   ],
+   "correct": [
+    "B",
+    "C"
+   ],
+   "selectCount": 2
+  },
+  {
+   "id": "B016",
+   "domain": "BUSINESS_ENV",
+   "taskId": "BUSINESS_ENV-T6",
+   "approach": "AGILE",
+   "stem": "A retrospective shows code reviews wait two days on average. What should happen next?",
+   "explanation": "Continuous improvement follows PDCA: plan a change, do it, check the effect, act on the result.",
+   "tags": [
+    "scenario"
+   ],
+   "difficulty": 2,
+   "concept": "Retrospectives / PDCA",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "Record the finding for future projects"
+    },
+    {
+     "key": "B",
+     "text": "The team agrees a concrete improvement action, tries it in the next sprint and checks the result"
+    },
+    {
+     "key": "C",
+     "text": "The PM mandates that reviews must be done within one hour"
+    },
+    {
+     "key": "D",
+     "text": "Escalate to management"
+    }
+   ],
+   "correct": [
+    "B"
+   ],
+   "rationales": {
+    "A": "Improvement should apply now, not only later.",
+    "C": "Mandates reduce team ownership.",
+    "D": "The team can solve this itself."
+   }
+  },
+  {
+   "id": "B017",
+   "domain": "BUSINESS_ENV",
+   "taskId": "BUSINESS_ENV-T6",
+   "approach": "PREDICTIVE",
+   "stem": "Which Lean concept refers to eliminating activities that add no value for the customer?",
+   "explanation": "Lean focuses on removing waste, such as waiting, handoffs, defects and over-processing, to increase flow.",
+   "tags": [],
+   "difficulty": 1,
+   "concept": "Lean",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "Kaizen"
+    },
+    {
+     "key": "B",
+     "text": "Waste (muda) reduction"
+    },
+    {
+     "key": "C",
+     "text": "Gold plating"
+    },
+    {
+     "key": "D",
+     "text": "Crashing"
+    }
+   ],
+   "correct": [
+    "B"
+   ],
+   "rationales": {
+    "A": "Kaizen is the philosophy of continuous small improvement.",
+    "C": "Gold plating adds unneeded features.",
+    "D": "Crashing adds resources."
+   }
+  },
+  {
+   "id": "B018",
+   "domain": "BUSINESS_ENV",
+   "taskId": "BUSINESS_ENV-T7",
+   "approach": "HYBRID",
+   "stem": "A new procurement system went live a month ago, but most staff still use the old spreadsheets. What should the project manager do?",
+   "explanation": "Low adoption is a people-change problem. Reinforcement, training and champions (as in ADKAR) drive adoption.",
+   "tags": [
+    "scenario"
+   ],
+   "difficulty": 2,
+   "concept": "ADKAR / adoption",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "Ask IT to add more features"
+    },
+    {
+     "key": "B",
+     "text": "Apply change management: identify champions, provide hands-on training, communicate benefits and retire the old spreadsheets"
+    },
+    {
+     "key": "C",
+     "text": "Report that the project is complete"
+    },
+    {
+     "key": "D",
+     "text": "Escalate the staff to HR"
+    }
+   ],
+   "correct": [
+    "B"
+   ],
+   "rationales": {
+    "A": "More features don't address adoption.",
+    "C": "Benefits are not yet realized.",
+    "D": "Punitive action increases resistance."
+   }
+  },
+  {
+   "id": "B019",
+   "domain": "BUSINESS_ENV",
+   "taskId": "BUSINESS_ENV-T7",
+   "approach": "HYBRID",
+   "stem": "Arrange the ADKAR change model elements in order.",
+   "explanation": "ADKAR: Awareness of the need, Desire to take part, Knowledge of how, Ability to implement, Reinforcement to sustain.",
+   "tags": [],
+   "difficulty": 2,
+   "concept": "ADKAR",
+   "type": "DRAG_ORDER",
+   "items": [
+    {
+     "key": "I2",
+     "text": "Desire"
+    },
+    {
+     "key": "I4",
+     "text": "Ability"
+    },
+    {
+     "key": "I1",
+     "text": "Awareness"
+    },
+    {
+     "key": "I3",
+     "text": "Knowledge"
+    },
+    {
+     "key": "I5",
+     "text": "Reinforcement"
+    }
+   ],
+   "correct": [
+    "I1",
+    "I2",
+    "I3",
+    "I4",
+    "I5"
+   ]
+  },
+  {
+   "id": "B020",
+   "domain": "BUSINESS_ENV",
+   "taskId": "BUSINESS_ENV-T8",
+   "approach": "AGILE",
+   "stem": "A competitor launches a free product with similar features to the one your team is building. What should the project manager do?",
+   "explanation": "External changes can affect the business case. Assess the impact and let the right decision makers adjust direction.",
+   "tags": [
+    "scenario"
+   ],
+   "difficulty": 2,
+   "concept": "External environment",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "Continue the plan; the charter is approved"
+    },
+    {
+     "key": "B",
+     "text": "Facilitate a rapid impact assessment with the product owner and sponsor to revisit priorities and the business case"
+    },
+    {
+     "key": "C",
+     "text": "Cancel the project immediately"
+    },
+    {
+     "key": "D",
+     "text": "Copy the competitor's features"
+    }
+   ],
+   "correct": [
+    "B"
+   ],
+   "rationales": {
+    "A": "Ignoring market change risks delivering no value.",
+    "C": "Cancellation is not the PM's unilateral decision.",
+    "D": "Copying is not a strategy."
+   }
+  },
+  {
+   "id": "B021",
+   "domain": "BUSINESS_ENV",
+   "taskId": "BUSINESS_ENV-T8",
+   "approach": "PREDICTIVE",
+   "stem": "Match each external factor to its PESTLE category.",
+   "explanation": "PESTLE groups external influences so their impact on the project can be assessed systematically.",
+   "tags": [],
+   "difficulty": 2,
+   "concept": "PESTLE",
+   "type": "MATCHING",
+   "left": [
+    {
+     "key": "L1",
+     "text": "New import tariff on components"
+    },
+    {
+     "key": "L2",
+     "text": "Rising interest rates"
+    },
+    {
+     "key": "L3",
+     "text": "Remote-work preferences of staff"
+    },
+    {
+     "key": "L4",
+     "text": "New cloud AI service released"
+    },
+    {
+     "key": "L5",
+     "text": "Carbon-reporting regulation"
+    }
+   ],
+   "right": [
+    {
+     "key": "R1",
+     "text": "Economic"
+    },
+    {
+     "key": "R2",
+     "text": "Legal / Environmental"
+    },
+    {
+     "key": "R3",
+     "text": "Political"
+    },
+    {
+     "key": "R4",
+     "text": "Social"
+    },
+    {
+     "key": "R5",
+     "text": "Technological"
+    }
+   ],
+   "pairs": {
+    "L1": "R3",
+    "L2": "R1",
+    "L3": "R4",
+    "L4": "R5",
+    "L5": "R2"
+   }
+  },
+  {
+   "id": "B022",
+   "domain": "BUSINESS_ENV",
+   "taskId": "BUSINESS_ENV-T2",
+   "approach": "PREDICTIVE",
+   "stem": "The organization requires all projects to report their carbon footprint at phase gates. The vendor cannot provide emissions data. What should the project manager do?",
+   "explanation": "Sustainability reporting is an organizational compliance requirement. Manage the gap transparently with a defensible method.",
+   "tags": [
+    "sustainability"
+   ],
+   "difficulty": 3,
+   "concept": "ESG compliance",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "Skip the requirement for this project"
+    },
+    {
+     "key": "B",
+     "text": "Treat it as a compliance requirement: log the gap as an issue, work with the vendor on estimation methods, and inform governance"
+    },
+    {
+     "key": "C",
+     "text": "Estimate a number without a method"
+    },
+    {
+     "key": "D",
+     "text": "Replace the vendor immediately"
+    }
+   ],
+   "correct": [
+    "B"
+   ],
+   "rationales": {
+    "A": "Requirements cannot be skipped unilaterally.",
+    "C": "Unsupported numbers are misleading.",
+    "D": "Replacement is drastic and may not be needed."
+   }
+  },
+  {
+   "id": "B023",
+   "domain": "BUSINESS_ENV",
+   "taskId": "BUSINESS_ENV-T1",
+   "approach": "AGILE",
+   "stem": "Portfolio leaders want visibility of several agile teams without adding heavy reporting. What governance approach fits BEST?",
+   "explanation": "Adaptive governance uses transparency and frequent review events rather than heavy documentation.",
+   "tags": [
+    "scenario"
+   ],
+   "difficulty": 2,
+   "concept": "Adaptive governance",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "Weekly 20-page status reports from each team"
+    },
+    {
+     "key": "B",
+     "text": "Lightweight governance using shared roadmaps, portfolio Kanban and regular review events"
+    },
+    {
+     "key": "C",
+     "text": "A phase-gate approval before every sprint"
+    },
+    {
+     "key": "D",
+     "text": "No governance, because agile teams are self-organizing"
+    }
+   ],
+   "correct": [
+    "B"
+   ],
+   "rationales": {
+    "A": "Heavy reporting slows delivery.",
+    "C": "Per-sprint gates add bureaucracy.",
+    "D": "Some governance is always needed."
+   }
+  },
+  {
+   "id": "B024",
+   "domain": "BUSINESS_ENV",
+   "taskId": "BUSINESS_ENV-T4",
+   "approach": "PREDICTIVE",
+   "stem": "A problem keeps recurring even though the team applies the same workaround each time. What should the project manager do?",
+   "explanation": "Recurring issues call for root cause analysis to prevent recurrence.",
+   "tags": [],
+   "difficulty": 2,
+   "concept": "Root cause analysis",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "Continue applying the workaround"
+    },
+    {
+     "key": "B",
+     "text": "Perform root cause analysis, such as 5 whys or a fishbone diagram, and address the cause"
+    },
+    {
+     "key": "C",
+     "text": "Add more workaround documentation"
+    },
+    {
+     "key": "D",
+     "text": "Accept the issue"
+    }
+   ],
+   "correct": [
+    "B"
+   ],
+   "rationales": {
+    "A": "Workarounds treat symptoms.",
+    "C": "More documentation still treats symptoms.",
+    "D": "Accepting is passive."
+   }
+  },
+  {
+   "id": "C101",
+   "domain": "BUSINESS_ENV",
+   "taskId": "BUSINESS_ENV-T2",
+   "approach": "HYBRID",
+   "stem": "Given the new patient-data rules, what should you do FIRST?",
+   "explanation": "Understand the regulatory impact with experts before deciding on backlog items, contract changes or a pause.",
+   "tags": [
+    "scenario"
+   ],
+   "difficulty": 3,
+   "concept": "",
+   "caseId": "CASE-01",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "Pause the whole project"
+    },
+    {
+     "key": "B",
+     "text": "Engage the organization's privacy or compliance lead to assess the impact on both app and kiosk scope"
+    },
+    {
+     "key": "C",
+     "text": "Ask the kiosk vendor to absorb any change"
+    },
+    {
+     "key": "D",
+     "text": "Add a generic 'compliance' story to the backlog"
+    }
+   ],
+   "correct": [
+    "B"
+   ],
+   "rationales": {
+    "A": "Pausing is premature.",
+    "C": "Contract terms decide that later.",
+    "D": "A vague story without analysis won't ensure compliance."
+   }
+  },
+  {
+   "id": "C102",
+   "domain": "PROCESS",
+   "taskId": "PROCESS-T6",
+   "approach": "PREDICTIVE",
+   "stem": "Based on the exhibit, what is the cost performance index (CPI), and what does it mean?",
+   "explanation": "CPI = EV / AC = 180,000 / 210,000 ≈ 0.86. Less than 1 means over budget.",
+   "tags": [
+    "calculation"
+   ],
+   "difficulty": 2,
+   "concept": "",
+   "caseId": "CASE-01",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "0.86: over budget"
+    },
+    {
+     "key": "B",
+     "text": "0.90: behind schedule"
+    },
+    {
+     "key": "C",
+     "text": "1.17: under budget"
+    },
+    {
+     "key": "D",
+     "text": "0.86: ahead of schedule"
+    }
+   ],
+   "correct": [
+    "A"
+   ],
+   "rationales": {
+    "B": "0.90 is SPI (EV/PV), which shows schedule, not cost.",
+    "C": "This inverts the formula.",
+    "D": "CPI is about cost, not schedule."
+   }
+  },
+  {
+   "id": "C103",
+   "domain": "PEOPLE",
+   "taskId": "PEOPLE-T4",
+   "approach": "AGILE",
+   "stem": "Receptionists rarely attend sprint reviews. What is the BEST way to improve their engagement?",
+   "explanation": "Adapting engagement to the stakeholders' working reality raises participation and feedback quality.",
+   "tags": [
+    "scenario"
+   ],
+   "difficulty": 2,
+   "concept": "",
+   "caseId": "CASE-01",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "Report their absence to clinic managers"
+    },
+    {
+     "key": "B",
+     "text": "Hold short reviews in the clinics at quiet times, or use recorded demos with a quick feedback form"
+    },
+    {
+     "key": "C",
+     "text": "Have the product owner accept stories for them"
+    },
+    {
+     "key": "D",
+     "text": "Wait until user acceptance testing"
+    }
+   ],
+   "correct": [
+    "B"
+   ],
+   "rationales": {
+    "A": "Escalation without adapting is unlikely to help.",
+    "C": "Proxy acceptance risks low adoption.",
+    "D": "Late feedback is expensive."
+   }
+  },
+  {
+   "id": "C104",
+   "domain": "PROCESS",
+   "taskId": "PROCESS-T5",
+   "approach": "PREDICTIVE",
+   "stem": "The kiosk vendor says the new rules require encrypted storage not in the contract. Which TWO actions are appropriate?",
+   "explanation": "Contract changes go through the agreed change process with an impact assessment. Unilateral demands or switching contract types are inappropriate.",
+   "tags": [],
+   "difficulty": 3,
+   "concept": "",
+   "caseId": "CASE-01",
+   "type": "MCQ_MULTI",
+   "options": [
+    {
+     "key": "A",
+     "text": "Follow the contract's change control process to evaluate and agree the change"
+    },
+    {
+     "key": "B",
+     "text": "Tell the vendor to make the change at no cost because regulation is their problem"
+    },
+    {
+     "key": "C",
+     "text": "Assess the impact of the change on the kiosk milestones and budget"
+    },
+    {
+     "key": "D",
+     "text": "Switch to a cost-reimbursable contract immediately"
+    },
+    {
+     "key": "E",
+     "text": "Ignore the kiosks; only the apps store patient data"
+    }
+   ],
+   "correct": [
+    "A",
+    "C"
+   ],
+   "selectCount": 2
+  },
+  {
+   "id": "C201",
+   "domain": "BUSINESS_ENV",
+   "taskId": "BUSINESS_ENV-T7",
+   "approach": "HYBRID",
+   "stem": "Picking speed improved only 5% at the first site. Staff report they still pick some orders manually 'to be safe'. What is the MOST likely focus for improvement?",
+   "explanation": "Benefits depend on adoption. The symptoms point to people and process change rather than technology.",
+   "tags": [
+    "scenario"
+   ],
+   "difficulty": 2,
+   "concept": "",
+   "caseId": "CASE-02",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "Buy faster robots"
+    },
+    {
+     "key": "B",
+     "text": "Organizational change support: training, reinforcement and involving staff in process redesign"
+    },
+    {
+     "key": "C",
+     "text": "Cancel the remaining rollouts"
+    },
+    {
+     "key": "D",
+     "text": "Change the business case target"
+    }
+   ],
+   "correct": [
+    "B"
+   ],
+   "rationales": {
+    "A": "The technology may not be the problem.",
+    "C": "Premature without root-cause analysis.",
+    "D": "Changing the target hides the problem."
+   }
+  },
+  {
+   "id": "C202",
+   "domain": "PEOPLE",
+   "taskId": "PEOPLE-T4",
+   "approach": "PREDICTIVE",
+   "stem": "The union has requested a meeting. What should you do?",
+   "explanation": "The union is a high-influence stakeholder. Engaging directly and transparently, with HR involved, reduces resistance.",
+   "tags": [
+    "scenario"
+   ],
+   "difficulty": 2,
+   "concept": "",
+   "caseId": "CASE-02",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "Decline, because HR handles unions"
+    },
+    {
+     "key": "B",
+     "text": "Accept, with HR, to listen to concerns and share plans transparently, then update the stakeholder engagement plan"
+    },
+    {
+     "key": "C",
+     "text": "Send a written FAQ instead"
+    },
+    {
+     "key": "D",
+     "text": "Ask the sponsor to cancel the meeting"
+    }
+   ],
+   "correct": [
+    "B"
+   ],
+   "rationales": {
+    "A": "Avoiding a key stakeholder increases risk.",
+    "C": "One-way communication is insufficient here.",
+    "D": "Cancelling damages trust."
+   }
+  },
+  {
+   "id": "C203",
+   "domain": "BUSINESS_ENV",
+   "taskId": "BUSINESS_ENV-T5",
+   "approach": "PREDICTIVE",
+   "stem": "The supplier delay risk (R7) has now occurred. What should you do?",
+   "explanation": "When an identified risk occurs, carry out its planned response and update the registers. It is now an issue.",
+   "tags": [
+    "scenario"
+   ],
+   "difficulty": 2,
+   "concept": "",
+   "caseId": "CASE-02",
+   "type": "MCQ_SINGLE",
+   "options": [
+    {
+     "key": "A",
+     "text": "Create a new risk response from scratch"
+    },
+    {
+     "key": "B",
+     "text": "Implement the planned response (engage the pre-qualified secondary supplier) and update the risk register and issue log"
+    },
+    {
+     "key": "C",
+     "text": "Wait to see whether the supplier recovers"
+    },
+    {
+     "key": "D",
+     "text": "Use management reserve to pay for overtime"
+    }
+   ],
+   "correct": [
+    "B"
+   ],
+   "rationales": {
+    "A": "A response already exists.",
+    "C": "Waiting wastes the remaining float.",
+    "D": "Overtime is not the planned response, and management reserve is for unknowns."
+   }
+  },
+  {
+   "id": "C204",
+   "domain": "PROCESS",
+   "taskId": "PROCESS-T10",
+   "approach": "PREDICTIVE",
+   "stem": "The final site is accepted. Order these closing steps.",
+   "explanation": "Accept → close procurements → transition → lessons and archive → release resources. Some steps may overlap, but this sequence protects the organization.",
+   "tags": [],
+   "difficulty": 2,
+   "concept": "",
+   "caseId": "CASE-02",
+   "type": "DRAG_ORDER",
+   "items": [
+    {
+     "key": "I2",
+     "text": "Close the robot supplier contracts"
+    },
+    {
+     "key": "I4",
+     "text": "Finalize lessons learned and archive records"
+    },
+    {
+     "key": "I1",
+     "text": "Obtain formal acceptance of the final deliverables"
+    },
+    {
+     "key": "I3",
+     "text": "Transfer support to the operations team"
+    },
+    {
+     "key": "I5",
+     "text": "Release the project team"
+    }
+   ],
+   "correct": [
+    "I1",
+    "I2",
+    "I3",
+    "I4",
+    "I5"
+   ]
+  }
+ ],
+ "resources": [
+  {
+   "id": "R-ECO",
+   "category": "OFFICIAL",
+   "title": "PMP Examination Content Outline (July 2026)",
+   "provider": "Project Management Institute",
+   "url": "https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/new-pmp-examination-content-outline-2026.pdf",
+   "cost": "Free",
+   "description": "The official outline of domains, tasks and enablers tested on the current PMP exam. Start here.",
+   "lastVerified": "2026-11-20"
+  },
+  {
+   "id": "R-NEWEXAM",
+   "category": "OFFICIAL",
+   "title": "What's new in the updated PMP exam",
+   "provider": "Project Management Institute",
+   "url": "https://www.pmi.org/certifications/project-management-pmp/new-exam",
+   "cost": "Free",
+   "description": "PMI's summary of the July 2026 changes: new domain weights, AI and sustainability topics, eligibility updates.",
+   "lastVerified": "2026-11-20"
+  },
+  {
+   "id": "R-HANDBOOK",
+   "category": "OFFICIAL",
+   "title": "PMI Certification Handbook",
+   "provider": "Project Management Institute",
+   "url": "https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/generic-certification-handbook.pdf",
+   "cost": "Free",
+   "description": "Official policies on applications, eligibility, exam scheduling, scoring reports and retakes.",
+   "lastVerified": "2026-11-20"
+  },
+  {
+   "id": "R-PMP-HANDBOOK",
+   "category": "OFFICIAL",
+   "title": "PMP Certification Handbook",
+   "provider": "Project Management Institute",
+   "url": "https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/project-management-professional-handbook.pdf",
+   "cost": "Free",
+   "description": "PMP-specific handbook. Read it before applying.",
+   "lastVerified": "2026-11-20"
+  },
+  {
+   "id": "R-SCRUM",
+   "category": "GUIDE",
+   "title": "The 2020 Scrum Guide",
+   "provider": "Ken Schwaber & Jeff Sutherland",
+   "url": "https://scrumguides.org/scrum-guide.html",
+   "cost": "Free",
+   "licence": "CC BY-SA 4.0",
+   "description": "The official definition of Scrum: roles, events and artifacts. Short and essential for agile questions.",
+   "lastVerified": "2026-11-20"
+  },
+  {
+   "id": "R-KANBAN",
+   "category": "GUIDE",
+   "title": "The Kanban Guide",
+   "provider": "Kanban Guides (Coleman & Vacanti)",
+   "url": "https://kanbanguides.org/the-kanban-guide/",
+   "cost": "Free",
+   "description": "A concise reference to Kanban flow, WIP limits and flow metrics.",
+   "lastVerified": "2026-11-20"
+  },
+  {
+   "id": "R-MANIFESTO",
+   "category": "GUIDE",
+   "title": "Manifesto for Agile Software Development",
+   "provider": "agilemanifesto.org",
+   "url": "https://agilemanifesto.org/",
+   "cost": "Free",
+   "description": "The four values and twelve principles behind agile approaches.",
+   "lastVerified": "2026-11-20"
+  },
+  {
+   "id": "R-WATT",
+   "category": "OER",
+   "title": "Project Management – 2nd Edition (open textbook)",
+   "provider": "Adrienne Watt / BCcampus",
+   "url": "https://opentextbc.ca/projectmanagement/",
+   "cost": "Free",
+   "licence": "CC BY 4.0",
+   "description": "A complete, openly licensed introductory textbook covering the project life cycle, planning, scheduling, budgeting and risk.",
+   "lastVerified": "2026-11-20"
+  },
+  {
+   "id": "R-PMIWEB",
+   "category": "WEBINAR",
+   "title": "PMI webinars library",
+   "provider": "Project Management Institute",
+   "url": "https://www.pmi.org/learning/webinars",
+   "cost": "Varies – some free, many need PMI membership",
+   "description": "On-demand presentations that earn PDUs. Check access requirements for each webinar.",
+   "lastVerified": "2026-11-20"
+  },
+  {
+   "id": "R-PMCOM",
+   "category": "WEBINAR",
+   "title": "ProjectManagement.com on-demand webinars",
+   "provider": "ProjectManagement.com (PMI)",
+   "url": "https://www.projectmanagement.com/webinars/webinarmainondemand.cfm",
+   "cost": "Varies – free registration; some content for members",
+   "description": "Large library of webinars and articles on agile, risk, leadership and more.",
+   "lastVerified": "2026-11-20"
+  },
+  {
+   "id": "R-CHAPTERS",
+   "category": "WEBINAR",
+   "title": "Find a local PMI chapter",
+   "provider": "Project Management Institute",
+   "url": "https://www.pmi.org/membership/chapters",
+   "cost": "Browsing free; chapter events vary",
+   "description": "Local chapters often run study groups, networking events and free or low-cost sessions.",
+   "lastVerified": "2026-11-20"
+  }
+ ],
+ "institutions": [
+  {
+   "id": "I-PMI",
+   "name": "Project Management Institute (PMI)",
+   "type": "Professional body",
+   "country": "Global (HQ USA)",
+   "website": "https://www.pmi.org/",
+   "description": "Global professional association that owns and administers the PMP certification and publishes the Exam Content Outline.",
+   "freeOfferings": [
+    "Exam Content Outline",
+    "Certification handbooks",
+    "Some free webinars and articles"
+   ]
+  },
+  {
+   "id": "I-CHAPTERS",
+   "name": "PMI local chapters",
+   "type": "PMI chapter network",
+   "country": "300+ chapters worldwide",
+   "website": "https://www.pmi.org/membership/chapters",
+   "description": "Volunteer-led chapters that host local events, study groups and networking.",
+   "freeOfferings": [
+    "Chapter events (vary)",
+    "Networking"
+   ]
+  },
+  {
+   "id": "I-ATP",
+   "name": "PMI Authorized Training Partners (directory)",
+   "type": "Training partner directory",
+   "country": "Global",
+   "website": "https://www.pmi.org/learning/authorized-training-partners",
+   "description": "PMI's official directory of approved training providers. From 1 December 2026, PMI is changing which live training counts toward the 35 contact hours; check the PMI page."
+  },
+  {
+   "id": "I-GAC",
+   "name": "GAC-accredited degree programs (directory)",
+   "type": "University program directory",
+   "country": "Global",
+   "website": "https://gac-dir.weaveaccreditation.com/",
+   "description": "Directory of university project-management programs accredited by PMI's Global Accreditation Center."
+  },
+  {
+   "id": "I-SCRUMORG",
+   "name": "Scrum.org",
+   "type": "Agile training organization",
+   "country": "Global",
+   "website": "https://www.scrum.org/",
+   "description": "Publishes free Scrum resources and open practice assessments; offers paid certifications.",
+   "freeOfferings": [
+    "Open practice assessments",
+    "Articles and blogs"
+   ]
+  },
+  {
+   "id": "I-AGILEALLIANCE",
+   "name": "Agile Alliance",
+   "type": "Non-profit association",
+   "country": "Global",
+   "website": "https://www.agilealliance.org/",
+   "description": "Non-profit supporting agile practitioners; publishes a free agile glossary and articles.",
+   "freeOfferings": [
+    "Agile glossary",
+    "Articles"
+   ]
+  },
+  {
+   "id": "I-BCCAMPUS",
+   "name": "BCcampus Open Education",
+   "type": "Open education publisher",
+   "country": "Canada",
+   "website": "https://collection.bccampus.ca/textbook/qG6YTBiy/",
+   "description": "Publisher of the openly licensed 'Project Management – 2nd Edition' textbook.",
+   "freeOfferings": [
+    "Open textbook (CC BY 4.0)"
+   ]
+  }
+ ]
+}

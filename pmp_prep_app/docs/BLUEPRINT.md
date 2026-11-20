@@ -1,6 +1,6 @@
 # Free PMP Exam Prep App: Development Blueprint and MVP Plan
 
-**Status:** Phase 1 (requirements analysis and architecture). Waiting for owner approval before Phase 2 starts.
+**Status:** Approved 20 Nov 2026. Phases 2–7 built and tested — see `PHASE_REPORT_2-7.md`. Deviations: manual DI instead of Hilt; content ships as a bundled JSON asset (Room mirror + delta sync arrive with the backend in Phase 8).
 **Date:** 17 November 2026
 **Working name:** *OpenPM Prep*. This is a placeholder; see §13.2 on trademarks.
 
