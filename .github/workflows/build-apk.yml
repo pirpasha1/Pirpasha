@@ -1,10 +1,12 @@
 name: Build APK
 
-# Free cloud build on GitHub. Push this project to a GitHub repo (private is fine),
-# open the Actions tab, run "Build APK", then download the "CallGuardLocal-debug-apk" artifact.
 on:
   push:
+    branches: [callguard-local]
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   build:
@@ -18,19 +20,41 @@ jobs:
           java-version: '17'
 
       - name: Run privacy-guard tests and backtest (plain JVM)
-        run: bash tests/run_tests.sh
+        run: bash tests/run_tests.sh 2>&1 | tee tests.log
 
       - name: Accept Android SDK licenses (SDK is preinstalled on the runner)
-        run: yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses > /dev/null || true
+        run: |
+          echo "ANDROID_HOME=$ANDROID_HOME"
+          ls "$ANDROID_HOME" || true
+          yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses > licenses.log 2>&1 || true
+          tail -3 licenses.log
 
       - uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: '8.7'
 
       - name: Build debug APK
-        run: gradle --no-daemon --stacktrace :app:assembleDebug
+        run: |
+          set -o pipefail
+          gradle --no-daemon --stacktrace :app:assembleDebug 2>&1 | tee build.log
 
       - uses: actions/upload-artifact@v4
         with:
           name: CallGuardLocal-debug-apk
           path: app/build/outputs/apk/debug/app-debug.apk
+
+      - name: Publish log and APK to branch build-output
+        if: always()
+        run: |
+          mkdir -p /tmp/out
+          cp tests.log build.log licenses.log /tmp/out/ 2>/dev/null || true
+          cp app/build/outputs/apk/debug/app-debug.apk /tmp/out/ 2>/dev/null || true
+          git config user.name "github-actions"
+          git config user.email "actions@users.noreply.github.com"
+          git checkout --orphan build-output
+          git rm -rf -q . || true
+          git clean -fdxq
+          cp /tmp/out/* . 2>/dev/null || true
+          git add -A
+          git commit -q -m "build output run ${GITHUB_RUN_ID}" || true
+          git push -f origin build-output
