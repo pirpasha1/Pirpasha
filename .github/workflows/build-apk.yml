@@ -18,16 +18,17 @@ jobs:
           java-version: '17'
 
       - name: Run privacy-guard tests and backtest (plain JVM)
-        run: ./tests/run_tests.sh
+        run: bash tests/run_tests.sh
 
-      - uses: android-actions/setup-android@v3
+      - name: Accept Android SDK licenses (SDK is preinstalled on the runner)
+        run: yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses > /dev/null || true
 
       - uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: '8.7'
 
       - name: Build debug APK
-        run: gradle --no-daemon :app:assembleDebug
+        run: gradle --no-daemon --stacktrace :app:assembleDebug
 
       - uses: actions/upload-artifact@v4
         with:
