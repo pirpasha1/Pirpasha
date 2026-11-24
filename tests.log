@@ -1,0 +1,17 @@
+==== PRIVACY GUARD TEST + BACKTEST ====
+Generated sensitive cases : 30000  caught: 30000  (recall 100.00%)
+   card                3000 / 3000 
+   aadhaar             3000 / 3000 
+   pan                 3000 / 3000 
+   ifsc                3000 / 3000 
+   upi                 3000 / 3000 
+   email               3000 / 3000 
+   mobile              3000 / 3000 
+   account             3000 / 3000 
+   otp-sentence        3000 / 3000 
+   password-sentence   3000 / 3000 
+Generated benign replies  : 6000  false positives: 0  (FP rate 0.00%)
+Total checks passed       : 36121
+Total checks failed       : 0
+Known limitation          : letters separated by dots/spaces (e.g. 'O.T.P') are not detected
+Known limitation          : spaced-out letters (e.g. 'P I N') are not detected
